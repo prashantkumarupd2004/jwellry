@@ -1,9 +1,15 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, Playfair_Display, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { Providers } from './providers'
 import { Toaster } from 'react-hot-toast'
 import { WhatsAppButton } from '@/components/ui/whatsapp-button'
+import { SmoothScroll } from '@/components/modern/smooth-scroll'
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+}
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -26,32 +32,32 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'AJ Abhi Jewels - Premium Jewelry Collection',
-  description: 'Discover exquisite jewelry collections at AJ Abhi Jewels. Premium diamonds, gold, and precious stones crafted with perfection. Shop online with confidence.',
-  keywords: 'jewelry, diamonds, gold, precious stones, engagement rings, wedding jewelry, luxury jewelry, Kurnool jewelry',
-  authors: [{ name: 'AJ Abhi Jewels' }],
-  creator: 'AJ Abhi Jewels',
-  publisher: 'AJ Abhi Jewels',
+  title: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
+  description: 'Discover exquisite jewelry collections at Hariom LaxmiNarayan Jewellers. Premium diamonds, gold, and precious stones crafted with perfection. Shop online with confidence.',
+  keywords: 'jewelry, diamonds, gold, precious stones, engagement rings, wedding jewelry, luxury jewelry, Bhagalpur jewelry',
+  authors: [{ name: 'Hariom LaxmiNarayan Jewellers' }],
+  creator: 'Hariom LaxmiNarayan Jewellers',
+  publisher: 'Hariom LaxmiNarayan Jewellers',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://ajabhijewels.com'),
+  metadataBase: new URL('https://hariomlaxminarayanjewellers.com'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'AJ Abhi Jewels - Premium Jewelry Collection',
-    description: 'Discover exquisite jewelry collections at AJ Abhi Jewels. Premium diamonds, gold, and precious stones crafted with perfection.',
-    url: 'https://ajabhijewels.com',
-    siteName: 'AJ Abhi Jewels',
+    title: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
+    description: 'Discover exquisite jewelry collections at Hariom LaxmiNarayan Jewellers. Premium diamonds, gold, and precious stones crafted with perfection.',
+    url: 'https://hariomlaxminarayanjewellers.com',
+    siteName: 'Hariom LaxmiNarayan Jewellers',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'AJ Abhi Jewels - Premium Jewelry Collection',
+        alt: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
       },
     ],
     locale: 'en_US',
@@ -59,8 +65,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AJ Abhi Jewels - Premium Jewelry Collection',
-    description: 'Discover exquisite jewelry collections at AJ Abhi Jewels. Premium diamonds, gold, and precious stones crafted with perfection.',
+    title: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
+    description: 'Discover exquisite jewelry collections at Hariom LaxmiNarayan Jewellers. Premium diamonds, gold, and precious stones crafted with perfection.',
     images: ['/og-image.jpg'],
   },
   robots: {
@@ -87,16 +93,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable} ${cormorant.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-        <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#d4af37" />
-        <meta name="msapplication-TileColor" content="#d4af37" />
+        <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
+        <link rel="shortcut icon" type="image/jpeg" href="/logo.jpeg" />
+        <link rel="apple-touch-icon" href="/logo.jpeg" />
       </head>
       <body className="min-h-screen" style={{ background: '#f9f2e5' }}>
         <Providers>
+          <SmoothScroll />
           {children}
           <WhatsAppButton />
           <Toaster 

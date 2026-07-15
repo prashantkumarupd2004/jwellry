@@ -3,9 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter, usePathname } from 'next/navigation'
-import { ShoppingBag, User, Menu, X } from 'lucide-react'
-import { useCartStore } from '@/store/cart'
-import { ClientOnly } from '@/components/ui/client-only'
+import { User, Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 export function Header() {
@@ -13,8 +11,6 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
-  const { getTotalItems, toggleCart } = useCartStore()
-  const cartItemsCount = getTotalItems()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
@@ -71,46 +67,20 @@ export function Header() {
             </button>
           </div>
 
-          {/* Center: Logo (Always Visible!) */}
+          {/* Center: Logo */}
           <div className="flex justify-center text-center">
-            <Link href="/" className="flex flex-col items-center group max-w-full">
-              <span
-                className="text-lg sm:text-2xl md:text-3xl font-playfair font-bold tracking-[0.08em] leading-none whitespace-nowrap transition-colors duration-300"
-                style={{ color: textColor }}
-              >
-                <span className="hidden sm:inline">✦ </span>
-                AJ ABHI
-                <span className="hidden sm:inline"> ✦</span>
-              </span>
-              <span
-                className="text-[8px] sm:text-[9px] tracking-[0.35em] uppercase mt-0.5 transition-colors duration-300"
-                style={{ color: goldColor }}
-              >
-                JEWELS
-              </span>
+            <Link href="/" className="flex items-center justify-center group">
+              <img
+                src="/logo.jpeg"
+                alt="Hariom LaxmiNarayan Jewellers Logo"
+                className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                style={{ maxWidth: '180px' }}
+              />
             </Link>
           </div>
 
           {/* Right: Icons */}
           <div className="flex items-center justify-end gap-1 sm:gap-2">
-            <button
-              className="w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200 relative hover:scale-110"
-              onClick={toggleCart}
-              aria-label="cart"
-              style={{ color: textColor }}
-            >
-              <ShoppingBag className="h-5 w-5" />
-              <ClientOnly>
-                {cartItemsCount > 0 && (
-                  <span
-                    className="absolute -top-1 -right-1 text-white text-[9px] rounded-full flex items-center justify-center font-bold"
-                    style={{ background: goldColor, minWidth: '16px', height: '16px', fontSize: '9px' }}
-                  >
-                    {cartItemsCount}
-                  </span>
-                )}
-              </ClientOnly>
-            </button>
             <Link href="/account">
               <button
                 className="w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200 hover:scale-110"

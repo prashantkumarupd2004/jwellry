@@ -21,17 +21,23 @@ export function Footer() {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 px-8 lg:px-16 pt-16 pb-10">
+      <div className="relative z-10 px-5 sm:px-8 lg:px-16 pt-16 pb-10">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-14">
 
           {/* Brand Column */}
           <div className="space-y-5">
             <div>
+              <img
+                src="/logo.jpeg"
+                alt="Hariom LaxmiNarayan Jewellers"
+                className="h-14 w-auto object-contain mb-3"
+                style={{ filter: 'brightness(0) invert(1)' }}
+              />
               <h3
                 className="font-playfair font-bold text-xl tracking-wider mb-1"
                 style={{ color: '#f9f2e5' }}
               >
-                ✦ AJ ABHI JEWELS ✦
+                ✦ HARIOM LAXMINARAYAN JEWELLERS ✦
               </h3>
               <p
                 className="text-[10px] tracking-[0.3em] uppercase"
@@ -41,7 +47,7 @@ export function Footer() {
               </p>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: 'rgba(249,242,229,0.6)' }}>
-              Crafting exquisite jewellery since 2009 in Kurnool, Andhra Pradesh. Specializing in 22K gold, certified diamonds, bridal sets, and bespoke custom designs.
+              Crafting exquisite jewellery since 2009 in Bhagalpur, Bihar. Specializing in 22K gold, certified diamonds, bridal sets, and bespoke custom designs.
             </p>
             <div className="flex gap-3">
               {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
@@ -146,31 +152,31 @@ export function Footer() {
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: '#b8941f' }} />
                 <p className="text-sm leading-relaxed" style={{ color: 'rgba(249,242,229,0.6)' }}>
-                  Shop No 05, Skanda Business Park, Rajvihar, Kurnool - 518001
+                  1st Floor, Flat No. 01, S/O Laxmi Narayan Verma, Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala, Sona Patti, Bhagalpur, Bihar - 812002
                 </p>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0" style={{ color: '#b8941f' }} />
                 <a
-                  href="tel:+917947106192"
+                  href="tel:+917739074092"
                   className="text-sm transition-colors duration-200"
                   style={{ color: 'rgba(249,242,229,0.6)' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#f9da79'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(249,242,229,0.6)'}
                 >
-                  +91 79471 06192
+                  +91 77390 74092
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 flex-shrink-0" style={{ color: '#b8941f' }} />
                 <a
-                  href="mailto:info@ajabhijewels.com"
-                  className="text-sm transition-colors duration-200"
+                  href="mailto:info@hariomlaxminarayanjewellers.com"
+                  className="text-sm transition-colors duration-200 break-all"
                   style={{ color: 'rgba(249,242,229,0.6)' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#f9da79'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(249,242,229,0.6)'}
                 >
-                  info@ajabhijewels.com
+                  info@hariomlaxminarayanjewellers.com
                 </a>
               </div>
               <div
@@ -194,7 +200,7 @@ export function Footer() {
           style={{ borderColor: 'rgba(249,242,229,0.08)' }}
         >
           <p className="text-xs" style={{ color: 'rgba(249,242,229,0.35)' }}>
-            © 2026 AJ Abhi Jewels. All rights reserved.
+            © 2026 Hariom LaxmiNarayan Jewellers. All rights reserved.
           </p>
           <div className="flex gap-6 text-xs">
             {[

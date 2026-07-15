@@ -109,7 +109,7 @@ export function WhyChooseUs() {
               style={{ color: '#2d2010' }}
             >
               Why Choose{' '}
-              <span className="text-gradient-gold">AJ Abhi Jewels</span>
+              <span className="text-gradient-gold">Hariom LaxmiNarayan Jewellers</span>
             </h2>
             <p
               className="text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-light"
@@ -258,7 +258,7 @@ export function WhyChooseUs() {
                   className="max-w-2xl mx-auto font-light"
                   style={{ color: 'rgba(249,238,216,0.7)' }}
                 >
-                  Join our family of satisfied customers who have made AJ Abhi Jewels
+                  Join our family of satisfied customers who have made Hariom LaxmiNarayan Jewellers
                   their trusted partner for life's most precious moments.
                 </p>
               </div>

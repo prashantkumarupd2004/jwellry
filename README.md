@@ -1,6 +1,6 @@
-# AJ Abhi Jewels - Enterprise E-commerce Platform
+# Hariom LaxmiNarayan Jewellers - Enterprise E-commerce Platform
 
-![CI](https://github.com/cherry-12345/Abhi-Jewels/actions/workflows/ci.yml/badge.svg)
+![CI](https://github.com/cherry-12345/Hariom-LaxmiNarayan-Jewellers/actions/workflows/ci.yml/badge.svg)
 
 A modern, full-featured jewelry e-commerce website built with Next.js 14, TypeScript, and Tailwind CSS.
 
@@ -60,7 +60,7 @@ npm start
 ## 📁 Project Structure
 
 ```
-aj-abhi-jewels/
+aj-hariom-laxminarayan-jewellers/
 ├── app/                    # Next.js 14 App Router
 │   ├── globals.css        # Global styles
 │   ├── layout.tsx         # Root layout
@@ -170,7 +170,7 @@ theme: {
 
 ## 📞 Business Information
 
-**AJ Abhi Jewels**
+**Hariom LaxmiNarayan Jewellers**
 - **Address**: Shop No 05, Skanda Business Park, Rajvihar, Kurnool - 518001
 - **Phone**: Contact via website form or WhatsApp
 - **WhatsApp**: Available through website contact form
@@ -187,15 +187,15 @@ theme: {
 
 ## 📄 License
 
-This project is proprietary software owned by AJ Abhi Jewels.
+This project is proprietary software owned by Hariom LaxmiNarayan Jewellers.
 
 ## 🆘 Support
 
 For technical support or business inquiries:
-- **Email**: info@ajabhijewels.com
+- **Email**: info@hariomlaxminarayanjewellers.com
 - **Phone**: See website for contact details
 - **WhatsApp**: See website for contact details
 
 ---
 
-Built with ❤️ for AJ Abhi Jewels - Premium Jewelry Collection
+Built with ❤️ for Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection

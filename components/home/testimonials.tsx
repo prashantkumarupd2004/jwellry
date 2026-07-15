@@ -9,9 +9,9 @@ const testimonials = [
   {
     id: 1,
     name: 'Lakshmi Devi',
-    location: 'Kurnool',
+    location: 'Bhagalpur',
     rating: 5,
-    text: 'I bought my daughter\'s wedding jewelry from AJ Abhi Jewels. The gold work is really beautiful and Abhi sir personally helped us choose everything. Very happy with the quality and service.',
+    text: 'I bought my daughter\'s wedding jewelry from Hariom LaxmiNarayan Jewellers. The gold work is really beautiful and Hariom sir personally helped us choose everything. Very happy with the quality and service.',
     purchase: 'Bridal Gold Set',
     initials: 'LD',
     gradient: 'linear-gradient(135deg, #f9da79, #d4af37)',
@@ -19,7 +19,7 @@ const testimonials = [
   {
     id: 2,
     name: 'Ravi Kumar',
-    location: 'Kurnool',
+    location: 'Bhagalpur',
     rating: 5,
     text: 'Good experience buying engagement ring here. The staff explained everything clearly about the diamond quality. Price was fair and they gave proper certificate also. Recommended.',
     purchase: 'Diamond Ring',
@@ -29,7 +29,7 @@ const testimonials = [
   {
     id: 3,
     name: 'Sunitha Reddy',
-    location: 'Kurnool',
+    location: 'Bhagalpur',
     rating: 5,
     text: 'I visit this shop regularly for small jewelry purchases. They have nice collection and the owner is very honest about pricing. My family trusts them completely for all our jewelry needs.',
     purchase: 'Gold Earrings',
@@ -39,7 +39,7 @@ const testimonials = [
   {
     id: 4,
     name: 'Venkat Rao',
-    location: 'Kurnool',
+    location: 'Bhagalpur',
     rating: 5,
     text: 'Bought silver items for pooja from here. Quality is very good and they maintain proper hallmark. The shop is well organized and staff is helpful. Will come again.',
     purchase: 'Silver Pooja Items',
@@ -49,7 +49,7 @@ const testimonials = [
   {
     id: 5,
     name: 'Padma Kumari',
-    location: 'Kurnool',
+    location: 'Bhagalpur',
     rating: 5,
     text: 'Very satisfied with the chain I purchased for my son. The gold purity is genuine and workmanship is excellent. They also provide good after-sales service for cleaning and maintenance.',
     purchase: 'Gold Chain',
@@ -128,7 +128,7 @@ export function Testimonials() {
               style={{ color: '#6b5128' }}
             >
               Don't just take our word for it. Here's what our valued customers
-              have to say about their experience with AJ Abhi Jewels.
+              have to say about their experience with Hariom LaxmiNarayan Jewellers.
             </p>
           </motion.div>
         </div>

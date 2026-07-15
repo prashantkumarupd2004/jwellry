@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import { Shield, Lock, Eye, Database, Mail, UserCheck } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy - AJ Abhi Jewels',
-  description: 'Learn how AJ Abhi Jewels protects your personal information and respects your privacy.',
+  title: 'Privacy Policy - Hariom LaxmiNarayan Jewellers',
+  description: 'Learn how Hariom LaxmiNarayan Jewellers protects your personal information and respects your privacy.',
 }
 
 export default function PrivacyPolicyPage() {
@@ -27,7 +27,7 @@ export default function PrivacyPolicyPage() {
           {/* Introduction */}
           <section>
             <p className="text-gray-700 leading-relaxed">
-              At AJ Abhi Jewels ("we," "us," or "our"), we are committed to protecting your privacy and ensuring the security 
+              At Hariom LaxmiNarayan Jewellers ("we," "us," or "our"), we are committed to protecting your privacy and ensuring the security 
               of your personal information. This Privacy Policy explains how we collect, use, disclose, and safeguard your 
               information when you visit our website or make a purchase from us.
             </p>
@@ -179,7 +179,7 @@ export default function PrivacyPolicyPage() {
               <div className="flex items-start gap-3">
                 <span className="text-gold-600 mt-1">•</span>
                 <div>
-                  <strong>Essential Cookies:</strong> Required for website functionality (e.g., shopping cart, login sessions)
+                  <strong>Essential Cookies:</strong> Required for website functionality (e.g., login sessions, security)
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -238,7 +238,7 @@ export default function PrivacyPolicyPage() {
             </div>
             
             <p className="text-gray-700 mt-4">
-              To exercise these rights, please contact us at <a href="mailto:privacy@ajabhijewels.com" className="text-gold-600 hover:underline">privacy@ajabhijewels.com</a>
+              To exercise these rights, please contact us at <a href="mailto:privacy@hariomlaxminarayanjewellers.com" className="text-gold-600 hover:underline">privacy@hariomlaxminarayanjewellers.com</a>
             </p>
           </section>
 
@@ -296,7 +296,7 @@ export default function PrivacyPolicyPage() {
                 <Mail className="h-5 w-5 text-gold-600 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Email</p>
-                  <a href="mailto:privacy@ajabhijewels.com" className="text-gold-600 hover:underline">privacy@ajabhijewels.com</a>
+                  <a href="mailto:privacy@hariomlaxminarayanjewellers.com" className="text-gold-600 hover:underline">privacy@hariomlaxminarayanjewellers.com</a>
                 </div>
               </div>
               
@@ -305,10 +305,10 @@ export default function PrivacyPolicyPage() {
                 <div>
                   <p className="font-semibold text-gray-900">Mailing Address</p>
                   <p className="text-gray-700 text-sm">
-                    AJ Abhi Jewels<br />
-                    Shop No 05, Skanda Business Park<br />
-                    Rajvihar, Kurnool - 518001<br />
-                    Andhra Pradesh, India
+                    Hariom LaxmiNarayan Jewellers<br />
+                    First Floor, Flat No. 01, S/O Laxmi Narayan Verma<br />
+                    Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala<br />
+                    Sona Patti, Bhagalpur, Bihar - 812002
                   </p>
                 </div>
               </div>

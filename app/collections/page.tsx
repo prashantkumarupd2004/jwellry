@@ -2,7 +2,6 @@
 
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { ProductGrid } from '@/components/product/product-grid'
 import { FilterSidebar } from '@/components/product/filter-sidebar'
 import { allProducts, categories } from '@/lib/data'
@@ -100,7 +99,6 @@ export default function CollectionsPage() {
         </div>
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

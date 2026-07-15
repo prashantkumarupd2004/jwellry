@@ -3,9 +3,10 @@
 import { useState } from 'react'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
-import { MapPin, Mail, Phone, Clock, Send, MessageCircle, Instagram } from 'lucide-react'
+import { MapPin, Mail, Phone, Clock, Send } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { TiltCard } from '@/components/home/tilt-card'
+import { GoldCoin3D } from '@/components/home/gold-coin-3d'
 
 const DARK = '#2d2010'
 const GOLD = '#d4af37'
@@ -22,7 +23,7 @@ const faqs = [
   },
   {
     q: 'Can I get my jewellery resized or repaired?',
-    a: 'Yes, we offer resizing services for most rings and bracelets, and repair services for all types of jewellery. Please bring your piece to our showroom at Kurnool for a free assessment.',
+    a: 'Yes, we offer resizing services for most rings and bracelets, and repair services for all types of jewellery. Please bring your piece to our showroom at Bhagalpur for a free assessment.',
   },
   {
     q: 'Do you provide certification for diamonds and gemstones?',
@@ -43,23 +44,23 @@ const contactDetails = [
     Icon: MapPin,
     title: 'Our Showroom',
     lines: [
-      'Shop No 05, Skanda Business Park,',
-      'Rajvihar, Kurnool – 518001',
-      'Andhra Pradesh, India',
+      'First Floor, Flat No. 01, S/O Laxmi Narayan Verma',
+      'Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala',
+      'Sona Patti, Bhagalpur, Bihar - 812002',
     ],
     action: null,
   },
   {
     Icon: Phone,
     title: 'Phone & WhatsApp',
-    lines: ['+91 79471 06192'],
-    action: 'tel:+917947106192',
+    lines: ['+91 77390 74092'],
+    action: 'tel:+917739074092',
   },
   {
     Icon: Mail,
     title: 'Email Us',
-    lines: ['info@ajabhijewels.com'],
-    action: 'mailto:info@ajabhijewels.com',
+    lines: ['info@hariomlaxminarayanjewellers.com'],
+    action: 'mailto:info@hariomlaxminarayanjewellers.com',
   },
   {
     Icon: Clock,
@@ -67,6 +68,13 @@ const contactDetails = [
     lines: ['Monday – Sunday', '10:00 AM – 9:00 PM (All Days)'],
     action: null,
   },
+]
+
+const PARTICLES = [
+  { l: '8%', t: '25%', s: 6, d: 0 },
+  { l: '90%', t: '30%', s: 4, d: 1.2 },
+  { l: '30%', t: '72%', s: 5, d: 0.6 },
+  { l: '68%', t: '18%', s: 4, d: 2.0 },
 ]
 
 export default function ContactPage() {
@@ -89,8 +97,8 @@ export default function ContactPage() {
   }
 
   const inputStyle = {
-    background: 'rgba(255,252,245,0.9)',
-    border: '1.5px solid rgba(180,150,100,0.25)',
+    background: 'rgba(255,252,245,0.95)',
+    border: '1.5px solid rgba(212,175,55,0.25)',
     color: DARK,
   }
 
@@ -99,49 +107,71 @@ export default function ContactPage() {
       <Header />
       <main>
 
-        {/* ─── PAGE HERO ─── */}
+        {/* ══════════ PAGE HERO — dark gold + 3D ══════════ */}
         <section
-          className="relative overflow-hidden px-8 lg:px-16 py-20"
-          style={{ background: 'linear-gradient(135deg, #e8dcc8 0%, #d4c4a0 100%)', minHeight: '280px' }}
+          className="relative overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #1c1309 0%, #2d2010 45%, #3a2a14 100%)', color: '#f5e8ce' }}
         >
-          {/* Background watermark */}
+          {/* aurora glows */}
+          <motion.div aria-hidden
+            style={{ position: 'absolute', top: '-30%', right: '-10%', width: 'clamp(300px,40vw,600px)', aspectRatio: '1', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.2), transparent 65%)', pointerEvents: 'none' }}
+            animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }} transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }} />
+          <motion.div aria-hidden
+            style={{ position: 'absolute', bottom: '-40%', left: '-10%', width: 'clamp(260px,35vw,520px)', aspectRatio: '1', borderRadius: '50%', background: 'radial-gradient(circle, rgba(233,200,95,0.12), transparent 65%)', pointerEvents: 'none' }}
+            animate={{ scale: [1.1, 1, 1.1], opacity: [0.5, 0.9, 0.5] }} transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }} />
+
+          {/* floating particles */}
+          {PARTICLES.map((p, i) => (
+            <motion.div key={i} aria-hidden
+              style={{ position: 'absolute', left: p.l, top: p.t, width: p.s, height: p.s, borderRadius: '50%', background: 'radial-gradient(circle, #fff1c4, #d4af37)', boxShadow: '0 0 10px rgba(212,175,55,0.8)', pointerEvents: 'none' }}
+              animate={{ y: [0, -18, 0], opacity: [0.2, 1, 0.2] }} transition={{ duration: 4 + p.d, repeat: Infinity, ease: 'easeInOut', delay: p.d }} />
+          ))}
+
+          {/* Watermark */}
           <div className="absolute right-8 bottom-0 pointer-events-none select-none overflow-hidden">
-            <span className="font-playfair font-bold" style={{
-              fontSize: 'clamp(3.5rem, 10vw, 8rem)',
-              color: 'rgba(45,32,16,0.06)', lineHeight: 0.9,
-            }}>
+            <span className="font-playfair font-bold" style={{ fontSize: 'clamp(3.5rem, 10vw, 8rem)', color: 'rgba(212,175,55,0.06)', lineHeight: 0.9 }}>
               CONTACT
             </span>
           </div>
-          <div className="absolute top-6 left-8 text-2xl opacity-30" style={{ color: GOLD }}>✦</div>
-          <div className="absolute top-6 right-8 text-2xl opacity-30" style={{ color: GOLD }}>✦</div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <span className="text-xs font-semibold tracking-[0.35em] uppercase mb-4 block" style={{ color: GOLD_DARK }}>
-              ✦ Get In Touch
-            </span>
-            <h1 className="font-playfair font-bold" style={{
-              fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: DARK, lineHeight: 1.1,
-            }}>
-              We'd Love to<br />Hear From You
-            </h1>
-            <p className="mt-4 text-sm max-w-md leading-relaxed" style={{ color: '#5a4030' }}>
-              Whether you have a question about our collection, want to place a custom order, need a repair, or simply want to say hello — our team is always here for you.
-            </p>
-          </motion.div>
+          <div className="px-5 sm:px-8 lg:px-16 py-20 relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
+              <span className="inline-flex items-center gap-2 mb-5" style={{ padding: '5px 16px', background: 'rgba(212,175,55,0.14)', border: '1px solid rgba(212,175,55,0.4)', borderRadius: '100px', fontSize: '0.62rem', fontWeight: 700, letterSpacing: '0.3em', color: '#e9c85f' }}>
+                ✦ &nbsp;GET IN TOUCH
+              </span>
+              <h1 className="font-playfair font-bold" style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', color: '#fdf8f0', lineHeight: 1.1 }}>
+                We&apos;d Love to<br />
+                <span style={{ fontStyle: 'italic', fontWeight: 400, background: 'linear-gradient(90deg, #f0cf6b, #d4af37 50%, #e9c85f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  Hear From You
+                </span>
+              </h1>
+              <p className="mt-4 text-sm max-w-md leading-relaxed" style={{ color: 'rgba(245,232,206,0.7)' }}>
+                Whether you have a question about our collection, want to place a custom order, need a repair, or simply want to say hello — our team is always here for you.
+              </p>
+            </motion.div>
+
+            {/* floating 3D gold coin */}
+            <motion.div
+              className="hidden md:block flex-shrink-0 mr-8"
+              initial={{ opacity: 0, scale: 0.6 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.2 }}
+            >
+              <motion.div animate={{ y: [0, -12, 0] }} transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}>
+                <GoldCoin3D size={110} />
+              </motion.div>
+            </motion.div>
+          </div>
+
+          {/* gold bottom divider */}
+          <div aria-hidden style={{ height: '4px', width: '100%', background: 'linear-gradient(90deg, transparent, #d4af37 30%, #f0cf6b 50%, #d4af37 70%, transparent)' }} />
         </section>
 
-        {/* ─── QUICK CONTACT BARS ─── */}
-        <section style={{ background: DARK }}>
-          <div className="max-w-6xl mx-auto px-8 lg:px-16 py-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        {/* ══════════ QUICK CONTACT BAR ══════════ */}
+        <section style={{ background: '#140d05', borderBottom: '1px solid rgba(212,175,55,0.2)' }}>
+          <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-16 py-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: '📞', label: 'Call Us', value: '+91 79471 06192', href: 'tel:+917947106192' },
-              { icon: '💬', label: 'WhatsApp', value: '+91 79471 06192', href: 'https://wa.me/917947106192' },
-              { icon: '📧', label: 'Email', value: 'info@ajabhijewels.com', href: 'mailto:info@ajabhijewels.com' },
+              { icon: '📞', label: 'Call Us', value: '+91 77390 74092', href: 'tel:+917739074092' },
+              { icon: '💬', label: 'WhatsApp', value: '+91 77390 74092', href: 'https://wa.me/917739074092' },
+              { icon: '📧', label: 'Email', value: 'info@hariomlaxminarayanjewellers.com', href: 'mailto:info@hariomlaxminarayanjewellers.com' },
             ].map(({ icon, label, value, href }) => (
               <a
                 key={label}
@@ -151,171 +181,184 @@ export default function ContactPage() {
                 target={href.startsWith('http') ? '_blank' : undefined}
                 rel="noreferrer"
               >
-                <span className="text-xl">{icon}</span>
-                <div>
-                  <div className="text-xs tracking-[0.2em] uppercase" style={{ color: 'rgba(212,175,55,0.7)' }}>{label}</div>
-                  <div className="text-sm font-semibold group-hover:underline transition-all" style={{ color: '#f5e9d0' }}>{value}</div>
+                <span className="w-10 h-10 rounded-xl flex items-center justify-center text-lg flex-shrink-0" style={{ background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.25)' }}>{icon}</span>
+                <div className="min-w-0">
+                  <div className="text-xs tracking-[0.2em] uppercase" style={{ color: '#e9c85f' }}>{label}</div>
+                  <div className="text-sm font-semibold group-hover:underline transition-all truncate" style={{ color: '#f5e9d0' }}>{value}</div>
                 </div>
               </a>
             ))}
           </div>
         </section>
 
-        {/* ─── CONTACT GRID: FORM + INFO ─── */}
-        <section className="px-8 lg:px-16 py-16" style={{ background: '#f2e8d4' }}>
-          <div className="max-w-6xl mx-auto">
+        {/* ══════════ CONTACT GRID: FORM + INFO ══════════ */}
+        <section className="px-5 sm:px-8 lg:px-16 py-16 relative overflow-hidden" style={{ background: 'linear-gradient(180deg, #faf3e6 0%, #f3e8d2 45%, #faf3e6 100%)' }}>
+          {/* soft gold glows */}
+          <div aria-hidden style={{ position: 'absolute', top: '5%', left: '-8%', width: 'clamp(260px,32vw,480px)', aspectRatio: '1', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.10), transparent 70%)', pointerEvents: 'none' }} />
+          <div aria-hidden style={{ position: 'absolute', bottom: '5%', right: '-8%', width: 'clamp(240px,30vw,440px)', aspectRatio: '1', borderRadius: '50%', background: 'radial-gradient(circle, rgba(212,175,55,0.09), transparent 70%)', pointerEvents: 'none' }} />
+
+          <div className="max-w-6xl mx-auto relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
 
-              {/* ── Contact Form ── */}
+              {/* ── Contact Form — premium card ── */}
               <motion.div
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7 }}
               >
-                <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-3 block" style={{ color: GOLD_DARK }}>
-                  Drop a Message
-                </span>
-                <h2 className="font-playfair font-bold text-2xl mb-8" style={{ color: DARK }}>
-                  Send Us a Message
-                </h2>
+                <div
+                  className="p-7 md:p-9 rounded-3xl"
+                  style={{
+                    background: 'rgba(255,253,248,0.92)',
+                    border: '1px solid rgba(212,175,55,0.25)',
+                    boxShadow: '0 20px 50px rgba(45,32,16,0.10)',
+                  }}
+                >
+                  <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-3 block" style={{ color: GOLD_DARK }}>
+                    ✦ Drop a Message
+                  </span>
+                  <h2 className="font-playfair font-bold text-2xl mb-8" style={{ color: DARK }}>
+                    Send Us a Message
+                  </h2>
 
-                {/* Success message */}
-                <AnimatePresence>
-                  {submitted && (
-                    <motion.div
-                      className="mb-6 p-4 rounded-xl text-sm flex items-center gap-3"
-                      style={{
-                        background: 'rgba(180,150,100,0.12)',
-                        border: '1px solid rgba(212,175,55,0.4)',
-                        color: '#5a4030',
-                      }}
-                      initial={{ opacity: 0, y: -10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: -10 }}
-                    >
-                      <span className="text-xl">✨</span>
-                      <div>
-                        <div className="font-semibold" style={{ color: DARK }}>Message Sent Successfully!</div>
-                        <div>Thank you! We'll get back to you within 24 hours.</div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
-                        Full Name *
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={formData.name}
-                        onChange={e => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
-                        style={inputStyle}
-                        onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
-                        onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(180,150,100,0.25)'}
-                        placeholder="Your full name"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
-                        Email Address *
-                      </label>
-                      <input
-                        type="email"
-                        required
-                        value={formData.email}
-                        onChange={e => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
-                        style={inputStyle}
-                        onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
-                        onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(180,150,100,0.25)'}
-                        placeholder="your@email.com"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
-                        Phone / WhatsApp
-                      </label>
-                      <input
-                        type="tel"
-                        value={formData.phone}
-                        onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
-                        style={inputStyle}
-                        onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
-                        onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(180,150,100,0.25)'}
-                        placeholder="+91 XXXXX XXXXX"
-                      />
-                    </div>
-                    <div>
-                      <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
-                        Topic / Subject
-                      </label>
-                      <select
-                        value={formData.subject}
-                        onChange={e => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
-                        style={{ ...inputStyle, color: formData.subject ? DARK : '#9a7a50' }}
-                        onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
-                        onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(180,150,100,0.25)'}
+                  {/* Success message */}
+                  <AnimatePresence>
+                    {submitted && (
+                      <motion.div
+                        className="mb-6 p-4 rounded-xl text-sm flex items-center gap-3"
+                        style={{
+                          background: 'linear-gradient(135deg, rgba(240,207,107,0.25), rgba(212,175,55,0.15))',
+                          border: '1px solid rgba(212,175,55,0.5)',
+                          color: '#5a4030',
+                        }}
+                        initial={{ opacity: 0, y: -10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
                       >
-                        <option value="">Select a topic</option>
-                        <option value="product-inquiry">Product Inquiry</option>
-                        <option value="custom-order">Custom / Bespoke Order</option>
-                        <option value="bridal">Bridal Jewellery</option>
-                        <option value="resizing">Resizing / Repair</option>
-                        <option value="certification">Certification Query</option>
-                        <option value="other">Other</option>
-                      </select>
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
-                      Your Message *
-                    </label>
-                    <textarea
-                      required
-                      rows={5}
-                      value={formData.message}
-                      onChange={e => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300 resize-none"
-                      style={inputStyle}
-                      onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
-                      onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(180,150,100,0.25)'}
-                      placeholder="Tell us how we can help you..."
-                    />
-                  </div>
-
-                  <motion.button
-                    type="submit"
-                    disabled={loading}
-                    className="w-full py-4 rounded-xl text-sm font-semibold tracking-[0.2em] uppercase flex items-center justify-center gap-2"
-                    style={{ background: DARK, color: '#f9f2e5', border: 'none', cursor: 'pointer' }}
-                    whileHover={{ scale: 1.02, boxShadow: '0 8px 28px rgba(45,32,16,0.3)' }}
-                    whileTap={{ scale: 0.98 }}
-                  >
-                    {loading ? (
-                      <>
-                        <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
-                        SENDING...
-                      </>
-                    ) : (
-                      <>
-                        <Send className="h-4 w-4" />
-                        SEND MESSAGE
-                      </>
+                        <span className="text-xl">✨</span>
+                        <div>
+                          <div className="font-semibold" style={{ color: DARK }}>Message Sent Successfully!</div>
+                          <div>Thank you! We&apos;ll get back to you within 24 hours.</div>
+                        </div>
+                      </motion.div>
                     )}
-                  </motion.button>
-                </form>
+                  </AnimatePresence>
+
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
+                          Full Name *
+                        </label>
+                        <input
+                          type="text"
+                          required
+                          value={formData.name}
+                          onChange={e => setFormData({ ...formData, name: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
+                          style={inputStyle}
+                          onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
+                          onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(212,175,55,0.25)'}
+                          placeholder="Your full name"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
+                          Email Address *
+                        </label>
+                        <input
+                          type="email"
+                          required
+                          value={formData.email}
+                          onChange={e => setFormData({ ...formData, email: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
+                          style={inputStyle}
+                          onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
+                          onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(212,175,55,0.25)'}
+                          placeholder="your@email.com"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                      <div>
+                        <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
+                          Phone / WhatsApp
+                        </label>
+                        <input
+                          type="tel"
+                          value={formData.phone}
+                          onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
+                          style={inputStyle}
+                          onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
+                          onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(212,175,55,0.25)'}
+                          placeholder="+91 XXXXX XXXXX"
+                        />
+                      </div>
+                      <div>
+                        <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
+                          Topic / Subject
+                        </label>
+                        <select
+                          value={formData.subject}
+                          onChange={e => setFormData({ ...formData, subject: e.target.value })}
+                          className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300"
+                          style={{ ...inputStyle, color: formData.subject ? DARK : '#9a7a50' }}
+                          onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
+                          onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(212,175,55,0.25)'}
+                        >
+                          <option value="">Select a topic</option>
+                          <option value="product-inquiry">Product Inquiry</option>
+                          <option value="custom-order">Custom / Bespoke Order</option>
+                          <option value="bridal">Bridal Jewellery</option>
+                          <option value="resizing">Resizing / Repair</option>
+                          <option value="certification">Certification Query</option>
+                          <option value="other">Other</option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-xs font-semibold tracking-[0.15em] uppercase block mb-2" style={{ color: '#7a5c38' }}>
+                        Your Message *
+                      </label>
+                      <textarea
+                        required
+                        rows={5}
+                        value={formData.message}
+                        onChange={e => setFormData({ ...formData, message: e.target.value })}
+                        className="w-full px-4 py-3 rounded-xl text-sm outline-none transition-all duration-300 resize-none"
+                        style={inputStyle}
+                        onFocus={(e) => e.currentTarget.style.borderColor = GOLD}
+                        onBlur={(e) => e.currentTarget.style.borderColor = 'rgba(212,175,55,0.25)'}
+                        placeholder="Tell us how we can help you..."
+                      />
+                    </div>
+
+                    <motion.button
+                      type="submit"
+                      disabled={loading}
+                      className="w-full py-4 rounded-xl text-sm font-bold tracking-[0.2em] uppercase flex items-center justify-center gap-2"
+                      style={{ background: 'linear-gradient(135deg, #f0cf6b, #d4af37 55%, #b8941f)', color: '#1c1309', border: 'none', cursor: 'pointer', boxShadow: '0 10px 28px rgba(212,175,55,0.35)' }}
+                      whileHover={{ scale: 1.02, y: -2, boxShadow: '0 14px 36px rgba(212,175,55,0.5)' }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      {loading ? (
+                        <>
+                          <div className="w-4 h-4 border-2 rounded-full animate-spin" style={{ borderColor: '#1c1309', borderTopColor: 'transparent' }} />
+                          SENDING...
+                        </>
+                      ) : (
+                        <>
+                          <Send className="h-4 w-4" />
+                          SEND MESSAGE
+                        </>
+                      )}
+                    </motion.button>
+                  </form>
+                </div>
               </motion.div>
 
               {/* ── Contact Info ── */}
@@ -327,7 +370,7 @@ export default function ContactPage() {
                 className="space-y-5"
               >
                 <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-3 block" style={{ color: GOLD_DARK }}>
-                  Find Us
+                  ✦ Find Us
                 </span>
                 <h2 className="font-playfair font-bold text-2xl mb-8" style={{ color: DARK }}>
                   Visit Our Showroom
@@ -338,13 +381,13 @@ export default function ContactPage() {
                     key={title}
                     className="flex gap-4 p-5 rounded-2xl transition-all duration-300 hover:-translate-y-0.5"
                     style={{
-                      background: 'rgba(255,252,245,0.9)',
-                      border: '1px solid rgba(180,150,100,0.15)',
-                      boxShadow: '0 2px 10px rgba(0,0,0,0.04)',
+                      background: 'rgba(255,253,248,0.95)',
+                      border: '1px solid rgba(212,175,55,0.2)',
+                      boxShadow: '0 4px 16px rgba(45,32,16,0.05)',
                     }}
                   >
-                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'rgba(212,175,55,0.12)' }}>
-                      <Icon className="h-5 w-5" style={{ color: GOLD_DARK }} />
+                    <div className="w-11 h-11 rounded-xl flex items-center justify-center flex-shrink-0" style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', boxShadow: '0 6px 16px rgba(212,175,55,0.3)' }}>
+                      <Icon className="h-5 w-5" style={{ color: '#1c1309' }} />
                     </div>
                     <div>
                       <h4 className="text-xs font-semibold tracking-[0.15em] uppercase mb-2" style={{ color: GOLD_DARK }}>
@@ -352,7 +395,7 @@ export default function ContactPage() {
                       </h4>
                       {lines.map((line, j) => (
                         action && j === 0 ? (
-                          <a key={j} href={action} className="block text-sm leading-relaxed hover:underline" style={{ color: '#5a4030' }}>{line}</a>
+                          <a key={j} href={action} className="block text-sm leading-relaxed hover:underline break-all" style={{ color: '#5a4030' }}>{line}</a>
                         ) : (
                           <p key={j} className="text-sm leading-relaxed" style={{ color: '#5a4030' }}>{line}</p>
                         )
@@ -361,31 +404,37 @@ export default function ContactPage() {
                   </div>
                 ))}
 
-                {/* Map embed placeholder */}
-                <div className="rounded-2xl overflow-hidden" style={{ height: '200px', background: 'rgba(212,175,55,0.08)', border: '1px solid rgba(212,175,55,0.2)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
-                  <MapPin className="h-8 w-8" style={{ color: GOLD_DARK }} />
-                  <p className="text-sm font-semibold" style={{ color: DARK }}>Skanda Business Park, Rajvihar</p>
-                  <p className="text-xs" style={{ color: '#7a5c38' }}>Kurnool – 518001, Andhra Pradesh</p>
-                  <a
-                    href="https://maps.google.com/?q=Kurnool+Andhra+Pradesh"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="text-xs font-semibold tracking-widest uppercase mt-2 px-4 py-2 rounded-full"
-                    style={{ background: DARK, color: '#fdf8f0', textDecoration: 'none' }}
-                  >
-                    Open in Maps →
-                  </a>
-                </div>
+                {/* Map card — 3D tilt */}
+                <TiltCard intensity={8} style={{ borderRadius: '16px' }}>
+                  <div className="rounded-2xl overflow-hidden" style={{ height: '210px', background: 'linear-gradient(160deg, rgba(58,42,20,0.92) 0%, rgba(28,19,9,0.95) 100%)', border: '1px solid rgba(212,175,55,0.3)', boxShadow: '0 16px 40px rgba(0,0,0,0.25)', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                    <div style={{ transform: 'translateZ(35px)', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+                      <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', boxShadow: '0 8px 20px rgba(212,175,55,0.4)' }}>
+                        <MapPin className="h-6 w-6" style={{ color: '#1c1309' }} />
+                      </div>
+                      <p className="text-sm font-semibold" style={{ color: '#fdf8f0' }}>Sona Patti, S/O Laxmi Narayan Verma</p>
+                      <p className="text-xs" style={{ color: 'rgba(245,232,206,0.6)' }}>Bhagalpur – 812002, Bihar</p>
+                      <a
+                        href="https://maps.google.com/?q=Bhudharmal+Marwadi+Lane+Bhagalpur+Bihar+812002"
+                        target="_blank"
+                        rel="noreferrer"
+                        className="text-xs font-bold tracking-widest uppercase mt-2 px-5 py-2 rounded-full"
+                        style={{ background: 'linear-gradient(135deg, #f0cf6b, #d4af37 55%, #b8941f)', color: '#1c1309', textDecoration: 'none', boxShadow: '0 6px 18px rgba(212,175,55,0.4)' }}
+                      >
+                        Open in Maps →
+                      </a>
+                    </div>
+                  </div>
+                </TiltCard>
 
                 {/* Social links */}
-                <div className="p-5 rounded-2xl" style={{ background: 'rgba(255,252,245,0.9)', border: '1px solid rgba(180,150,100,0.15)' }}>
+                <div className="p-5 rounded-2xl" style={{ background: 'rgba(255,253,248,0.95)', border: '1px solid rgba(212,175,55,0.2)', boxShadow: '0 4px 16px rgba(45,32,16,0.05)' }}>
                   <h4 className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: GOLD_DARK }}>Follow Us</h4>
                   <div className="flex gap-3">
                     {[
                       { label: 'Instagram', icon: '📸', href: '#' },
                       { label: 'Facebook', icon: '👍', href: '#' },
                       { label: 'YouTube', icon: '▶️', href: '#' },
-                      { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/917947106192' },
+                      { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/917739074092' },
                     ].map(({ label, icon, href }) => (
                       <a
                         key={label}
@@ -393,7 +442,7 @@ export default function ContactPage() {
                         target="_blank"
                         rel="noreferrer"
                         className="w-11 h-11 rounded-xl flex items-center justify-center text-lg transition-all duration-200 hover:scale-110"
-                        style={{ background: 'rgba(212,175,55,0.1)', border: '1px solid rgba(212,175,55,0.2)' }}
+                        style={{ background: 'linear-gradient(145deg, rgba(240,207,107,0.25), rgba(212,175,55,0.15))', border: '1px solid rgba(212,175,55,0.3)' }}
                         title={label}
                       >
                         {icon}
@@ -406,18 +455,31 @@ export default function ContactPage() {
           </div>
         </section>
 
-        {/* ─── FAQ SECTION ─── */}
-        <section className="px-8 lg:px-16 py-20" style={{ background: '#f9f2e5' }}>
-          <div className="max-w-3xl mx-auto">
+        {/* ══════════ FAQ SECTION — dark gold ══════════ */}
+        <section className="px-5 sm:px-8 lg:px-16 py-20 relative overflow-hidden" style={{ background: 'radial-gradient(ellipse at top, #2d2010 0%, #1c1309 60%, #140d05 100%)', color: '#f5e8ce' }}>
+          <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 0%, rgba(212,175,55,0.16), transparent 55%)' }} />
+
+          <div className="max-w-3xl mx-auto relative z-10">
             <motion.div className="text-center mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 block" style={{ color: GOLD_DARK }}>
-                FAQ
+              <motion.div
+                initial={{ opacity: 0, scale: 0.6 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }}
+                className="flex justify-center mb-6"
+              >
+                <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}>
+                  <GoldCoin3D size={64} />
+                </motion.div>
+              </motion.div>
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 block" style={{ color: '#e9c85f' }}>
+                ✦ FAQ
               </span>
-              <h2 className="font-playfair font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: DARK }}>
-                Frequently Asked Questions
+              <h2 className="font-playfair font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#fdf8f0' }}>
+                Frequently Asked{' '}
+                <span style={{ fontStyle: 'italic', fontWeight: 400, background: 'linear-gradient(90deg, #f0cf6b, #d4af37 50%, #e9c85f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  Questions
+                </span>
               </h2>
-              <p className="mt-4 text-sm" style={{ color: '#7a5c38' }}>
-                Can't find your answer? Feel free to contact us directly.
+              <p className="mt-4 text-sm" style={{ color: 'rgba(245,232,206,0.6)' }}>
+                Can&apos;t find your answer? Feel free to contact us directly.
               </p>
             </motion.div>
 
@@ -427,8 +489,8 @@ export default function ContactPage() {
                   key={i}
                   className="overflow-hidden rounded-2xl"
                   style={{
-                    background: 'rgba(255,252,245,0.9)',
-                    border: `1.5px solid ${openFaq === i ? 'rgba(212,175,55,0.4)' : 'rgba(180,150,100,0.15)'}`,
+                    background: 'linear-gradient(160deg, rgba(58,42,20,0.85) 0%, rgba(28,19,9,0.9) 100%)',
+                    border: `1.5px solid ${openFaq === i ? 'rgba(240,207,107,0.6)' : 'rgba(212,175,55,0.25)'}`,
                     transition: 'border-color 0.3s',
                   }}
                   initial={{ opacity: 0, y: 15 }}
@@ -440,12 +502,12 @@ export default function ContactPage() {
                     className="w-full flex items-center justify-between px-6 py-5 text-left"
                     onClick={() => setOpenFaq(openFaq === i ? null : i)}
                   >
-                    <span className="text-sm font-semibold pr-4" style={{ color: DARK }}>
+                    <span className="text-sm font-semibold pr-4" style={{ color: '#fdf8f0' }}>
                       {faq.q}
                     </span>
                     <motion.span
-                      className="text-lg flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center"
-                      style={{ background: 'rgba(212,175,55,0.12)', color: GOLD_DARK }}
+                      className="text-lg flex-shrink-0 w-7 h-7 rounded-full flex items-center justify-center"
+                      style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', color: '#1c1309', fontWeight: 700 }}
                       animate={{ rotate: openFaq === i ? 45 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
@@ -461,8 +523,8 @@ export default function ContactPage() {
                         transition={{ duration: 0.3 }}
                         className="px-6 pb-5"
                       >
-                        <div style={{ height: '1px', background: 'rgba(212,175,55,0.2)', marginBottom: '16px' }} />
-                        <p className="text-sm leading-relaxed" style={{ color: '#7a5c38' }}>
+                        <div style={{ height: '1px', background: 'rgba(212,175,55,0.3)', marginBottom: '16px' }} />
+                        <p className="text-sm leading-relaxed" style={{ color: 'rgba(245,232,206,0.7)' }}>
                           {faq.a}
                         </p>
                       </motion.div>
@@ -475,7 +537,6 @@ export default function ContactPage() {
         </section>
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

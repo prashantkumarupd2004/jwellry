@@ -3,7 +3,7 @@ import { RefreshCw, Package, CheckCircle, AlertCircle, Clock, Shield } from 'luc
 import { CONTACT_PHONE, CONTACT_EMAIL, formatPhoneForDisplay, formatPhoneForTel } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Returns & Exchanges - AJ Abhi Jewels',
+  title: 'Returns & Exchanges - Hariom LaxmiNarayan Jewellers',
   description: 'Learn about our hassle-free return and exchange policy for jewelry purchases.',
 }
 

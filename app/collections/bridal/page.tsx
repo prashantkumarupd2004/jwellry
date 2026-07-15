@@ -1,10 +1,9 @@
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { BridalContent } from '@/components/collections/bridal-content'
 
 export const metadata = {
-  title: 'Bridal Collection - AJ Abhi Jewels',
+  title: 'Bridal Collection - Hariom LaxmiNarayan Jewellers',
   description: 'Complete bridal jewelry sets for your special day. Traditional and contemporary designs.',
 }
 
@@ -16,7 +15,6 @@ export default function BridalPage() {
         <BridalContent />
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

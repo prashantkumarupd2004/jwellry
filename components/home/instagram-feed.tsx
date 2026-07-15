@@ -9,7 +9,7 @@ const instagramPosts = [
   {
     id: 1,
     image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop',
-    caption: 'Sparkling diamond rings that capture hearts ✨ #DiamondRings #AJAbhiJewels',
+    caption: 'Sparkling diamond rings that capture hearts ✨ #DiamondRings #HariomLaxmiNarayanJewellers',
     likes: 245,
     comments: 18
   },
@@ -167,7 +167,7 @@ export function InstagramFeed() {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <a
-                  href="https://instagram.com/ajabhijewels"
+                  href="https://instagram.com/hariomlaxminarayanjewellers"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block"
@@ -180,7 +180,7 @@ export function InstagramFeed() {
                     }}
                   >
                     <Instagram className="h-4 w-4" />
-                    Follow @ajabhijewels
+                    Follow @hariomlaxminarayanjewellers
                   </button>
                 </a>
                 
@@ -189,7 +189,7 @@ export function InstagramFeed() {
                     Tag us in your photos with
                   </p>
                   <p className="font-bold text-lg text-gold-300 tracking-wide">
-                    #AJAbhiJewels
+                    #HariomLaxmiNarayanJewellers
                   </p>
                 </div>
               </div>

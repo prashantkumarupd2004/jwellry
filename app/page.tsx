@@ -1,9 +1,9 @@
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { HeroSection } from '@/components/home/hero-section'
 import { FeaturedProducts } from '@/components/home/featured-products'
 import { CategoryShowcase } from '@/components/home/category-showcase'
+import { GoldPromise } from '@/components/home/gold-promise'
 import { BackToTop } from '@/components/modern/back-to-top'
 
 export default function HomePage() {
@@ -14,9 +14,9 @@ export default function HomePage() {
         <HeroSection />
         <CategoryShowcase />
         <FeaturedProducts />
+        <GoldPromise />
       </main>
       <Footer />
-      <CartSidebar />
       <BackToTop />
     </div>
   )

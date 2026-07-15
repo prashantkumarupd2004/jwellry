@@ -9,7 +9,7 @@ export interface SEOData {
 }
 
 export const generateMetadata = (seoData: SEOData) => {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://ajabhijewels.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://hariomlaxminarayanjewellers.com'
   
   return {
     title: seoData.title,
@@ -19,7 +19,7 @@ export const generateMetadata = (seoData: SEOData) => {
       title: seoData.title,
       description: seoData.description,
       url: seoData.url ? `${baseUrl}${seoData.url}` : baseUrl,
-      siteName: 'AJ Abhi Jewels',
+      siteName: 'Hariom LaxmiNarayan Jewellers',
       images: [
         {
           url: seoData.image || '/og-image.jpg',
@@ -61,20 +61,20 @@ export const generateStructuredData = (type: 'Organization' | 'Product' | 'Local
     case 'Organization':
       return {
         ...baseStructure,
-        name: 'AJ Abhi Jewels',
-        url: 'https://ajabhijewels.com',
-        logo: 'https://ajabhijewels.com/logo.png',
+        name: 'Hariom LaxmiNarayan Jewellers',
+        url: 'https://hariomlaxminarayanjewellers.com',
+        logo: 'https://hariomlaxminarayanjewellers.com/logo.png',
         contactPoint: {
           '@type': 'ContactPoint',
           contactType: 'customer service',
-          email: 'info@ajabhijewels.com'
+          email: 'info@hariomlaxminarayanjewellers.com'
         },
         address: {
           '@type': 'PostalAddress',
-          streetAddress: 'Shop No 05, Skanda Business Park, Rajvihar',
-          addressLocality: 'Kurnool',
-          addressRegion: 'Andhra Pradesh',
-          postalCode: '518001',
+          streetAddress: 'First Floor, Flat No. 01, S/O Laxmi Narayan Verma, Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala, Sona Patti',
+          addressLocality: 'Bhagalpur',
+          addressRegion: 'Bihar',
+          postalCode: '812002',
           addressCountry: 'IN',
         },
       }
@@ -93,7 +93,7 @@ export const generateStructuredData = (type: 'Organization' | 'Product' | 'Local
         },
         brand: {
           '@type': 'Brand',
-          name: 'AJ Abhi Jewels',
+          name: 'Hariom LaxmiNarayan Jewellers',
         },
       }
     

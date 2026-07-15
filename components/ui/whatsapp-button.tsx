@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 export function WhatsAppButton() {
   const [isExpanded, setIsExpanded] = useState(false)
-  const phoneNumber = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917947106192' // Read from env variable
+  const phoneNumber = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917739074092' // Read from env variable
   const defaultMessage = 'Hi! I am interested in your jewelry collection.'
 
   const handleWhatsAppClick = () => {
@@ -25,7 +25,7 @@ export function WhatsAppButton() {
                   <span className="text-lg">💎</span>
                 </div>
                 <div className="text-white">
-                  <p className="font-semibold text-sm">AJ Abhi Jewels</p>
+                  <p className="font-semibold text-sm">Hariom LaxmiNarayan Jewellers</p>
                   <p className="text-xs opacity-90">Typically replies instantly</p>
                 </div>
               </div>

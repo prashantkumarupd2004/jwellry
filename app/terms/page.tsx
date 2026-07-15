@@ -3,8 +3,8 @@ import { FileText, ShoppingCart, Package, CreditCard, UserCheck, AlertCircle, Ph
 import { CONTACT_PHONE, formatPhoneForDisplay, formatPhoneForTel } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service - AJ Abhi Jewels',
-  description: 'Read our terms of service and conditions for using AJ Abhi Jewels website and services.',
+  title: 'Terms of Service - Hariom LaxmiNarayan Jewellers',
+  description: 'Read our terms of service and conditions for using Hariom LaxmiNarayan Jewellers website and services.',
 }
 
 export default function TermsOfServicePage() {
@@ -28,7 +28,7 @@ export default function TermsOfServicePage() {
           {/* Introduction */}
           <section>
             <p className="text-gray-700 leading-relaxed">
-              Welcome to AJ Abhi Jewels ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to 
+              Welcome to Hariom LaxmiNarayan Jewellers ("we," "us," or "our"). These Terms of Service ("Terms") govern your access to 
               and use of our website, products, and services. By accessing or using our website, you agree to be bound by 
               these Terms. If you do not agree with any part of these Terms, please do not use our services.
             </p>
@@ -263,7 +263,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-playfair font-bold text-gray-900 mb-4">Intellectual Property Rights</h2>
             <p className="text-gray-700 mb-3">
               All content on this website, including but not limited to text, graphics, logos, images, designs, and 
-              software, is the property of AJ Abhi Jewels and is protected by copyright, trademark, and other intellectual 
+              software, is the property of Hariom LaxmiNarayan Jewellers and is protected by copyright, trademark, and other intellectual 
               property laws.
             </p>
             <p className="text-gray-700">
@@ -306,7 +306,7 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-2xl font-playfair font-bold text-gray-900 mb-4">Limitation of Liability</h2>
             <p className="text-gray-700">
-              To the maximum extent permitted by law, AJ Abhi Jewels shall not be liable for any indirect, incidental, 
+              To the maximum extent permitted by law, Hariom LaxmiNarayan Jewellers shall not be liable for any indirect, incidental, 
               special, consequential, or punitive damages, including but not limited to loss of profits, data, or business 
               opportunities, arising from your use of our services or products.
             </p>
@@ -316,7 +316,7 @@ export default function TermsOfServicePage() {
           <section>
             <h2 className="text-2xl font-playfair font-bold text-gray-900 mb-4">Indemnification</h2>
             <p className="text-gray-700">
-              You agree to indemnify, defend, and hold harmless AJ Abhi Jewels, its officers, directors, employees, and 
+              You agree to indemnify, defend, and hold harmless Hariom LaxmiNarayan Jewellers, its officers, directors, employees, and 
               agents from any claims, liabilities, damages, losses, and expenses arising from your violation of these 
               Terms or your use of our services.
             </p>
@@ -341,7 +341,7 @@ export default function TermsOfServicePage() {
                   </li>
                   <li className="flex items-start gap-3">
                     <span className="font-semibold text-blue-600">3.</span>
-                    <span><strong>Jurisdiction:</strong> These Terms shall be governed by the laws of India, and disputes shall be subject to the exclusive jurisdiction of courts in Kurnool, Andhra Pradesh</span>
+                    <span><strong>Jurisdiction:</strong> These Terms shall be governed by the laws of India, and disputes shall be subject to the exclusive jurisdiction of courts in Bhagalpur, Bihar</span>
                   </li>
                 </ol>
               </div>
@@ -382,7 +382,7 @@ export default function TermsOfServicePage() {
             <h2 className="text-2xl font-playfair font-bold text-gray-900 mb-4">Entire Agreement</h2>
             <p className="text-gray-700">
               These Terms, together with our Privacy Policy and any other legal notices published by us, constitute the 
-              entire agreement between you and AJ Abhi Jewels regarding your use of our services.
+              entire agreement between you and Hariom LaxmiNarayan Jewellers regarding your use of our services.
             </p>
           </section>
 
@@ -398,7 +398,7 @@ export default function TermsOfServicePage() {
                 <FileText className="h-5 w-5 text-gold-600 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Email</p>
-                  <a href="mailto:legal@ajabhijewels.com" className="text-gold-600 hover:underline">legal@ajabhijewels.com</a>
+                  <a href="mailto:legal@hariomlaxminarayanjewellers.com" className="text-gold-600 hover:underline">legal@hariomlaxminarayanjewellers.com</a>
                 </div>
               </div>
               
@@ -415,10 +415,10 @@ export default function TermsOfServicePage() {
                 <div>
                   <p className="font-semibold text-gray-900">Mailing Address</p>
                   <p className="text-gray-700 text-sm">
-                    AJ Abhi Jewels<br />
-                    Shop No 05, Skanda Business Park<br />
-                    Rajvihar, Kurnool - 518001<br />
-                    Andhra Pradesh, India
+                    Hariom LaxmiNarayan Jewellers<br />
+                    First Floor, Flat No. 01, S/O Laxmi Narayan Verma<br />
+                    Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala<br />
+                    Sona Patti, Bhagalpur, Bihar - 812002
                   </p>
                 </div>
               </div>

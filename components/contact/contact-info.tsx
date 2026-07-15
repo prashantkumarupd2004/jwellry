@@ -16,9 +16,9 @@ export function ContactInfo() {
             <div>
               <h3 className="font-semibold text-gray-900 mb-1">Address</h3>
               <p className="text-gray-600">
-                Shop No 05, Skanda Business Park<br />
-                Rajvihar, Kurnool - 518001<br />
-                Andhra Pradesh, India
+                First Floor, Flat No. 01, S/O Laxmi Narayan Verma<br />
+                Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala<br />
+                Sona Patti, Bhagalpur, Bihar - 812002
               </p>
             </div>
           </div>
@@ -55,8 +55,8 @@ export function ContactInfo() {
             <Mail className="h-6 w-6 text-gold-600 mt-1 flex-shrink-0" />
             <div>
               <h3 className="font-semibold text-gray-900 mb-1">Email</h3>
-              <a href="mailto:info@ajabhijewels.com" className="text-gray-600 hover:text-gold-600">
-                info@ajabhijewels.com
+              <a href="mailto:info@hariomlaxminarayanjewellers.com" className="text-gray-600 hover:text-gold-600">
+                info@hariomlaxminarayanjewellers.com
               </a>
             </div>
           </div>
@@ -99,7 +99,7 @@ export function ContactInfo() {
       {/* Why Choose Us */}
       <div className="bg-white rounded-2xl shadow-luxury p-8">
         <h3 className="text-2xl font-playfair font-bold text-gray-900 mb-6">
-          Why Choose AJ Abhi Jewels?
+          Why Choose Hariom LaxmiNarayan Jewellers?
         </h3>
         <div className="space-y-4">
           {[

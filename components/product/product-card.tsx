@@ -3,12 +3,11 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { LazyImage } from '@/components/modern/lazy-image'
-import { Heart, ShoppingBag, Eye, Star } from 'lucide-react'
+import { MessageCircle, Eye, Star } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { Product } from '@/types'
 import { Button } from '@/components/ui/button'
-import { useCartStore } from '@/store/cart'
-import { useWishlistStore } from '@/store/wishlist'
+import { getEnquiryWhatsAppUrl } from '@/lib/constants'
 import { formatPrice, calculateDiscount } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 
@@ -20,27 +19,13 @@ interface ProductCardProps {
 export function ProductCard({ product, className }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
-  
-  const { addItem } = useCartStore()
-  const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist } = useWishlistStore()
-  
-  const isWishlisted = isInWishlist(product.id)
+
   const discount = product.originalPrice ? calculateDiscount(product.originalPrice, product.price) : 0
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleEnquire = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    addItem(product)
-  }
-
-  const handleWishlistToggle = (e: React.MouseEvent) => {
-    e.preventDefault()
-    e.stopPropagation()
-    if (isWishlisted) {
-      removeFromWishlist(product.id)
-    } else {
-      addToWishlist(product)
-    }
+    window.open(getEnquiryWhatsAppUrl(product.name), '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -104,28 +89,20 @@ export function ProductCard({ product, className }: ProductCardProps) {
                 size="icon"
                 variant="secondary"
                 className="bg-white/90 hover:bg-white"
-                onClick={handleWishlistToggle}
-              >
-                <Heart className={cn('h-4 w-4', isWishlisted ? 'fill-red-500 text-red-500' : '')} />
-              </Button>
-              
-              <Button
-                size="icon"
-                variant="secondary"
-                className="bg-white/90 hover:bg-white"
+                aria-label="View details"
               >
                 <Eye className="h-4 w-4" />
               </Button>
-              
-              {product.inStock && (
-                <Button
-                  size="icon"
-                  variant="default"
-                  onClick={handleAddToCart}
-                >
-                  <ShoppingBag className="h-4 w-4" />
-                </Button>
-              )}
+
+              <Button
+                variant="default"
+                onClick={handleEnquire}
+                className="gap-2"
+                aria-label="Enquire on WhatsApp"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Enquire
+              </Button>
             </div>
           </div>
 

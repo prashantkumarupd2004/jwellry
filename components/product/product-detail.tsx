@@ -2,10 +2,9 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { Star, Heart, ShoppingBag, Share2, Shield, Truck, RotateCcw } from 'lucide-react'
+import { Star, MessageCircle, Share2, Shield, Truck, RotateCcw } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useCartStore } from '@/store/cart'
-import { useWishlistStore } from '@/store/wishlist'
+import { getEnquiryWhatsAppUrl } from '@/lib/constants'
 import { Product } from '@/types'
 import { formatPrice, calculateDiscount } from '@/lib/utils'
 
@@ -15,26 +14,11 @@ interface ProductDetailProps {
 
 export function ProductDetail({ product }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0)
-  const [quantity, setQuantity] = useState(1)
-  const [selectedSize, setSelectedSize] = useState('')
-  
-  const { addItem, openCart } = useCartStore()
-  const { addItem: addToWishlist, removeItem: removeFromWishlist, isInWishlist } = useWishlistStore()
-  
-  const isWishlisted = isInWishlist(product.id)
+
   const discount = product.originalPrice ? calculateDiscount(product.originalPrice, product.price) : 0
 
-  const handleAddToCart = () => {
-    addItem(product, quantity, { size: selectedSize })
-    openCart()
-  }
-
-  const handleWishlistToggle = () => {
-    if (isWishlisted) {
-      removeFromWishlist(product.id)
-    } else {
-      addToWishlist(product)
-    }
+  const handleEnquire = () => {
+    window.open(getEnquiryWhatsAppUrl(product.name), '_blank', 'noopener,noreferrer')
   }
 
   return (
@@ -157,49 +141,19 @@ export function ProductDetail({ product }: ProductDetailProps) {
             </div>
           </div>
 
-          {/* Quantity */}
-          <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">
-              Quantity
-            </label>
-            <div className="flex items-center space-x-3">
-              <button
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                className="w-10 h-10 border border-gray-300 rounded-md flex items-center justify-center hover:bg-gray-50"
-              >
-                -
-              </button>
-              <span className="text-lg font-medium w-12 text-center">{quantity}</span>
-              <button
-                onClick={() => setQuantity(quantity + 1)}
-                className="w-10 h-10 border border-gray-300 rounded-md flex items-center justify-center hover:bg-gray-50"
-              >
-                +
-              </button>
-            </div>
-          </div>
-
           {/* Action Buttons */}
           <div className="space-y-4">
             <div className="flex space-x-4">
               <Button
-                onClick={handleAddToCart}
+                onClick={handleEnquire}
                 variant="luxury"
                 size="lg"
                 className="flex-1"
-                disabled={!product.inStock}
               >
-                <ShoppingBag className="mr-2 h-5 w-5" />
-                {product.inStock ? 'Add to Cart' : 'Out of Stock'}
+                <MessageCircle className="mr-2 h-5 w-5" />
+                Enquire on WhatsApp
               </Button>
-              <Button
-                onClick={handleWishlistToggle}
-                variant="outline"
-                size="lg"
-              >
-                <Heart className={`h-5 w-5 ${isWishlisted ? 'fill-red-500 text-red-500' : ''}`} />
-              </Button>
-              <Button variant="outline" size="lg">
+              <Button variant="outline" size="lg" aria-label="Share">
                 <Share2 className="h-5 w-5" />
               </Button>
             </div>

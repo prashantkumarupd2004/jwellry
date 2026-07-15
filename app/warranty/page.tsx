@@ -3,7 +3,7 @@ import { Award, Shield, CheckCircle, FileCheck } from 'lucide-react'
 import { CONTACT_PHONE, formatPhoneForDisplay, formatPhoneForTel } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Warranty & Certification - AJ Abhi Jewels',
+  title: 'Warranty & Certification - Hariom LaxmiNarayan Jewellers',
   description: 'Learn about our comprehensive warranty coverage and jewelry certification process.',
 }
 
@@ -20,7 +20,7 @@ export default function WarrantyPage() {
             Warranty & Certification
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Every piece from AJ Abhi Jewels comes with our quality guarantee and authentic certification.
+            Every piece from Hariom LaxmiNarayan Jewellers comes with our quality guarantee and authentic certification.
           </p>
         </div>
 

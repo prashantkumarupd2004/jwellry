@@ -97,7 +97,7 @@ export function HeroSection() {
         style={{
           position: 'relative', zIndex: 10,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          padding: '14px 2rem 0',
+          padding: '84px 2rem 0',
           gap: '1.5rem',
         }}
         initial={{ opacity: 0, y: -10 }}
@@ -138,18 +138,19 @@ export function HeroSection() {
             userSelect: 'none',
           }}
         >
-          AJ ABHI
+          HARIOM
         </h1>
         <div style={{
           fontFamily: '"Cormorant Garamond", serif',
           fontWeight: 400,
-          fontSize: 'clamp(1rem, 3.5vw, 2.8rem)',
-          letterSpacing: '0.55em',
+          fontSize: 'clamp(0.68rem, 2.6vw, 2rem)',
+          letterSpacing: 'clamp(0.12em, 0.5vw, 0.22em)',
           color: GOLD,
           marginTop: '0.3rem',
           userSelect: 'none',
+          whiteSpace: 'nowrap',
         }}>
-          J E W E L S
+          LAXMINARAYAN JEWELLERS
         </div>
         {/* Ornamental underline */}
         <div style={{
@@ -305,7 +306,7 @@ export function HeroSection() {
           >
             <Image
               src="/hero_ai.png"
-              alt="AJ Abhi Jewels - Luxury Indian Jewellery Collection"
+              alt="Hariom LaxmiNarayan Jewellers - Luxury Indian Jewellery Collection"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center top' }}
               priority
@@ -321,6 +322,7 @@ export function HeroSection() {
 
           {/* Floating badge: Handcrafted */}
           <motion.div
+            className="hero-badge hero-badge-tr"
             style={{
               position: 'absolute', top: '10%', right: '-5%',
               background: 'rgba(253,248,240,0.95)',
@@ -343,6 +345,7 @@ export function HeroSection() {
 
           {/* Floating badge: Certified */}
           <motion.div
+            className="hero-badge hero-badge-bl"
             style={{
               position: 'absolute', bottom: '12%', left: '-8%',
               background: 'rgba(253,248,240,0.95)',
@@ -445,7 +448,7 @@ export function HeroSection() {
                 ⭐ 4.9/5 · 10,000+ Happy Customers
               </div>
               <div style={{ fontSize: '0.55rem', color: GOLD_DARK, fontFamily: '"Inter", sans-serif', marginTop: '2px' }}>
-                Trusted since 2009 in Kurnool
+                Trusted since 2009 in Bhagalpur
               </div>
             </div>
           </div>
@@ -490,6 +493,27 @@ export function HeroSection() {
         @media (max-width: 767px) {
           .hero-grid > *:nth-child(3) {
             display: none;
+          }
+          /* center the left column content on mobile */
+          .hero-grid > *:nth-child(1) {
+            align-items: center;
+            text-align: center;
+          }
+          .hero-grid > *:nth-child(1) p {
+            max-width: 100% !important;
+          }
+          /* image column first on mobile */
+          .hero-grid > *:nth-child(2) {
+            order: -1;
+          }
+          /* keep floating badges inside the viewport */
+          .hero-badge-tr {
+            right: 2% !important;
+            top: 2% !important;
+          }
+          .hero-badge-bl {
+            left: 2% !important;
+            bottom: 4% !important;
           }
         }
       `}</style>

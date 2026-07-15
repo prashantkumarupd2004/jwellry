@@ -3,7 +3,7 @@ import { Sparkles, Droplet, Heart, Shield, Sun, Wind } from 'lucide-react'
 import { CONTACT_PHONE, formatPhoneForDisplay, formatPhoneForTel } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Jewelry Care Guide - AJ Abhi Jewels',
+  title: 'Jewelry Care Guide - Hariom LaxmiNarayan Jewellers',
   description: 'Learn how to care for your precious jewelry to maintain its beauty and brilliance for years to come.',
 }
 

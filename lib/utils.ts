@@ -109,7 +109,7 @@ export function shareProduct(product: { name: string; id: string }): void {
   if (navigator.share) {
     navigator.share({
       title: product.name,
-      text: `Check out this beautiful jewelry piece from AJ Abhi Jewels`,
+      text: `Check out this beautiful jewelry piece from Hariom LaxmiNarayan Jewellers`,
       url: `${window.location.origin}/products/${product.id}`,
     })
   } else {

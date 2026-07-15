@@ -3,7 +3,7 @@ import { Truck, Package, Shield, Clock, MapPin, IndianRupee } from 'lucide-react
 import { CONTACT_PHONE, formatPhoneForDisplay, formatPhoneForTel } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Shipping Information - AJ Abhi Jewels',
+  title: 'Shipping Information - Hariom LaxmiNarayan Jewellers',
   description: 'Learn about our secure shipping process, delivery times, and shipping policies for jewelry orders.',
 }
 
@@ -122,12 +122,12 @@ export default function ShippingPage() {
                 </thead>
                 <tbody className="divide-y divide-gray-200">
                   <tr className="hover:bg-gold-50 transition-colors">
-                    <td className="px-6 py-4 text-sm text-gray-900">Kurnool & Surrounding Areas</td>
+                    <td className="px-6 py-4 text-sm text-gray-900">Bhagalpur & Surrounding Areas</td>
                     <td className="px-6 py-4 text-sm text-gray-700">1-2 working days</td>
                     <td className="px-6 py-4 text-sm text-gray-700">Same day</td>
                   </tr>
                   <tr className="hover:bg-gold-50 transition-colors">
-                    <td className="px-6 py-4 text-sm text-gray-900">Andhra Pradesh</td>
+                    <td className="px-6 py-4 text-sm text-gray-900">Bihar</td>
                     <td className="px-6 py-4 text-sm text-gray-700">2-4 working days</td>
                     <td className="px-6 py-4 text-sm text-gray-700">1-2 working days</td>
                   </tr>

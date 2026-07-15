@@ -4,7 +4,6 @@ import { Suspense } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { ProductCard } from '@/components/product/product-card'
 import { allProducts } from '@/lib/data'
 import { Search } from 'lucide-react'
@@ -72,7 +71,6 @@ export default function SearchPage() {
         </div>
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

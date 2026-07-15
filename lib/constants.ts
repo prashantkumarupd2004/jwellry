@@ -1,9 +1,17 @@
 // Centralized configuration constants
 
 // Contact Information
-export const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE || '917947106192'
-export const CONTACT_WHATSAPP = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917947106192'
-export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@ajabhijewels.com'
+export const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE || '917739074092'
+export const CONTACT_WHATSAPP = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917739074092'
+export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@hariomlaxminarayanjewellers.com'
+
+// Build a WhatsApp enquiry link, optionally pre-filled with a product name
+export const getEnquiryWhatsAppUrl = (productName?: string): string => {
+  const message = productName
+    ? `Hi! I'm interested in "${productName}". Could you please share more details, availability and price?`
+    : 'Hi! I am interested in your jewellery collection. Please share more details.'
+  return `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(message)}`
+}
 
 // Format phone number for tel: links (ensure +91 prefix)
 export const formatPhoneForTel = (phone: string): string => {
@@ -53,5 +61,5 @@ export const RATE_LIMIT_WINDOW = 15 * 60 * 1000 // 15 minutes
 export const RATE_LIMIT_MAX_REQUESTS = 100
 
 // Site Configuration
-export const SITE_NAME = 'AJ Abhi Jewels'
+export const SITE_NAME = 'Hariom LaxmiNarayan Jewellers'
 export const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'

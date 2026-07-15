@@ -94,17 +94,17 @@ export function FAQ() {
         </p>
         <div className="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-4">
           <a
-            href="mailto:info@ajabhijewels.com"
+            href="mailto:info@hariomlaxminarayanjewellers.com"
             className="text-gold-600 hover:text-gold-700 font-medium"
           >
             Contact us via email
           </a>
           <span className="hidden sm:inline text-gray-400">|</span>
           <a
-            href="mailto:info@ajabhijewels.com"
+            href="mailto:info@hariomlaxminarayanjewellers.com"
             className="text-gold-600 hover:text-gold-700 font-medium"
           >
-            Email us at info@ajabhijewels.com
+            Email us at info@hariomlaxminarayanjewellers.com
           </a>
         </div>
       </div>

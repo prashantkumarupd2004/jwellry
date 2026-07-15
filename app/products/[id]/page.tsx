@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { ProductDetail } from '@/components/product/product-detail'
 import { RelatedProducts } from '@/components/product/related-products'
 import { allProducts } from '@/lib/data'
@@ -17,12 +16,12 @@ export async function generateMetadata({ params }: ProductPageProps) {
   
   if (!product) {
     return {
-      title: 'Product Not Found - AJ Abhi Jewels'
+      title: 'Product Not Found - Hariom LaxmiNarayan Jewellers'
     }
   }
 
   return {
-    title: `${product.name} - AJ Abhi Jewels`,
+    title: `${product.name} - Hariom LaxmiNarayan Jewellers`,
     description: product.description,
     openGraph: {
       title: product.name,
@@ -55,7 +54,6 @@ export default function ProductPage({ params }: ProductPageProps) {
         </div>
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

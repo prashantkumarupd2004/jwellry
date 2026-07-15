@@ -1,10 +1,9 @@
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { AccountDashboard } from '@/components/account/account-dashboard'
 
 export const metadata = {
-  title: 'My Account - AJ Abhi Jewels',
+  title: 'My Account - Hariom LaxmiNarayan Jewellers',
   description: 'Manage your account, orders, and preferences.',
 }
 
@@ -18,7 +17,6 @@ export default function AccountPage() {
         </div>
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

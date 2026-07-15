@@ -67,7 +67,7 @@ export function LiveChat() {
                     <span className="text-sm font-bold">AJ</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold">AJ Abhi Jewels</h3>
+                    <h3 className="font-semibold">Hariom LaxmiNarayan Jewellers</h3>
                     <p className="text-xs text-gold-100">Online now</p>
                   </div>
                 </div>
@@ -115,11 +115,11 @@ export function LiveChat() {
               
               {/* Quick Actions */}
               <div className="flex space-x-2 mt-3">
-                <a href="mailto:info@ajabhijewels.com" className="flex items-center space-x-1 text-xs text-gold-600 hover:text-gold-700">
+                <a href="mailto:info@hariomlaxminarayanjewellers.com" className="flex items-center space-x-1 text-xs text-gold-600 hover:text-gold-700">
                   <Mail className="h-3 w-3" />
                   <span>Email</span>
                 </a>
-                <a href="mailto:info@ajabhijewels.com" className="flex items-center space-x-1 text-xs text-gold-600 hover:text-gold-700">
+                <a href="mailto:info@hariomlaxminarayanjewellers.com" className="flex items-center space-x-1 text-xs text-gold-600 hover:text-gold-700">
                   <Mail className="h-3 w-3" />
                   <span>Email</span>
                 </a>

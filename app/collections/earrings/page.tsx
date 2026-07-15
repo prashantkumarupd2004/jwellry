@@ -1,10 +1,9 @@
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { EarringsContent } from '@/components/collections/earrings-content'
 
 export const metadata = {
-  title: 'Earrings Collection - AJ Abhi Jewels',
+  title: 'Earrings Collection - Hariom LaxmiNarayan Jewellers',
   description: 'Beautiful earrings collection including studs, hoops, and chandelier earrings.',
 }
 
@@ -16,7 +15,6 @@ export default function EarringsPage() {
         <EarringsContent />
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

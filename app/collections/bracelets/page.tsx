@@ -1,10 +1,9 @@
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { BraceletsContent } from '@/components/collections/bracelets-content'
 
 export const metadata = {
-  title: 'Bracelets Collection - AJ Abhi Jewels',
+  title: 'Bracelets Collection - Hariom LaxmiNarayan Jewellers',
   description: 'Elegant bracelets and bangles crafted with precious metals and stones.',
 }
 
@@ -16,7 +15,6 @@ export default function BraceletsPage() {
         <BraceletsContent />
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

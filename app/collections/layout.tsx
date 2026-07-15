@@ -1,7 +1,7 @@
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Collections - AJ Abhi Jewels',
+  title: 'Collections - Hariom LaxmiNarayan Jewellers',
   description: 'Browse our exquisite collections of jewelry including bracelets, bridal, earrings, necklaces, and rings.',
 }
 

@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { User, Package, Heart, Settings, LogOut } from 'lucide-react'
+import { User, Settings, LogOut } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 
 export function AccountDashboard() {
@@ -9,8 +9,6 @@ export function AccountDashboard() {
 
   const tabs = [
     { id: 'profile', label: 'Profile', icon: User },
-    { id: 'orders', label: 'Orders', icon: Package },
-    { id: 'wishlist', label: 'Wishlist', icon: Heart },
     { id: 'settings', label: 'Settings', icon: Settings },
   ]
 
@@ -103,36 +101,6 @@ export function AccountDashboard() {
                 <div className="mt-6">
                   <Button variant="default">Update Profile</Button>
                 </div>
-              </div>
-            )}
-
-            {activeTab === 'orders' && (
-              <div>
-                <h2 className="text-xl font-semibold mb-6">Order History</h2>
-                <div className="space-y-4">
-                  <div className="border border-gray-200 rounded-lg p-4">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <p className="font-medium">Order #AJ123456</p>
-                        <p className="text-sm text-gray-600">Placed on March 15, 2024</p>
-                      </div>
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs">
-                        Delivered
-                      </span>
-                    </div>
-                    <p className="text-sm text-gray-600 mb-2">
-                      Diamond Solitaire Ring, Gold Pearl Necklace
-                    </p>
-                    <p className="font-semibold">₹1,70,000</p>
-                  </div>
-                </div>
-              </div>
-            )}
-
-            {activeTab === 'wishlist' && (
-              <div>
-                <h2 className="text-xl font-semibold mb-6">My Wishlist</h2>
-                <p className="text-gray-600">Your wishlist is empty. Start adding items you love!</p>
               </div>
             )}
 

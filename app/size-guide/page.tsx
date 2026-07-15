@@ -3,7 +3,7 @@ import { Ruler, Hand, Diamond } from 'lucide-react'
 import { CONTACT_PHONE, formatPhoneForDisplay, formatPhoneForTel } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Size Guide - AJ Abhi Jewels',
+  title: 'Size Guide - Hariom LaxmiNarayan Jewellers',
   description: 'Find your perfect fit with our comprehensive jewelry size guide for rings, bracelets, and necklaces.',
 }
 

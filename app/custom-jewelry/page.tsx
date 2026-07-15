@@ -1,11 +1,10 @@
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { CartSidebar } from '@/components/cart/cart-sidebar'
 import { Button } from '@/components/ui/button'
 import { Gem, Clock, Award, Phone } from 'lucide-react'
 
 export const metadata = {
-  title: 'Custom Jewelry - AJ Abhi Jewels',
+  title: 'Custom Jewelry - Hariom LaxmiNarayan Jewellers',
   description: 'Create your unique custom jewelry piece with our expert craftsmen.',
 }
 
@@ -91,10 +90,10 @@ export default function CustomJewelryPage() {
               Contact us today to start your custom jewelry journey. Our team is ready to help you create a piece that's uniquely yours.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="tel:+917947106192">
+              <a href="tel:+917739074092">
                 <Button variant="luxury" size="lg" className="flex items-center">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Now: +91 7947106192
+                  Call Now: +91 7739074092
                 </Button>
               </a>
               <Button variant="outline" size="lg">
@@ -105,7 +104,6 @@ export default function CustomJewelryPage() {
         </div>
       </main>
       <Footer />
-      <CartSidebar />
     </div>
   )
 }

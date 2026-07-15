@@ -1,46 +1,7 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
-import { verifyJWT } from '@/lib/jwt'
 
 export async function middleware(request: NextRequest) {
-  const { pathname } = request.nextUrl
-  
-  // Admin Panel Protection - enforce in all non-test environments
-  if (pathname.startsWith('/admin') && pathname !== '/admin') {
-    // Check for authentication token
-    const authToken = request.cookies.get('admin_auth_token')?.value
-    
-    // Only skip auth enforcement during testing
-    if (process.env.NODE_ENV !== 'test') {
-      if (!authToken) {
-        const loginUrl = request.nextUrl.clone()
-        loginUrl.pathname = '/admin'
-        return NextResponse.redirect(loginUrl)
-      }
-      
-      // Verify JWT signature using JWT_SECRET (same secret used for token signing)
-      try {
-        const jwtSecret = process.env.JWT_SECRET
-        if (!jwtSecret) {
-          console.error('JWT_SECRET is not configured')
-          const loginUrl = request.nextUrl.clone()
-          loginUrl.pathname = '/admin'
-          return NextResponse.redirect(loginUrl)
-        }
-        const payload = await verifyJWT(authToken, jwtSecret)
-        if (!payload || payload.role !== 'admin') {
-          const loginUrl = request.nextUrl.clone()
-          loginUrl.pathname = '/admin'
-          return NextResponse.redirect(loginUrl)
-        }
-      } catch {
-        const loginUrl = request.nextUrl.clone()
-        loginUrl.pathname = '/admin'
-        return NextResponse.redirect(loginUrl)
-      }
-    }
-  }
-  
   const response = NextResponse.next()
 
   // Content Security Policy
@@ -66,101 +27,7 @@ export async function middleware(request: NextRequest) {
   response.headers.set('Permissions-Policy', 'camera=(), microphone=(), geolocation=()')
   response.headers.set('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload')
 
-  // Rate limiting for admin routes
-  if (pathname.startsWith('/admin')) {
-    const ip = request.ip || request.headers.get('x-forwarded-for') || 'unknown'
-    const key = `admin_${ip}`
-    const maxRequests = 100
-    
-    // In production, use Redis or similar for distributed rate limiting
-    const rateLimitResult = isRateLimitedWithRemaining(key, maxRequests)
-    if (!rateLimitResult.limited) {
-      response.headers.set('X-RateLimit-Limit', maxRequests.toString())
-      response.headers.set('X-RateLimit-Remaining', rateLimitResult.remaining.toString())
-    } else {
-      return new NextResponse('Too Many Requests - Please try again later', { 
-        status: 429,
-        headers: {
-          'Retry-After': '900', // 15 minutes
-          'X-RateLimit-Limit': maxRequests.toString(),
-          'X-RateLimit-Remaining': '0'
-        }
-      })
-    }
-  }
-
   return response
-}
-
-// Simple in-memory rate limiting (use Redis in production)
-const rateLimitMap = new Map<string, { count: number; resetTime: number }>()
-
-interface RateLimitResult {
-  limited: boolean
-  remaining: number
-}
-
-function isRateLimitedWithRemaining(key: string, maxRequests = 100): RateLimitResult {
-  const now = Date.now()
-  const windowMs = 15 * 60 * 1000 // 15 minutes
-
-  // Cleanup expired entries to prevent memory leak
-  if (rateLimitMap.size > 1000) {
-    for (const [k, v] of rateLimitMap.entries()) {
-      if (now > v.resetTime) {
-        rateLimitMap.delete(k)
-      }
-    }
-  }
-
-  const record = rateLimitMap.get(key)
-  
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(key, { count: 1, resetTime: now + windowMs })
-    return { limited: false, remaining: maxRequests - 1 }
-  }
-
-  if (record.count >= maxRequests) {
-    return { limited: true, remaining: 0 }
-  }
-
-  record.count++
-  const remaining = Math.max(0, maxRequests - record.count)
-  return { limited: false, remaining }
-}
-
-function isRateLimited(key: string, maxRequests = 100): boolean {
-  const now = Date.now()
-  const windowMs = 15 * 60 * 1000 // 15 minutes
-
-  // Cleanup expired entries to prevent memory leak
-  if (rateLimitMap.size > 1000) {
-    for (const [k, v] of rateLimitMap.entries()) {
-      if (now > v.resetTime) {
-        rateLimitMap.delete(k)
-      }
-    }
-  }
-
-  const record = rateLimitMap.get(key)
-  
-  if (!record || now > record.resetTime) {
-    rateLimitMap.set(key, { count: 1, resetTime: now + windowMs })
-    return false
-  }
-
-  if (record.count >= maxRequests) {
-    return true
-  }
-
-  record.count++
-  return false
-}
-
-function getRateLimitRemaining(key: string, maxRequests = 100): number {
-  const record = rateLimitMap.get(key)
-  if (!record) return maxRequests
-  return Math.max(0, maxRequests - record.count)
 }
 
 export const config = {
