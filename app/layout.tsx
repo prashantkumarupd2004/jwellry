@@ -96,6 +96,7 @@ export default function RootLayout({
         <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
         <link rel="shortcut icon" type="image/jpeg" href="/logo.jpeg" />
         <link rel="apple-touch-icon" href="/logo.jpeg" />
+        <link rel="manifest" href="/manifest.json" />
       </head>
       <body className="min-h-screen" style={{ background: '#f9f2e5' }}>
         <Providers>

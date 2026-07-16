@@ -1,39 +1,24 @@
-# Hariom LaxmiNarayan Jewellers - Enterprise E-commerce Platform
+# Hariom LaxmiNarayan Jewellers (HLJ Group)
 
-![CI](https://github.com/cherry-12345/Hariom-LaxmiNarayan-Jewellers/actions/workflows/ci.yml/badge.svg)
+A premium jewellery website for HLJ Group — trusted craftsmanship since 1987, with 6 branches across Bihar & Jharkhand.
 
-A modern, full-featured jewelry e-commerce website built with Next.js 14, TypeScript, and Tailwind CSS.
+Built with Next.js 16, React 19, TypeScript, and Tailwind CSS.
 
 ## 🌟 Features
 
-### Customer Experience
-- **Luxury Design**: Premium UI with gold/platinum color scheme
-- **Product Catalog**: Advanced filtering and search capabilities
-- **Shopping Cart**: Persistent cart with real-time updates
-- **Wishlist**: Save favorite products for later
-- **Responsive Design**: Mobile-first approach for all devices
-- **Performance Optimized**: <2 second load times with image optimization
-
-### Business Features
-- **SEO Optimized**: Structured data and meta tags for better search visibility
-- **Analytics Ready**: Google Analytics integration
-- **Social Media**: Instagram feed integration
-- **Newsletter**: Email subscription system
-- **Contact Integration**: Phone, WhatsApp, email support
-
-### Technical Excellence
-- **Next.js 14**: Latest App Router with server components
-- **TypeScript**: Full type safety across the application
-- **Tailwind CSS**: Utility-first CSS with custom design system
-- **Framer Motion**: Smooth animations and transitions
-- **Zustand**: Lightweight state management
-- **Image Optimization**: WebP format with lazy loading
+- **Luxury Design**: Premium gold/cream design system with smooth Framer Motion animations
+- **Signature Bridal Looks**: Interactive 3-theme royal showcase (Kundan & Polki, Temple Heritage, Modern Diamond) with 3D tilt frames and per-theme WhatsApp enquiry
+- **Product Catalog**: Collections for rings, necklaces, earrings, bracelets, and bridal
+- **WhatsApp Integration**: Floating chat widget with quick-select enquiry topics
+- **Branch Locator**: All 6 branches listed on About & Contact pages with Google Maps links
+- **SEO Optimized**: Sitemap, robots.txt, structured metadata
+- **Fully Responsive**: Mobile-first, tested across viewports
 
 ## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 18+ 
-- npm or yarn
+- Node.js 20+
+- npm
 
 ### Installation
 
@@ -42,12 +27,16 @@ A modern, full-featured jewelry e-commerce website built with Next.js 14, TypeSc
    npm install
    ```
 
-2. **Run the development server**
+2. **Configure environment**
+   ```bash
+   copy .env.example .env
+   ```
+   Then fill in the contact details in `.env`.
+
+3. **Run the development server**
    ```bash
    npm run dev
    ```
-
-3. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ### Build for Production
@@ -60,142 +49,64 @@ npm start
 ## 📁 Project Structure
 
 ```
-aj-hariom-laxminarayan-jewellers/
-├── app/                    # Next.js 14 App Router
-│   ├── globals.css        # Global styles
-│   ├── layout.tsx         # Root layout
-│   ├── page.tsx          # Homepage
-│   └── providers.tsx     # Context providers
-├── components/            # Reusable components
-│   ├── ui/               # Base UI components
-│   ├── layout/           # Layout components
-│   ├── product/          # Product-related components
-│   ├── cart/             # Shopping cart components
-│   └── home/             # Homepage sections
-├── lib/                  # Utility functions
-│   ├── utils.ts          # Common utilities
-│   └── data.ts           # Mock data
-├── store/                # State management
-│   ├── cart.ts           # Cart store
-│   └── wishlist.ts       # Wishlist store
-├── types/                # TypeScript definitions
-│   └── index.ts          # Type definitions
-└── public/               # Static assets
+├── app/                   # Next.js App Router pages
+│   ├── page.tsx           # Homepage
+│   ├── about/             # About page (brand story, branches, timeline)
+│   ├── contact/           # Contact page (form, branches, FAQ)
+│   ├── products/          # Product catalog + detail pages
+│   └── collections/       # Category collection pages
+├── components/
+│   ├── home/              # Homepage sections (hero, royal looks, stats, marquee…)
+│   ├── layout/            # Header & footer
+│   ├── product/           # Product cards, grid, filters
+│   ├── modern/            # Back-to-top, smooth scroll, lazy image
+│   └── ui/                # Button, WhatsApp widget
+├── lib/                   # Utilities, constants, product data
+├── store/                 # Zustand state
+├── types/                 # TypeScript definitions
+├── proxy.ts               # Security headers (CSP, HSTS, etc.)
+└── public/                # Images & static assets
 ```
 
 ## 🎨 Design System
 
-### Colors
-- **Primary Gold**: #D4AF37 (luxury, premium)
-- **Platinum**: #E5E4E2 (elegance, sophistication)
-- **Diamond White**: #F8F8FF (purity, clarity)
-- **Rose Gold**: #E8B4B8 (warmth, romance)
+- **Primary Gold**: `#d4af37` · **Dark Brown**: `#2d2010` · **Cream**: `#f9f2e5`
+- **Headings**: Playfair Display · **Body**: Inter · **Accents**: Cormorant Garamond
 
-### Typography
-- **Headings**: Playfair Display (luxury serif)
-- **Body Text**: Inter (modern sans-serif)
-- **Luxury Text**: Cormorant Garamond (elegant serif)
+## 🔧 Configuration
 
-## 🛒 Key Components
+All contact details are set via environment variables — see `.env.example`:
 
-### Product Card
-- High-quality image display with hover effects
-- Wishlist and cart functionality
-- Rating and review display
-- Material and certification info
+| Variable | Purpose |
+|---|---|
+| `NEXT_PUBLIC_CONTACT_WHATSAPP` | WhatsApp number for all chat CTAs |
+| `NEXT_PUBLIC_CONTACT_PHONE` | Displayed phone number |
+| `NEXT_PUBLIC_CONTACT_EMAIL` | Contact email |
+| `NEXT_PUBLIC_BASE_URL` | Canonical site URL (SEO/sitemap) |
 
-### Shopping Cart
-- Sliding sidebar with smooth animations
-- Quantity management
-- Real-time price calculations
-- Persistent storage
+To update products, edit `lib/data.ts` and `app/products/page.tsx`.
 
-### Header
-- Responsive navigation with mobile menu
-- Search functionality
-- Cart and wishlist indicators
-- Contact information display
+## 🚀 Deployment (Vercel recommended)
 
-## 📱 Responsive Design
-
-The website is fully responsive and optimized for:
-- **Mobile**: 320px - 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: 1024px+
-
-## 🔧 Customization
-
-### Adding New Products
-Update the `lib/data.ts` file with new product information:
-
-```typescript
-export const featuredProducts: Product[] = [
-  {
-    id: 'unique-id',
-    name: 'Product Name',
-    price: 50000,
-    images: ['image-url'],
-    category: 'Category',
-    // ... other properties
-  }
-]
-```
-
-### Styling
-Customize the design system in `tailwind.config.js`:
-
-```javascript
-theme: {
-  extend: {
-    colors: {
-      gold: {
-        500: '#d4af37', // Primary gold color
-      }
-    }
-  }
-}
-```
-
-## 🚀 Deployment
-
-### Vercel (Recommended)
 1. Push code to GitHub
-2. Connect repository to Vercel
-3. Deploy automatically
-
-### Other Platforms
-- **Netlify**: Connect GitHub repository
-- **AWS Amplify**: Use the build settings
-- **Docker**: Use the included Dockerfile
+2. Import the repository in Vercel
+3. Add the environment variables from `.env.example`
+4. Deploy
 
 ## 📞 Business Information
 
-**Hariom LaxmiNarayan Jewellers**
-- **Address**: Shop No 05, Skanda Business Park, Rajvihar, Kurnool - 518001
-- **Phone**: Contact via website form or WhatsApp
-- **WhatsApp**: Available through website contact form
-- **Hours**: Open until 9:00 PM daily
+**Hariom LaxmiNarayan Jewellers (HLJ Group)** — Founded 1987 by Hari Om Verma & Laxmi Narayan Verma
 
-> **Note**: Contact numbers are configured via environment variables (`NEXT_PUBLIC_CONTACT_PHONE` and `NEXT_PUBLIC_CONTACT_WHATSAPP`) for security. See `.env.example` for configuration.
+**Branches:**
+1. Sonapatti, Bhagalpur, Bihar (Est. 1987 — flagship)
+2. Kharamnchak, Bhagalpur, Bihar
+3. Police Lane, Tilkamanji, Bhagalpur, Bihar
+4. Deoghar, Jharkhand
+5. Purnea, Bihar
+6. Sonapatti Branch 2, Bhagalpur, Bihar
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+**Hours**: Mon–Sun, 10:00 AM – 9:00 PM
 
 ## 📄 License
 
 This project is proprietary software owned by Hariom LaxmiNarayan Jewellers.
-
-## 🆘 Support
-
-For technical support or business inquiries:
-- **Email**: info@hariomlaxminarayanjewellers.com
-- **Phone**: See website for contact details
-- **WhatsApp**: See website for contact details
-
----
-
-Built with ❤️ for Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection"# jwellry" 
