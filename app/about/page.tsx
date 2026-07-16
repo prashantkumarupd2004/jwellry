@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
-import { Award, Users, Clock, Shield, Heart, Gem, MapPin, Phone, Mail } from 'lucide-react'
+import { Award, Users, Clock, Shield, Heart, Gem, MapPin, Phone, Mail, Building2 } from 'lucide-react'
 import { motion } from 'framer-motion'
 import { TiltCard } from '@/components/home/tilt-card'
 import { GoldCoin3D } from '@/components/home/gold-coin-3d'
@@ -23,13 +23,13 @@ const values = [
 ]
 
 const milestones = [
-  { year: '2009', event: 'Founded Hariom LaxmiNarayan Jewellers in Bhagalpur', icon: '🌟' },
-  { year: '2012', event: 'Expanded to include bridal jewellery collections', icon: '👰' },
-  { year: '2015', event: 'Introduced GIA-certified diamond collection', icon: '💎' },
-  { year: '2018', event: 'Launched custom jewellery design studio', icon: '✏️' },
-  { year: '2020', event: 'Reached 5,000+ satisfied customers', icon: '🎉' },
-  { year: '2023', event: 'Online store launched for pan-India delivery', icon: '🚀' },
-  { year: '2025', event: '15+ years of jewellery excellence in Bhagalpur', icon: '👑' },
+  { year: '1987', event: 'HLJ Group founded by Hari Om Verma & Laxmi Narayan Verma — first shop opens at Sonapatti, Bhagalpur', icon: '🌟' },
+  { year: '1994', event: 'Second branch established at Kharamnchak, growing the family legacy', icon: '🏪' },
+  { year: '2000', event: 'Third branch opened at Police Lane, Tilkamanji — serving a wider Bhagalpur community', icon: '👑' },
+  { year: '2008', event: 'Expanded to Deoghar — bringing HLJ craftsmanship to Jharkhand', icon: '💎' },
+  { year: '2015', event: 'Fifth branch launched in Purnea — reaching North Bihar', icon: '🚀' },
+  { year: '2022', event: 'Sixth branch opened — Sonapatti Branch 2, completing a circle back to our roots', icon: '🎉' },
+  { year: '2025', event: '38+ years of jewellery excellence across 6 branches in Bihar & Jharkhand', icon: '🏆' },
 ]
 
 const fadeUp = {
@@ -90,7 +90,7 @@ export default function AboutPage() {
               <h1 className="font-playfair font-bold mb-5" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)', color: '#fdf8f0', lineHeight: 1.1 }}>
                 Crafting Timeless<br />
                 <span style={{ fontStyle: 'italic', fontWeight: 400, background: 'linear-gradient(90deg, #f0cf6b, #d4af37 50%, #e9c85f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
-                  Elegance Since 2009
+                  Elegance Since 1987
                 </span>
               </h1>
               <p className="text-sm leading-relaxed mb-8" style={{ color: 'rgba(245,232,206,0.75)', maxWidth: '420px' }}>
@@ -98,9 +98,9 @@ export default function AboutPage() {
               </p>
               <div className="flex flex-wrap gap-6 sm:gap-8">
                 {[
-                  { number: '15+', label: 'Years of Excellence' },
-                  { number: '500+', label: 'Unique Designs' },
-                  { number: '10K+', label: 'Happy Customers' },
+                  { number: '38+', label: 'Years of Excellence' },
+                  { number: '6', label: 'Branches' },
+                  { number: '50K+', label: 'Happy Customers' },
                 ].map((stat) => (
                   <div key={stat.label}>
                     <div className="font-playfair font-bold text-2xl" style={{ color: '#e9c85f' }}>{stat.number}</div>
@@ -154,13 +154,13 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4" style={{ color: '#5a4030' }}>
                   <p className="text-sm leading-relaxed">
-                    Founded in the heart of Bhagalpur, Hariom LaxmiNarayan Jewellers began as a passionate family venture with a single dream — to bring world-class jewellery to every home in Bihar. What started in a small studio has grown into the region&apos;s most trusted fine jewellery destination.
+                    In 1987, two visionary brothers — <strong>Hari Om Verma</strong> and <strong>Laxmi Narayan Verma</strong> — planted the seeds of what would become the HLJ Group. Starting with a single shop on the bustling lanes of Sonapatti, Bhagalpur, they forged a legacy built on trust, purity, and unmatched craftsmanship.
                   </p>
                   <p className="text-sm leading-relaxed">
-                    Our founder, with a deep background in gemology and traditional goldsmithing, established Hariom LaxmiNarayan Jewellers with a firm commitment: every piece must tell a story. We draw inspiration from the rich tapestry of Indian art — from Mughal filigree to temple jewellery — and bring it to life using the finest 22K gold, certified diamonds, and rare precious stones.
+                    Driven by an unwavering passion for fine jewellery and an intimate understanding of Indian heritage, the founders grew HLJ from a neighbourhood showroom into a multi-branch jewellery empire spanning Bihar and Jharkhand. Every piece carries the promise they made in 1987 — quality that endures and beauty that transcends generations.
                   </p>
                   <p className="text-sm leading-relaxed">
-                    Today, with 15+ years of excellence, we continue to uphold the same founding values: authenticity, integrity, and an unwavering passion for beauty. Every jewel that leaves our showroom carries with it the promise of perfection.
+                    Today, with <strong>38+ years of excellence</strong> and <strong>6 thriving branches</strong>, the HLJ Group continues to honour its founding values: authenticity, integrity, and an unwavering passion for beauty. Every jewel that leaves our showroom is a testament to the vision of Hari Om Verma and Laxmi Narayan Verma.
                   </p>
                 </div>
 
@@ -208,7 +208,7 @@ export default function AboutPage() {
                 Our Journey
               </span>
               <h2 className="font-playfair font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: DARK }}>
-                15 Years of Excellence
+                38 Years of Excellence
               </h2>
             </motion.div>
 
@@ -274,6 +274,57 @@ export default function AboutPage() {
                       {value.description}
                     </p>
                   </TiltCard>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════ OUR BRANCHES ══════════ */}
+        <section className="px-5 sm:px-8 lg:px-16 py-20" style={{ background: '#f2e8d4' }}>
+          <div className="max-w-6xl mx-auto">
+            <motion.div className="text-center mb-14" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 block" style={{ color: GOLD_DARK }}>
+                Our Presence
+              </span>
+              <h2 className="font-playfair font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: DARK }}>
+                Our{' '}
+                <span style={{ fontStyle: 'italic', fontWeight: 400, background: 'linear-gradient(90deg, #d4af37, #b8941f 50%, #e9c85f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>6 Branches</span>
+              </h2>
+              <p className="text-sm mt-4 mx-auto max-w-md" style={{ color: '#5a4030' }}>
+                From our humble first shop in 1987 to six flourishing branches — we bring the HLJ promise closer to you.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { branch: 'Branch 1', name: 'Sonapatti', location: 'Sonapatti, Bhagalpur, Bihar', tag: 'Est. 1987 — Our First Shop', icon: '🌟' },
+                { branch: 'Branch 2', name: 'Kharamnchak', location: 'Kharamnchak, Bhagalpur, Bihar', tag: '2nd Shop', icon: '🏪' },
+                { branch: 'Branch 3', name: 'Police Lane', location: 'Police Lane, Tilkamanji, Bhagalpur, Bihar', tag: '3rd Shop', icon: '👑' },
+                { branch: 'Branch 4', name: 'Deoghar', location: 'Deoghar, Jharkhand', tag: '4th Shop', icon: '💎' },
+                { branch: 'Branch 5', name: 'Purnea', location: 'Purnea, Bihar', tag: '5th Shop', icon: '🚀' },
+                { branch: 'Branch 6', name: 'Sonapatti', location: 'Sonapatti, Bhagalpur, Bihar', tag: '6th Shop — Branch 2', icon: '🎉' },
+              ].map((b, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                  style={{ background: 'rgba(255,252,245,0.97)', border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 6px 24px rgba(45,32,16,0.07)' }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-xl" style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', boxShadow: '0 6px 16px rgba(212,175,55,0.35)' }}>
+                      {b.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-bold tracking-[0.2em] uppercase mb-1" style={{ color: GOLD_DARK }}>{b.branch}</div>
+                      <div className="font-playfair font-bold text-lg leading-tight" style={{ color: DARK }}>{b.name}</div>
+                      <div className="flex items-center gap-1.5 mt-2">
+                        <MapPin className="h-3.5 w-3.5 flex-shrink-0" style={{ color: GOLD_DARK }} />
+                        <span className="text-xs leading-snug" style={{ color: '#5a4030' }}>{b.location}</span>
+                      </div>
+                      <span className="inline-block mt-3 text-xs px-3 py-1 rounded-full font-semibold" style={{ background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', color: GOLD_DARK }}>{b.tag}</span>
+                    </div>
+                  </div>
                 </motion.div>
               ))}
             </div>

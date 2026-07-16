@@ -17,9 +17,9 @@ const categories = [
 ]
 
 const stats = [
-  { number: '15+', label: 'Years' },
-  { number: '500+', label: 'Designs' },
-  { number: '10K+', label: 'Clients' },
+  { number: '38+', label: 'Years' },
+  { number: '6', label: 'Branches' },
+  { number: '50K+', label: 'Clients' },
 ]
 
 const GoldSparkle = ({
@@ -97,7 +97,7 @@ export function HeroSection() {
         style={{
           position: 'relative', zIndex: 10,
           display: 'flex', alignItems: 'center', justifyContent: 'center',
-          padding: '84px 2rem 0',
+          padding: 'clamp(112px, 14vw, 136px) 2rem 0',
           gap: '1.5rem',
         }}
         initial={{ opacity: 0, y: -10 }}
@@ -114,7 +114,7 @@ export function HeroSection() {
           textTransform: 'uppercase',
           whiteSpace: 'nowrap',
         }}>
-          ✦ KURNOOL'S FINEST JEWELLERY ✦
+          ✦ BIHAR &amp; JHARKHAND'S FINEST JEWELLERY ✦
         </span>
         <div style={{ flex: 1, height: '1px', background: 'linear-gradient(90deg, rgba(212,175,55,0.4), transparent)' }} />
       </motion.div>
@@ -339,7 +339,7 @@ export function HeroSection() {
             <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(212,175,55,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' }}>✦</div>
             <div>
               <div style={{ fontSize: '0.6rem', fontWeight: 700, color: DARK, letterSpacing: '0.15em', fontFamily: '"Inter", sans-serif' }}>HANDCRAFTED</div>
-              <div style={{ fontSize: '0.55rem', color: GOLD_DARK, fontFamily: '"Inter", sans-serif' }}>Since 2009</div>
+              <div style={{ fontSize: '0.55rem', color: GOLD_DARK, fontFamily: '"Inter", sans-serif' }}>Since 1987</div>
             </div>
           </motion.div>
 
@@ -445,10 +445,10 @@ export function HeroSection() {
             </div>
             <div>
               <div style={{ fontSize: '0.6rem', fontWeight: 700, color: DARK, fontFamily: '"Inter", sans-serif', letterSpacing: '0.1em' }}>
-                ⭐ 4.9/5 · 10,000+ Happy Customers
+                ⭐ 4.9/5 · 50,000+ Happy Customers
               </div>
               <div style={{ fontSize: '0.55rem', color: GOLD_DARK, fontFamily: '"Inter", sans-serif', marginTop: '2px' }}>
-                Trusted since 2009 in Bhagalpur
+                Trusted since 1987 in Bhagalpur
               </div>
             </div>
           </div>

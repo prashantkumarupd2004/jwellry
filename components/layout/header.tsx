@@ -2,68 +2,132 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { useRouter, usePathname } from 'next/navigation'
-import { User, Menu, X } from 'lucide-react'
+import { usePathname } from 'next/navigation'
+import { User, Menu, X, Phone, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+
+const PHONE_DISPLAY = '+91 77390 74092'
+const PHONE_TEL = '+917739074092'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
-  const router = useRouter()
   const pathname = usePathname()
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
+    handleScroll()
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navLinks = [
-    { label: 'HOME', href: '/' },
-    { label: 'ABOUT US', href: '/about' },
-    { label: 'PRODUCTS', href: '/products' },
-    { label: 'CONTACT US', href: '/contact' },
+    { label: 'Home', href: '/' },
+    { label: 'About Us', href: '/about' },
+    { label: 'Products', href: '/products' },
+    { label: 'Contact Us', href: '/contact' },
   ]
 
   const isHome = pathname === '/'
   const isTransparent = isHome && !isScrolled
 
-  // Always use the elegant dark luxury brown & gold theme to match the cream/gold site
-  const textColor = '#2d2010'
+  const textColor = isTransparent ? '#2d2010' : '#2d2010'
   const goldColor = '#b8941f'
+
+  // Split nav evenly around the centered logo on desktop
+  const leftLinks = navLinks.slice(0, 2)
+  const rightLinks = navLinks.slice(2)
+
+  const NavItem = ({ label, href }: { label: string; href: string }) => {
+    const active = pathname === href
+    return (
+      <Link
+        href={href}
+        className="group relative py-2 text-[13px] font-semibold tracking-[0.18em] uppercase transition-colors duration-200"
+        style={{ color: active ? goldColor : textColor }}
+      >
+        {label}
+        {/* Active / hover gold underline */}
+        <span
+          className="absolute -bottom-0.5 left-0 h-px transition-all duration-300"
+          style={{
+            width: active ? '100%' : '0%',
+            background: `linear-gradient(90deg, #d4af37, ${goldColor})`,
+          }}
+        />
+        {!active && (
+          <span
+            className="absolute -bottom-0.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
+            style={{ background: `linear-gradient(90deg, #d4af37, ${goldColor})` }}
+          />
+        )}
+      </Link>
+    )
+  }
 
   return (
     <header
       className={`${isTransparent ? 'absolute' : 'sticky'} top-0 z-50 w-full transition-all duration-500`}
       style={{
-        background: isTransparent
-          ? 'transparent'
-          : 'rgba(249, 242, 229, 0.95)',
+        background: isTransparent ? 'transparent' : 'rgba(249, 242, 229, 0.9)',
         backdropFilter: isTransparent ? 'none' : 'blur(20px)',
         borderBottom: isTransparent
-          ? '1px solid rgba(45, 32, 16, 0.08)'
-          : '1px solid rgba(180, 150, 100, 0.15)',
-        boxShadow: isScrolled ? '0 4px 30px rgba(0,0,0,0.04)' : 'none',
+          ? '1px solid rgba(45, 32, 16, 0.06)'
+          : '1px solid rgba(180, 150, 100, 0.18)',
+        boxShadow: isScrolled ? '0 6px 30px rgba(45,32,16,0.06)' : 'none',
       }}
     >
-      <div className="container mx-auto px-6">
-        <div className="grid grid-cols-3 items-center h-16 relative">
+      {/* ── Slim gold utility bar ── */}
+      <AnimatePresence>
+        {!isScrolled && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: 'auto', opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.35 }}
+            className="overflow-hidden"
+            style={{ background: 'linear-gradient(90deg, #1c1309 0%, #2d2010 50%, #1c1309 100%)' }}
+          >
+            <div className="container mx-auto px-6">
+              <div className="flex items-center justify-center sm:justify-between h-9 text-[10.5px] tracking-[0.18em] uppercase font-medium" style={{ color: '#e9c85f' }}>
+                <span className="hidden sm:flex items-center gap-1.5">
+                  <MapPin className="h-3 w-3" />
+                  6 Branches · Bihar &amp; Jharkhand
+                </span>
+                <span className="flex items-center gap-2">
+                  <span className="hidden xs:inline">✦</span> Trusted Craftsmanship Since 1987
+                </span>
+                <a href={`tel:${PHONE_TEL}`} className="hidden sm:flex items-center gap-1.5 hover:text-white transition-colors">
+                  <Phone className="h-3 w-3" />
+                  {PHONE_DISPLAY}
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
-          {/* Left: Menu Toggle */}
-          <div className="flex justify-start">
+      {/* ── Main bar ── */}
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-3 items-center h-16 lg:h-20 relative">
+
+          {/* Left: desktop nav / mobile menu toggle */}
+          <div className="flex justify-start items-center">
+            {/* Desktop links */}
+            <nav className="hidden lg:flex items-center gap-8">
+              {leftLinks.map((l) => (
+                <NavItem key={l.href} {...l} />
+              ))}
+            </nav>
+            {/* Mobile hamburger */}
             <button
-              className="flex items-center gap-2 transition-all duration-200 hover:opacity-80"
+              className="lg:hidden flex items-center gap-2 transition-all duration-200 hover:opacity-80"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="menu"
               style={{ color: textColor }}
             >
-              {isMenuOpen
-                ? <X className="h-5 w-5" />
-                : <Menu className="h-5 w-5" />
-              }
-              <span className="text-xs font-bold tracking-[0.2em] uppercase hidden sm:block">
-                MENU
-              </span>
+              {isMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+              <span className="text-xs font-bold tracking-[0.2em] uppercase hidden sm:block">Menu</span>
             </button>
           </div>
 
@@ -73,28 +137,37 @@ export function Header() {
               <img
                 src="/logo.jpeg"
                 alt="Hariom LaxmiNarayan Jewellers Logo"
-                className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-                style={{ maxWidth: '180px' }}
+                className="h-11 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+                style={{ maxWidth: '200px' }}
               />
             </Link>
           </div>
 
-          {/* Right: Icons */}
-          <div className="flex items-center justify-end gap-1 sm:gap-2">
+          {/* Right: desktop nav + account */}
+          <div className="flex items-center justify-end gap-6">
+            <nav className="hidden lg:flex items-center gap-8">
+              {rightLinks.map((l) => (
+                <NavItem key={l.href} {...l} />
+              ))}
+            </nav>
             <Link href="/account">
               <button
-                className="w-9 h-9 flex items-center justify-center rounded-full transition-all duration-200 hover:scale-110"
-                style={{ color: textColor }}
+                className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                style={{
+                  color: goldColor,
+                  border: '1px solid rgba(184,148,31,0.35)',
+                  background: 'rgba(212,175,55,0.06)',
+                }}
                 aria-label="account"
               >
-                <User className="h-5 w-5" />
+                <User className="h-[18px] w-[18px]" />
               </button>
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Full-Screen Overlay Nav */}
+      {/* ── Mobile Overlay Nav ── */}
       <AnimatePresence>
         {isMenuOpen && (
           <motion.div
@@ -102,7 +175,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.3 }}
-            className="absolute top-full left-0 right-0 z-50 border-b"
+            className="lg:hidden absolute top-full left-0 right-0 z-50 border-b"
             style={{
               background: 'linear-gradient(180deg, #f9f2e5 0%, #f2e8d4 100%)',
               borderColor: 'rgba(180,150,100,0.2)',
@@ -110,28 +183,42 @@ export function Header() {
             }}
           >
             <div className="container mx-auto px-6 py-8">
-              <nav className="flex flex-col sm:flex-row gap-6 sm:gap-12 items-start sm:items-center">
-                {navLinks.map(({ label, href }, i) => (
-                  <motion.div
-                    key={label}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.07, duration: 0.3 }}
-                  >
-                    <Link
-                      href={href}
-                      className="group relative text-sm font-semibold tracking-[0.2em] transition-colors duration-200"
-                      style={{ color: '#4a3520' }}
-                      onClick={() => setIsMenuOpen(false)}
+              <nav className="flex flex-col gap-5">
+                {navLinks.map(({ label, href }, i) => {
+                  const active = pathname === href
+                  return (
+                    <motion.div
+                      key={label}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: i * 0.07, duration: 0.3 }}
                     >
-                      {label}
-                      <span
-                        className="absolute -bottom-1 left-0 w-0 h-px group-hover:w-full transition-all duration-300"
-                        style={{ background: `linear-gradient(90deg, #d4af37, ${goldColor})` }}
-                      />
-                    </Link>
-                  </motion.div>
-                ))}
+                      <Link
+                        href={href}
+                        className="group relative text-sm font-semibold tracking-[0.2em] uppercase transition-colors duration-200"
+                        style={{ color: active ? goldColor : '#4a3520' }}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {label}
+                        <span
+                          className="absolute -bottom-1 left-0 h-px transition-all duration-300"
+                          style={{
+                            width: active ? '100%' : '0%',
+                            background: `linear-gradient(90deg, #d4af37, ${goldColor})`,
+                          }}
+                        />
+                      </Link>
+                    </motion.div>
+                  )
+                })}
+                <a
+                  href={`tel:${PHONE_TEL}`}
+                  className="flex items-center gap-2 mt-2 text-xs tracking-[0.15em] uppercase"
+                  style={{ color: goldColor }}
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  {PHONE_DISPLAY}
+                </a>
               </nav>
             </div>
           </motion.div>

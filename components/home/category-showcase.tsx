@@ -283,7 +283,7 @@ export function CategoryShowcase() {
                   Pure Craftsmanship
                 </div>
                 <div style={{ fontSize: '0.7rem', color: 'rgba(255,255,255,0.6)', marginTop: '2px' }}>
-                  Since 2009 · Kurnool, India
+                  Since 1987 · Bhagalpur, India
                 </div>
               </div>
             </div>

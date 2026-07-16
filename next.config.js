@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Pin the project root — a stray package-lock.json in the user home
+  // directory otherwise makes Turbopack guess the wrong workspace root.
+  turbopack: {
+    root: __dirname,
+  },
   images: {
     remotePatterns: [
       {

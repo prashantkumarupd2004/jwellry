@@ -103,7 +103,7 @@ export function ContactInfo() {
         </h3>
         <div className="space-y-4">
           {[
-            { title: '15+ Years Experience', desc: 'Trusted expertise in jewelry crafting' },
+            { title: '38+ Years Experience', desc: 'Trusted expertise in jewelry crafting' },
             { title: 'Certified Authentic', desc: 'All jewelry comes with proper certification' },
             { title: 'Custom Designs', desc: 'Personalized jewelry for special occasions' },
             { title: 'Lifetime Support', desc: 'Ongoing maintenance and repair services' },

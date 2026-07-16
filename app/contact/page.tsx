@@ -455,7 +455,79 @@ export default function ContactPage() {
           </div>
         </section>
 
+        {/* ══════════ OUR 6 BRANCHES ══════════ */}
+        <section className="px-5 sm:px-8 lg:px-16 py-16" style={{ background: '#f9f2e5' }}>
+          <div className="max-w-6xl mx-auto">
+            <motion.div className="text-center mb-12" initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 block" style={{ color: GOLD_DARK }}>
+                ✦ Find Us Near You
+              </span>
+              <h2 className="font-playfair font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: DARK }}>
+                Our{' '}
+                <span style={{ fontStyle: 'italic', fontWeight: 400, background: 'linear-gradient(90deg, #d4af37, #b8941f 50%, #e9c85f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>
+                  6 Branches
+                </span>
+              </h2>
+              <p className="text-sm mt-3 max-w-md mx-auto" style={{ color: '#5a4030' }}>
+                From Bhagalpur to Deoghar and Purnea — we are always close to you.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              {[
+                { no: 1, name: 'Sonapatti (Branch 1)', location: 'Sonapatti, Bhagalpur, Bihar', tag: 'Est. 1987 — Flagship', icon: '🌟', gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
+                { no: 2, name: 'Kharamnchak', location: 'Kharamnchak, Bhagalpur, Bihar', tag: '2nd Shop', icon: '🏪', gmaps: 'https://maps.google.com/?q=Kharamnchak+Bhagalpur+Bihar' },
+                { no: 3, name: 'Police Lane, Tilkamanji', location: 'Police Lane, Tilkamanji, Bhagalpur, Bihar', tag: '3rd Shop', icon: '👑', gmaps: 'https://maps.google.com/?q=Police+Lane+Tilkamanji+Bhagalpur+Bihar' },
+                { no: 4, name: 'Deoghar', location: 'Deoghar, Jharkhand', tag: '4th Shop', icon: '💎', gmaps: 'https://maps.google.com/?q=Deoghar+Jharkhand' },
+                { no: 5, name: 'Purnea', location: 'Purnea, Bihar', tag: '5th Shop', icon: '🚀', gmaps: 'https://maps.google.com/?q=Purnea+Bihar' },
+                { no: 6, name: 'Sonapatti (Branch 2)', location: 'Sonapatti, Bhagalpur, Bihar', tag: '6th Shop', icon: '🎉', gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
+              ].map((b, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.45, delay: i * 0.08 }}
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl p-5 flex flex-col gap-3"
+                  style={{ background: 'rgba(255,252,245,0.97)', border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 6px 24px rgba(45,32,16,0.07)' }}
+                >
+                  <div className="flex items-start gap-3">
+                    <div
+                      className="w-11 h-11 rounded-xl flex items-center justify-center text-xl flex-shrink-0"
+                      style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', boxShadow: '0 6px 16px rgba(212,175,55,0.3)' }}
+                    >
+                      {b.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: GOLD_DARK }}>Branch {b.no}</div>
+                      <div className="font-playfair font-bold text-base leading-tight mt-0.5" style={{ color: DARK }}>{b.name}</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <MapPin className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" style={{ color: GOLD_DARK }} />
+                    <span className="text-xs leading-relaxed" style={{ color: '#5a4030' }}>{b.location}</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="inline-block text-xs px-2.5 py-1 rounded-full font-semibold" style={{ background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', color: GOLD_DARK }}>{b.tag}</span>
+                    <a
+                      href={b.gmaps}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="text-xs font-bold tracking-wide hover:underline"
+                      style={{ color: GOLD_DARK }}
+                    >
+                      Map →
+                    </a>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ══════════ FAQ SECTION — dark gold ══════════ */}
+
         <section className="px-5 sm:px-8 lg:px-16 py-20 relative overflow-hidden" style={{ background: 'radial-gradient(ellipse at top, #2d2010 0%, #1c1309 60%, #140d05 100%)', color: '#f5e8ce' }}>
           <div aria-hidden style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(circle at 50% 0%, rgba(212,175,55,0.16), transparent 55%)' }} />
 

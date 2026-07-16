@@ -27,7 +27,7 @@ export default function Error({
         </h2>
         
         <p className="text-gray-600 mb-8">
-          We encountered an unexpected error while loading your jewelry experience. 
+          We encountered an unexpected error while loading your jewelry experience.
           Please try again or return to the homepage.
         </p>
         

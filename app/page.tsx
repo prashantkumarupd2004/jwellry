@@ -5,6 +5,10 @@ import { FeaturedProducts } from '@/components/home/featured-products'
 import { CategoryShowcase } from '@/components/home/category-showcase'
 import { GoldPromise } from '@/components/home/gold-promise'
 import { BackToTop } from '@/components/modern/back-to-top'
+import { TrustMarquee } from '@/components/home/trust-marquee'
+import { StatsSection } from '@/components/home/stats-section'
+import { InstagramFeed } from '@/components/home/instagram-feed'
+import { RoyalLooks } from '@/components/home/royal-looks'
 
 export default function HomePage() {
   return (
@@ -12,9 +16,13 @@ export default function HomePage() {
       <Header />
       <main>
         <HeroSection />
+        <TrustMarquee />
         <CategoryShowcase />
+        <StatsSection />
+        <RoyalLooks />
         <FeaturedProducts />
         <GoldPromise />
+        <InstagramFeed />
       </main>
       <Footer />
       <BackToTop />

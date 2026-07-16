@@ -47,7 +47,7 @@ export function Footer() {
               </p>
             </div>
             <p className="text-sm leading-relaxed" style={{ color: 'rgba(249,242,229,0.6)' }}>
-              Crafting exquisite jewellery since 2009 in Bhagalpur, Bihar. Specializing in 22K gold, certified diamonds, bridal sets, and bespoke custom designs.
+              Crafting exquisite jewellery since 1987. Specializing in 22K gold, certified diamonds, bridal sets, and bespoke custom designs across 6 branches in Bihar & Jharkhand.
             </p>
             <div className="flex gap-3">
               {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (

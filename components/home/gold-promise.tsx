@@ -8,7 +8,7 @@ import { GoldCoin3D } from './gold-coin-3d'
 const promises = [
   { icon: ShieldCheck, title: 'BIS Hallmarked', desc: 'Every piece certified for guaranteed purity you can trust.' },
   { icon: Gem, title: 'Ethically Sourced', desc: 'Conflict-free diamonds and responsibly mined gold.' },
-  { icon: Award, title: '15+ Years Legacy', desc: 'Three generations of master craftsmanship since 2009.' },
+  { icon: Award, title: '38+ Years Legacy', desc: 'Three generations of master craftsmanship since 1987.' },
   { icon: Sparkles, title: 'Lifetime Care', desc: 'Free cleaning, polishing and maintenance, always.' },
 ]
 

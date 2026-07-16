@@ -91,7 +91,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${cormorant.variable}`} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
         <link rel="shortcut icon" type="image/jpeg" href="/logo.jpeg" />
