@@ -2,7 +2,8 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
 import { motion } from 'framer-motion'
@@ -11,34 +12,53 @@ import { GoldCoin3D } from '@/components/home/gold-coin-3d'
 import { getEnquiryWhatsAppUrl } from '@/lib/constants'
 
 const allProducts = [
+  // Earrings & Ear Ornaments
+  { id: 1, name: 'BALI', material: '22k yellow gold', image: '/item_bali.jpg', category: 'earrings' },
+  { id: 2, name: 'EARRING', material: '22k & 18k gold', image: '/item_earring.jpg', category: 'earrings' },
+  { id: 3, name: 'KANOTI', material: '22k yellow gold', image: '/item_kanoti.jpg', category: 'earrings' },
   // Rings
-  { id: 1, name: 'ETERNAL BAND RING', material: '14k yellow gold', price: '₹32,000', image: '/product_ring.png', category: 'rings' },
-  { id: 2, name: 'HEXA GOLD RING', material: '14k yellow gold', price: '₹45,000', image: '/product_ring.png', category: 'rings' },
-  { id: 3, name: 'ORNATE TWIST RING', material: '14k yellow gold', price: '₹52,000', image: '/product_ring.png', category: 'rings' },
-  { id: 4, name: 'CELESTIAL SIGNET', material: '18k yellow gold', price: '₹78,000', image: '/product_ring.png', category: 'rings' },
-  // Necklaces
-  { id: 5, name: 'SPIRE CHAIN NECKLACE', material: '14k yellow gold', price: '₹1,25,000', image: '/product_necklace.png', category: 'necklaces' },
-  { id: 6, name: 'CELESTIAL SPARK PENDANT', material: '14k yellow gold with cubic zirconia', price: '₹1,25,000', image: '/product_necklace.png', category: 'necklaces' },
-  { id: 7, name: 'GOLDEN RAINDROP NECKLACE', material: '14k yellow gold', price: '₹92,000', image: '/product_necklace.png', category: 'necklaces' },
-  { id: 8, name: 'LUNA CRESCENT PENDANT', material: '18k yellow gold with diamond', price: '₹1,80,000', image: '/product_necklace.png', category: 'necklaces' },
-  // Earrings
-  { id: 9, name: 'SOLAR RADIANCE EARRINGS', material: '14k yellow gold', price: '₹68,000', image: '/product_earrings.png', category: 'earrings' },
-  { id: 10, name: 'STARBURST HOOPS', material: '14k yellow gold', price: '₹55,000', image: '/product_earrings.png', category: 'earrings' },
-  { id: 11, name: 'FLOATING PEARL DROPS', material: '14k gold with freshwater pearls', price: '₹48,000', image: '/product_earrings.png', category: 'earrings' },
-  { id: 12, name: 'EMPIRE STUD EARRINGS', material: '18k yellow gold', price: '₹95,000', image: '/product_earrings.png', category: 'earrings' },
-  // Bracelets
-  { id: 13, name: 'PEARL HALO PENDANT', material: '14k yellow gold', price: '₹48,000', image: '/product_bracelet.png', category: 'bracelets' },
-  { id: 14, name: 'TWISTED GOLD BANGLE', material: '22k yellow gold', price: '₹1,10,000', image: '/product_bracelet.png', category: 'bracelets' },
-  { id: 15, name: 'DIAMOND TENNIS BRACELET', material: '18k white gold with diamonds', price: '₹2,50,000', image: '/product_bracelet.png', category: 'bracelets' },
-  { id: 16, name: 'CELESTIAL CHAIN BRACELET', material: '14k yellow gold', price: '₹75,000', image: '/product_bracelet.png', category: 'bracelets' },
+  { id: 4, name: 'GENTS RING', material: '22k & 18k gold', image: '/item_gents_ring.jpg', category: 'rings' },
+  { id: 5, name: 'LADIES RING', material: '22k & 18k gold', image: '/item_ladies_ring.jpg', category: 'rings' },
+  // Necklaces & Chains
+  { id: 6, name: 'CHAIN', material: '22k yellow gold', image: '/item_chain.jpg', category: 'necklaces' },
+  { id: 7, name: 'NECKLACE', material: '22k yellow gold', image: '/item_necklace.jpg', category: 'necklaces' },
+  { id: 8, name: 'LOCKET', material: '22k & 18k gold', image: '/item_locket.jpg', category: 'necklaces' },
+  { id: 9, name: 'MANGAL SUTRA', material: '22k gold with black beads', image: '/item_mangalsutra.jpg', category: 'necklaces' },
+  { id: 10, name: 'NATH / NATH CHAIN', material: '22k yellow gold', image: '/item_nath.jpg', category: 'necklaces' },
+  { id: 11, name: 'TIKA', material: '22k gold & silver', image: '/item_tika.jpg', category: 'necklaces' },
+  // Bangles, Kada & Bracelets
+  { id: 12, name: 'BANGLES', material: '22k yellow gold', image: '/item_bangles.jpg', category: 'bangles' },
+  { id: 13, name: 'KADA', material: '22k gold & silver', image: '/item_kada.jpg', category: 'bangles' },
+  { id: 14, name: 'POLA', material: '22k gold binding', image: '/prod_gold_bangles.png', category: 'bangles' },
+  { id: 15, name: 'BRACELET', material: '22k & 18k gold', image: '/item_bracelet.jpg', category: 'bangles' },
+  // 18k Yellow Gold
+  { id: 16, name: '18K GOLD RING', material: '18k hallmarked yellow gold', image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1200&q=90', category: 'yellow-gold-18k' },
+  { id: 17, name: '18K GOLD CHAIN', material: '18k hallmarked yellow gold', image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1200&q=90', category: 'yellow-gold-18k' },
+  { id: 18, name: '18K GOLD PENDANT', material: '18k hallmarked yellow gold', image: 'https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=1200&q=90', category: 'yellow-gold-18k' },
+  // 22k Yellow Gold
+  { id: 19, name: '22K GOLD NECKLACE SET', material: '22k pure yellow gold', image: 'https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?w=1200&q=90', category: 'yellow-gold-22k' },
+  { id: 20, name: '22K GOLD BANGLES', material: '22k pure yellow gold', image: 'https://images.unsplash.com/photo-1573408301185-9146fe634ad0?w=1200&q=90', category: 'yellow-gold-22k' },
+  { id: 21, name: '22K BRIDAL GOLD SET', material: '22k pure yellow gold with kundan', image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=1200&q=90', category: 'yellow-gold-22k' },
+  // Silver
+  { id: 22, name: 'SILVER PAYAL', material: 'Pure 925 sterling silver', image: 'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=1200&q=90', category: 'silver' },
+  { id: 23, name: 'SILVER KADA', material: 'Pure 925 sterling silver', image: 'https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1200&q=90', category: 'silver' },
+  { id: 24, name: 'SILVER PENDANT SET', material: 'Pure 925 sterling silver', image: 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=1200&q=90', category: 'silver' },
+  // Diamond
+  { id: 25, name: 'DIAMOND RING', material: 'Certified natural diamond, 18k gold', image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=1200&q=90', category: 'diamond' },
+  { id: 26, name: 'DIAMOND EARRINGS', material: 'Certified natural diamond, 18k gold', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=1200&q=90', category: 'diamond' },
+  { id: 27, name: 'DIAMOND PENDANT', material: 'Certified natural diamond, 18k white gold', image: 'https://images.unsplash.com/photo-1544376664-80b17f09d399?w=1200&q=90', category: 'diamond' },
 ]
 
 const categories = [
   { value: 'all', label: 'ALL' },
+  { value: 'yellow-gold-18k', label: 'YELLOW GOLD 18K' },
+  { value: 'yellow-gold-22k', label: 'YELLOW GOLD 22K' },
+  { value: 'silver', label: 'SILVER' },
+  { value: 'diamond', label: 'DIAMOND' },
   { value: 'rings', label: 'RINGS' },
-  { value: 'necklaces', label: 'NECKLACES' },
+  { value: 'necklaces', label: 'NECKLACES & CHAINS' },
   { value: 'earrings', label: 'EARRINGS' },
-  { value: 'bracelets', label: 'BRACELETS' },
+  { value: 'bangles', label: 'BANGLES & BRACELETS' },
 ]
 
 const PARTICLES = [
@@ -49,7 +69,20 @@ const PARTICLES = [
 ]
 
 export default function ProductsPage() {
-  const [activeCategory, setActiveCategory] = useState('all')
+  return (
+    <Suspense>
+      <ProductsPageContent />
+    </Suspense>
+  )
+}
+
+function ProductsPageContent() {
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get('category') || 'all'
+  // homepage links use "bracelets"; the grid groups them under "bangles"
+  const normalized = categoryParam === 'bracelets' ? 'bangles' : categoryParam
+  const initialCategory = categories.some(c => c.value === normalized) ? normalized : 'all'
+  const [activeCategory, setActiveCategory] = useState(initialCategory)
 
   const filtered = activeCategory === 'all'
     ? allProducts
@@ -187,7 +220,7 @@ export default function ProductsPage() {
                     {/* category badge */}
                     <div style={{ position: 'absolute', top: '12px', left: '12px', background: 'rgba(28,19,9,0.85)', backdropFilter: 'blur(4px)', padding: '4px 11px', borderRadius: '100px', border: '1px solid rgba(212,175,55,0.3)' }}>
                       <span style={{ fontSize: '0.52rem', fontWeight: 700, letterSpacing: '0.15em', color: '#e9c85f' }}>
-                        {product.category.toUpperCase()}
+                        {product.category.replace(/-/g, ' ').toUpperCase()}
                       </span>
                     </div>
                     {/* gold shine sweep on hover */}
@@ -227,15 +260,20 @@ export default function ProductsPage() {
                       </p>
                     </div>
                     <div style={{ borderTop: '1px solid rgba(45,32,16,0.07)', paddingTop: '10px' }}>
-                      <span style={{
-                        display: 'inline-block',
-                        fontSize: '0.8rem', fontWeight: 800, color: '#7a5a12',
-                        padding: '4px 12px', borderRadius: '100px',
-                        background: 'linear-gradient(135deg, rgba(240,207,107,0.4), rgba(212,175,55,0.25))',
-                        border: '1px solid rgba(212,175,55,0.35)',
-                      }}>
-                        {product.price}
-                      </span>
+                      <a
+                        href={getEnquiryWhatsAppUrl(product.name)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{
+                          display: 'inline-block',
+                          fontSize: '0.7rem', fontWeight: 800, letterSpacing: '0.12em', color: '#7a5a12',
+                          padding: '5px 14px', borderRadius: '100px',
+                          background: 'linear-gradient(135deg, rgba(240,207,107,0.4), rgba(212,175,55,0.25))',
+                          border: '1px solid rgba(212,175,55,0.35)',
+                          textDecoration: 'none',
+                        }}>
+                        ENQUIRE NOW
+                      </a>
                     </div>
                   </div>
                 </TiltCard>

@@ -8,7 +8,6 @@ import { motion } from 'framer-motion'
 import { Product } from '@/types'
 import { Button } from '@/components/ui/button'
 import { getEnquiryWhatsAppUrl } from '@/lib/constants'
-import { formatPrice, calculateDiscount } from '@/lib/utils'
 import { cn } from '@/lib/utils'
 
 interface ProductCardProps {
@@ -19,8 +18,6 @@ interface ProductCardProps {
 export function ProductCard({ product, className }: ProductCardProps) {
   const [isHovered, setIsHovered] = useState(false)
   const [imageLoaded, setImageLoaded] = useState(false)
-
-  const discount = product.originalPrice ? calculateDiscount(product.originalPrice, product.price) : 0
 
   const handleEnquire = (e: React.MouseEvent) => {
     e.preventDefault()
@@ -40,13 +37,6 @@ export function ProductCard({ product, className }: ProductCardProps) {
         <div className="bg-white rounded-3xl overflow-hidden shadow-card hover:luxury-shadow transition-all duration-700 border border-gray-100 group-hover:border-gold-200">
           {/* Image Container */}
           <div className="relative aspect-square overflow-hidden bg-gray-100">
-            {/* Discount Badge */}
-            {discount > 0 && (
-              <div className="absolute top-3 left-3 z-10 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
-                {discount}% OFF
-              </div>
-            )}
-
             {/* Stock Status */}
             {!product.inStock && (
               <div className="absolute top-3 right-3 z-10 bg-gray-800 text-white px-2 py-1 rounded-full text-xs font-semibold">
@@ -138,16 +128,15 @@ export function ProductCard({ product, className }: ProductCardProps) {
               </span>
             </div>
 
-            {/* Price */}
-            <div className="flex items-center space-x-2 mb-3">
-              <span className="text-lg font-bold text-gray-900">
-                {formatPrice(product.price)}
-              </span>
-              {product.originalPrice && (
-                <span className="text-sm text-gray-500 line-through">
-                  {formatPrice(product.originalPrice)}
-                </span>
-              )}
+            {/* Enquiry */}
+            <div className="mb-3">
+              <button
+                onClick={handleEnquire}
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-gold-700 bg-gold-50 border border-gold-200 rounded-full px-4 py-1.5 hover:bg-gold-100 transition-colors"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Enquire for Price
+              </button>
             </div>
 
             {/* Material & Certification */}

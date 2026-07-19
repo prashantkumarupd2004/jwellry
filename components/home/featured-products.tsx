@@ -4,6 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { TiltCard } from './tilt-card'
+import { getEnquiryWhatsAppUrl } from '@/lib/constants'
 
 const categories = [
   {
@@ -37,7 +38,6 @@ const products = [
     id: 1,
     name: 'ETERNAL SOLITAIRE RING',
     material: '18k yellow gold & brilliant cut diamond',
-    price: '₹62,000',
     image: '/prod_diamond_ring.png',
     category: 'rings',
   },
@@ -45,7 +45,6 @@ const products = [
     id: 2,
     name: 'ROYAL FILIGREE CHOKER',
     material: '22k gold with premium rubies',
-    price: '₹2,45,000',
     image: '/prod_gold_necklace.png',
     category: 'necklaces',
   },
@@ -53,7 +52,6 @@ const products = [
     id: 3,
     name: 'HERITAGE JHUMKA EARRINGS',
     material: '22k gold with pearls & emerald drops',
-    price: '₹85,000',
     image: '/prod_jhumka_earrings.png',
     category: 'earrings',
   },
@@ -61,7 +59,6 @@ const products = [
     id: 4,
     name: 'TEXTURIZED GOLD BANGLES',
     material: '22k yellow gold set of three',
-    price: '₹1,52,000',
     image: '/prod_gold_bangles.png',
     category: 'bracelets',
   },
@@ -69,33 +66,36 @@ const products = [
     id: 5,
     name: 'CELESTIAL SHIMMER NECKLACE',
     material: '18k white gold with pear-cut diamonds',
-    price: '₹4,80,000',
     image: '/prod_diamond_necklace.png',
     category: 'necklaces',
   },
   {
     id: 6,
-    name: 'HEXA COUTURE RING',
-    material: '14k yellow gold diamond band',
-    price: '₹45,000',
-    image: '/product_ring.png',
-    category: 'rings',
+    name: '18K YELLOW GOLD COLLECTION',
+    material: '18k hallmarked yellow gold jewellery',
+    image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1200&q=90',
+    category: 'yellow-gold-18k',
   },
   {
     id: 7,
-    name: 'SOLAR RADIANCE EARRINGS',
-    material: '14k gold hoops with diamonds',
-    price: '₹68,000',
-    image: '/product_earrings.png',
-    category: 'earrings',
+    name: '22K YELLOW GOLD COLLECTION',
+    material: '22k pure yellow gold traditional jewellery',
+    image: 'https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?w=1200&q=90',
+    category: 'yellow-gold-22k',
   },
   {
     id: 8,
-    name: 'GOLDEN RAINDROP NECKLACE',
-    material: '14k yellow gold drops',
-    price: '₹92,000',
-    image: '/product_necklace.png',
-    category: 'necklaces',
+    name: 'SILVER COLLECTION',
+    material: 'Pure 925 sterling silver jewellery',
+    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1200&q=90',
+    category: 'silver',
+  },
+  {
+    id: 9,
+    name: 'DIAMOND COLLECTION',
+    material: 'Certified natural diamond jewellery',
+    image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=1200&q=90',
+    category: 'diamond',
   },
 ]
 
@@ -275,7 +275,7 @@ export function FeaturedProducts() {
                     padding: '4px 11px', borderRadius: '100px', border: '1px solid rgba(212,175,55,0.3)',
                   }}>
                     <span style={{ fontSize: '0.52rem', fontWeight: 700, letterSpacing: '0.15em', color: '#e9c85f' }}>
-                      {product.category.toUpperCase()}
+                      {product.category.replace(/-/g, ' ').toUpperCase()}
                     </span>
                   </div>
                   {/* gold shine sweep on hover */}
@@ -296,14 +296,21 @@ export function FeaturedProducts() {
                     </p>
                   </div>
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderTop: '1px solid rgba(45,32,16,0.07)', paddingTop: '12px' }}>
-                    {/* gold price pill */}
-                    <span style={{
-                      fontSize: '0.82rem', fontWeight: 800, color: '#7a5a12',
-                      padding: '4px 12px', borderRadius: '100px',
-                      background: 'linear-gradient(135deg, rgba(240,207,107,0.4), rgba(212,175,55,0.25))',
-                      border: '1px solid rgba(212,175,55,0.35)',
-                    }}>
-                      {product.price}
+                    {/* enquiry pill */}
+                    <span
+                      role="button"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        window.open(getEnquiryWhatsAppUrl(product.name), '_blank', 'noopener,noreferrer')
+                      }}
+                      style={{
+                        fontSize: '0.72rem', fontWeight: 800, letterSpacing: '0.12em', color: '#7a5a12',
+                        padding: '5px 14px', borderRadius: '100px',
+                        background: 'linear-gradient(135deg, rgba(240,207,107,0.4), rgba(212,175,55,0.25))',
+                        border: '1px solid rgba(212,175,55,0.35)',
+                      }}>
+                      ENQUIRE NOW
                     </span>
                     <span className="card-arrow" style={{
                       width: '30px', height: '30px', borderRadius: '50%',

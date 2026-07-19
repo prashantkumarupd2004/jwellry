@@ -121,7 +121,7 @@ export default function CareGuidePage() {
                 </ol>
               </div>
               <p className="text-sm">
-                <strong>Note:</strong> For 22K and 24K gold, avoid harsh scrubbing as these are softer than 18K gold.
+                <strong>Note:</strong> 22K gold is softer than 18K gold, so avoid harsh scrubbing to protect its finish.
               </p>
             </div>
           </div>
@@ -147,31 +147,6 @@ export default function CareGuidePage() {
               </div>
               <p className="text-sm">
                 <strong>Tip:</strong> Have diamond jewelry professionally cleaned and checked every 6 months.
-              </p>
-            </div>
-          </div>
-
-          {/* Platinum */}
-          <div className="bg-white rounded-2xl shadow-lg p-8 mb-6">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gradient-to-br from-gray-400 to-gray-600 rounded-full flex items-center justify-center">
-                <Shield className="h-6 w-6 text-white" />
-              </div>
-              <h3 className="text-2xl font-playfair font-bold text-gray-900">Platinum Jewelry</h3>
-            </div>
-            <div className="space-y-4 text-gray-700">
-              <p>Platinum is extremely durable but develops a natural patina over time.</p>
-              <div className="bg-gradient-to-br from-gray-50 to-platinum-50 rounded-xl p-4">
-                <h4 className="font-semibold text-gray-900 mb-2">Cleaning Method:</h4>
-                <ol className="space-y-2 text-sm ml-4">
-                  <li>1. Soak in warm soapy water for 20-30 minutes</li>
-                  <li>2. Gently scrub with a soft brush</li>
-                  <li>3. Rinse thoroughly</li>
-                  <li>4. Polish with a jewelry polishing cloth</li>
-                </ol>
-              </div>
-              <p className="text-sm">
-                <strong>Note:</strong> The patina is natural and valued by many. For high polish, get professional polishing.
               </p>
             </div>
           </div>

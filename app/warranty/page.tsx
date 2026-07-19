@@ -227,7 +227,7 @@ export default function WarrantyPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gold-600 mt-1">•</span>
-                    <span>Purity grade (22K, 18K, etc.)</span>
+                    <span>Purity grade (22K, 18K)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-gold-600 mt-1">•</span>

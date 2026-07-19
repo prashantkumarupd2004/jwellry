@@ -401,6 +401,63 @@
   }
 }
 
+/* ── GPU-driven decorative loops (moved off the JS main thread for smooth scroll) ── */
+@keyframes twinkle {
+  0%   { opacity: 0.3; transform: scale(0.8) rotate(0deg); }
+  50%  { opacity: 1;   transform: scale(1.2) rotate(180deg); }
+  100% { opacity: 0.3; transform: scale(0.8) rotate(360deg); }
+}
+.anim-twinkle { animation: twinkle 3s ease-in-out infinite; }
+
+@keyframes particleFloat {
+  0%, 100% { transform: translateY(0);      opacity: 0.2; }
+  50%      { transform: translateY(-18px);  opacity: 1; }
+}
+.anim-particle { animation: particleFloat 4.5s ease-in-out infinite; }
+
+@keyframes auroraPulse {
+  0%, 100% { transform: scale(1);    opacity: 0.6; }
+  50%      { transform: scale(1.12); opacity: 1; }
+}
+.anim-aurora { animation: auroraPulse 10s ease-in-out infinite; }
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.anim-spin-slow { animation: spinSlow 45s linear infinite; }
+
+@keyframes bobY {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-10px); }
+}
+.anim-bob { animation: bobY 5s ease-in-out infinite; }
+
+@keyframes bobYDown {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+.anim-bob-down { animation: bobYDown 4.5s ease-in-out infinite; }
+
+@keyframes coinSpin {
+  from { transform: rotateY(0deg); }
+  to   { transform: rotateY(360deg); }
+}
+.anim-coin-spin { animation: coinSpin 9s linear infinite; transform-style: preserve-3d; }
+
+@keyframes marqueeScroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.anim-marquee { animation: marqueeScroll 28s linear infinite; will-change: transform; }
+
+@keyframes scrollHint {
+  0%   { transform: scaleY(0); opacity: 0; }
+  50%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0); opacity: 0; }
+}
+.anim-scroll-hint { animation: scrollHint 2s ease-in-out infinite; transform-origin: top; }
+
 @keyframes sparkleRotate {
   0% { transform: rotate(0deg) scale(1); }
   50% { transform: rotate(180deg) scale(1.2); }

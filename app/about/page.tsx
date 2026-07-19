@@ -280,57 +280,6 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ══════════ OUR BRANCHES ══════════ */}
-        <section className="px-5 sm:px-8 lg:px-16 py-20" style={{ background: '#f2e8d4' }}>
-          <div className="max-w-6xl mx-auto">
-            <motion.div className="text-center mb-14" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
-              <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 block" style={{ color: GOLD_DARK }}>
-                Our Presence
-              </span>
-              <h2 className="font-playfair font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: DARK }}>
-                Our{' '}
-                <span style={{ fontStyle: 'italic', fontWeight: 400, background: 'linear-gradient(90deg, #d4af37, #b8941f 50%, #e9c85f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>6 Branches</span>
-              </h2>
-              <p className="text-sm mt-4 mx-auto max-w-md" style={{ color: '#5a4030' }}>
-                From our humble first shop in 1987 to six flourishing branches — we bring the HLJ promise closer to you.
-              </p>
-            </motion.div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {[
-                { branch: 'Branch 1', name: 'Sonapatti', location: 'Sonapatti, Bhagalpur, Bihar', tag: 'Est. 1987 — Our First Shop', icon: '🌟' },
-                { branch: 'Branch 2', name: 'Kharamnchak', location: 'Kharamnchak, Bhagalpur, Bihar', tag: '2nd Shop', icon: '🏪' },
-                { branch: 'Branch 3', name: 'Police Lane', location: 'Police Lane, Tilkamanji, Bhagalpur, Bihar', tag: '3rd Shop', icon: '👑' },
-                { branch: 'Branch 4', name: 'Deoghar', location: 'Deoghar, Jharkhand', tag: '4th Shop', icon: '💎' },
-                { branch: 'Branch 5', name: 'Purnea', location: 'Purnea, Bihar', tag: '5th Shop', icon: '🚀' },
-                { branch: 'Branch 6', name: 'Sonapatti', location: 'Sonapatti, Bhagalpur, Bihar', tag: '6th Shop — Branch 2', icon: '🎉' },
-              ].map((b, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
-                  className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
-                  style={{ background: 'rgba(255,252,245,0.97)', border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 6px 24px rgba(45,32,16,0.07)' }}
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-xl" style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', boxShadow: '0 6px 16px rgba(212,175,55,0.35)' }}>
-                      {b.icon}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="text-xs font-bold tracking-[0.2em] uppercase mb-1" style={{ color: GOLD_DARK }}>{b.branch}</div>
-                      <div className="font-playfair font-bold text-lg leading-tight" style={{ color: DARK }}>{b.name}</div>
-                      <div className="flex items-center gap-1.5 mt-2">
-                        <MapPin className="h-3.5 w-3.5 flex-shrink-0" style={{ color: GOLD_DARK }} />
-                        <span className="text-xs leading-snug" style={{ color: '#5a4030' }}>{b.location}</span>
-                      </div>
-                      <span className="inline-block mt-3 text-xs px-3 py-1 rounded-full font-semibold" style={{ background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', color: GOLD_DARK }}>{b.tag}</span>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* ══════════ VISIT OUR SHOWROOM CTA ══════════ */}
         <section className="px-5 sm:px-8 lg:px-16 py-20" style={{ background: '#e8dcc8' }}>
           <div className="max-w-5xl mx-auto">
@@ -362,8 +311,8 @@ export default function AboutPage() {
                 variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}
               >
                 {[
-                  { Icon: MapPin, label: 'Address', value: 'First Floor, Flat No. 01,\nS/O Laxmi Narayan Verma,\nBhudharmal Marwadi Lane,\nNear Shree Bhudarmal Dhandhania Dharamshala,\nSona Patti, Bhagalpur,\nBihar - 812002' },
-                  { Icon: Phone, label: 'Phone & WhatsApp', value: '+91 77390 74092' },
+                  { Icon: MapPin, label: 'Address', value: 'Hariom Laxmi Narayan Jewellers,\nNear SBI, Sonapatti,\nBhagalpur City,\nBihar - 812002' },
+                  { Icon: Phone, label: 'Phone & WhatsApp', value: '+91 91999 85111' },
                   { Icon: Mail, label: 'Email', value: 'info@hariomlaxminarayanjewellers.com' },
                   { Icon: Clock, label: 'Store Hours', value: 'Monday – Sunday\n10:00 AM – 9:00 PM' },
                 ].map(({ Icon, label, value }) => (
@@ -383,6 +332,78 @@ export default function AboutPage() {
             </div>
           </div>
         </section>
+        {/* ══════════ OUR BRANCHES ══════════ */}
+        <section className="px-5 sm:px-8 lg:px-16 py-20" style={{ background: '#f2e8d4' }}>
+          <div className="max-w-6xl mx-auto">
+            <motion.div className="text-center mb-14" variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+              <span className="text-xs font-semibold tracking-[0.3em] uppercase mb-4 block" style={{ color: GOLD_DARK }}>
+                Our Presence
+              </span>
+              <h2 className="font-playfair font-bold" style={{ fontSize: 'clamp(2rem, 4vw, 3rem)', color: DARK }}>
+                Our{' '}
+                <span style={{ fontStyle: 'italic', fontWeight: 400, background: 'linear-gradient(90deg, #d4af37, #b8941f 50%, #e9c85f)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text' }}>6 Branches</span>
+              </h2>
+              <p className="text-sm mt-4 mx-auto max-w-md" style={{ color: '#5a4030' }}>
+                From our humble first shop in 1987 to six flourishing branches — we bring the HLJ promise closer to you.
+              </p>
+            </motion.div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                { branch: 'Branch 1', name: 'Sonapatti', location: 'Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002', tag: 'Est. 1987 — Our First Shop', icon: '🌟', phones: ['9199985111'], gmaps: 'https://maps.app.goo.gl/fK76WchvUkweZRL77' },
+                { branch: 'Branch 2', name: 'Kharmanchak', location: 'Ground Floor, Jaiuriya Tower, Kharmanchak, D.N. Singh Road, Bhagalpur, Bihar - 812002', tag: '2nd Shop', icon: '🏪', phones: ['8002307878'], gmaps: 'https://maps.google.com/?q=Jaiuriya+Tower+Kharmanchak+D.N.+Singh+Road+Bhagalpur+Bihar+812002' },
+                { branch: 'Branch 3', name: 'Tilkamanjhi Police Line', location: 'Tilkamanjhi Police Line, Lalbagh, Nawabbag Colony, Bhagalpur, Bihar - 812001', tag: '3rd Shop', icon: '👑', phones: ['9334466668'], gmaps: 'https://maps.app.goo.gl/cBfzA8c3czquSaMQA' },
+                { branch: 'Branch 4', name: 'Deoghar', location: 'Court Road, Near VIP Chowk, B. Deoghar, Jharkhand - 814112', tag: '4th Shop', icon: '💎', phones: ['9263899120'], gmaps: 'https://maps.app.goo.gl/SfwBA3DrNZrFTMm78' },
+                { branch: 'Branch 5', name: 'Purnia', location: 'Rajni Chowk, Navratan Hatta, Bhatta Bazar, Purnia, Bihar - 854301', tag: '5th Shop', icon: '🚀', phones: ['9263899119'], gmaps: 'https://maps.app.goo.gl/yiKBYj8FRyL9fF9v5' },
+                { branch: 'Branch 6', name: 'Sonapatti', location: 'Sonapatti, Bhagalpur, Bihar - 812002', tag: '6th Shop — Branch 2', icon: '🎉', phones: ['7857877002', '7004891545'], gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
+              ].map((b, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.08 }}
+                  className="rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                  style={{ background: 'rgba(255,252,245,0.97)', border: '1px solid rgba(212,175,55,0.25)', boxShadow: '0 6px 24px rgba(45,32,16,0.07)' }}
+                >
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 rounded-2xl flex items-center justify-center flex-shrink-0 text-xl" style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', boxShadow: '0 6px 16px rgba(212,175,55,0.35)' }}>
+                      {b.icon}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="text-xs font-bold tracking-[0.2em] uppercase mb-1" style={{ color: GOLD_DARK }}>{b.branch}</div>
+                      <div className="font-playfair font-bold text-lg leading-tight" style={{ color: DARK }}>{b.name}</div>
+                      <div className="flex items-center gap-1.5 mt-2">
+                        <MapPin className="h-3.5 w-3.5 flex-shrink-0" style={{ color: GOLD_DARK }} />
+                        <span className="text-xs leading-snug" style={{ color: '#5a4030' }}>{b.location}</span>
+                      </div>
+                      <div className="flex items-center gap-1.5 mt-1.5">
+                        <Phone className="h-3.5 w-3.5 flex-shrink-0" style={{ color: GOLD_DARK }} />
+                        <span className="text-xs leading-snug">
+                          {b.phones.map((p, pi) => (
+                            <a key={p} href={`tel:+91${p}`} style={{ color: '#5a4030', textDecoration: 'none' }}>
+                              {pi > 0 && ' / '}+91 {p}
+                            </a>
+                          ))}
+                        </span>
+                      </div>
+                      <div className="flex items-center justify-between mt-3">
+                        <span className="inline-block text-xs px-3 py-1 rounded-full font-semibold" style={{ background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', color: GOLD_DARK }}>{b.tag}</span>
+                        <a
+                          href={b.gmaps}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="text-xs font-bold tracking-wide hover:underline"
+                          style={{ color: GOLD_DARK }}
+                        >
+                          Map →
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
       </main>
       <Footer />
     </div>

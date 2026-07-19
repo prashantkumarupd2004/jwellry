@@ -89,6 +89,7 @@ export function Footer() {
               {[
                 { label: 'Home', href: '/' },
                 { label: 'About Us', href: '/about' },
+                { label: 'Our Services', href: '/our-services' },
                 { label: 'Products', href: '/products' },
                 { label: 'Contact Us', href: '/contact' },
               ].map(({ label, href }) => (
@@ -151,20 +152,28 @@ export function Footer() {
             <div className="space-y-3">
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 flex-shrink-0 mt-0.5" style={{ color: '#b8941f' }} />
-                <p className="text-sm leading-relaxed" style={{ color: 'rgba(249,242,229,0.6)' }}>
-                  1st Floor, Flat No. 01, S/O Laxmi Narayan Verma, Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala, Sona Patti, Bhagalpur, Bihar - 812002
-                </p>
+                <a
+                  href="https://maps.app.goo.gl/fK76WchvUkweZRL77"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-sm leading-relaxed"
+                  style={{ color: 'rgba(249,242,229,0.6)', textDecoration: 'none' }}
+                  onMouseEnter={(e) => e.currentTarget.style.color = '#f9da79'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(249,242,229,0.6)'}
+                >
+                  Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0" style={{ color: '#b8941f' }} />
                 <a
-                  href="tel:+917739074092"
+                  href="tel:+919199985111"
                   className="text-sm transition-colors duration-200"
                   style={{ color: 'rgba(249,242,229,0.6)' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#f9da79'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(249,242,229,0.6)'}
                 >
-                  +91 77390 74092
+                  +91 91999 85111
                 </a>
               </div>
               <div className="flex items-center gap-3">

@@ -31,15 +31,18 @@ const GoldSparkle = ({
   style?: React.CSSProperties
   delay?: number
 }) => (
-  <motion.svg
+  <svg
     viewBox="0 0 40 40"
     fill={GOLD}
-    style={{ position: 'absolute', width: size, height: size, pointerEvents: 'none', ...style }}
-    animate={{ opacity: [0.3, 1, 0.3], scale: [0.8, 1.2, 0.8], rotate: [0, 180, 360] }}
-    transition={{ duration: 3 + delay, repeat: Infinity, ease: 'easeInOut', delay }}
+    className="anim-twinkle"
+    style={{
+      position: 'absolute', width: size, height: size, pointerEvents: 'none',
+      animationDuration: `${3 + delay}s`, animationDelay: `${delay}s`,
+      ...style,
+    }}
   >
     <path d="M20 0 L22.5 17.5 L40 20 L22.5 22.5 L20 40 L17.5 22.5 L0 20 L17.5 17.5 Z" />
-  </motion.svg>
+  </svg>
 )
 
 export function HeroSection() {
@@ -133,7 +136,7 @@ export function HeroSection() {
             fontSize: 'clamp(3.2rem, 11vw, 9.5rem)',
             lineHeight: 0.92,
             letterSpacing: '0.04em',
-            color: DARK,
+            color: GOLD_DARK,
             margin: 0,
             userSelect: 'none',
           }}
@@ -145,7 +148,7 @@ export function HeroSection() {
           fontWeight: 400,
           fontSize: 'clamp(0.68rem, 2.6vw, 2rem)',
           letterSpacing: 'clamp(0.12em, 0.5vw, 0.22em)',
-          color: GOLD,
+          color: GOLD_DARK,
           marginTop: '0.3rem',
           userSelect: 'none',
           whiteSpace: 'nowrap',
@@ -269,7 +272,8 @@ export function HeroSection() {
           transition={{ duration: 1.3, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
         >
           {/* Outer decorative ring */}
-          <motion.div
+          <div
+            className="anim-spin-slow"
             style={{
               position: 'absolute',
               width: 'clamp(280px, 26vw, 440px)',
@@ -277,9 +281,8 @@ export function HeroSection() {
               borderRadius: '50%',
               border: `1.5px solid rgba(212,175,55,0.2)`,
               boxShadow: `0 0 60px rgba(212,175,55,0.1)`,
+              animationDuration: '40s',
             }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
           />
           {/* Middle dashed ring */}
           <div style={{
@@ -291,7 +294,8 @@ export function HeroSection() {
           }} />
 
           {/* Main Image Container */}
-          <motion.div
+          <div
+            className="anim-bob"
             style={{
               position: 'relative',
               width: 'clamp(260px, 24vw, 420px)',
@@ -300,9 +304,8 @@ export function HeroSection() {
               overflow: 'hidden',
               boxShadow: `0 20px 60px rgba(45,32,16,0.18), 0 0 0 5px rgba(255,255,255,0.9), 0 0 0 8px rgba(212,175,55,0.15)`,
               background: '#fff',
+              animationDuration: '5.5s',
             }}
-            animate={{ y: [0, -10, 0] }}
-            transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
           >
             <Image
               src="/hero_ai.png"
@@ -318,11 +321,11 @@ export function HeroSection() {
               background: 'radial-gradient(circle at 30% 70%, rgba(212,175,55,0.1) 0%, transparent 60%)',
               pointerEvents: 'none',
             }} />
-          </motion.div>
+          </div>
 
           {/* Floating badge: Handcrafted */}
-          <motion.div
-            className="hero-badge hero-badge-tr"
+          <div
+            className="hero-badge hero-badge-tr anim-bob"
             style={{
               position: 'absolute', top: '10%', right: '-5%',
               background: 'rgba(253,248,240,0.95)',
@@ -330,22 +333,20 @@ export function HeroSection() {
               borderRadius: '12px',
               padding: '8px 14px',
               boxShadow: '0 8px 24px rgba(45,32,16,0.12)',
-              backdropFilter: 'blur(12px)',
               display: 'flex', alignItems: 'center', gap: '8px',
+              animationDuration: '4s', animationDelay: '1s',
             }}
-            animate={{ y: [0, -5, 0] }}
-            transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
           >
             <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(212,175,55,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' }}>✦</div>
             <div>
               <div style={{ fontSize: '0.6rem', fontWeight: 700, color: DARK, letterSpacing: '0.15em', fontFamily: '"Inter", sans-serif' }}>HANDCRAFTED</div>
               <div style={{ fontSize: '0.55rem', color: GOLD_DARK, fontFamily: '"Inter", sans-serif' }}>Since 1987</div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Floating badge: Certified */}
-          <motion.div
-            className="hero-badge hero-badge-bl"
+          <div
+            className="hero-badge hero-badge-bl anim-bob-down"
             style={{
               position: 'absolute', bottom: '12%', left: '-8%',
               background: 'rgba(253,248,240,0.95)',
@@ -353,18 +354,16 @@ export function HeroSection() {
               borderRadius: '12px',
               padding: '8px 14px',
               boxShadow: '0 8px 24px rgba(45,32,16,0.12)',
-              backdropFilter: 'blur(12px)',
               display: 'flex', alignItems: 'center', gap: '8px',
+              animationDuration: '4.5s', animationDelay: '0.5s',
             }}
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
           >
             <div style={{ width: '28px', height: '28px', borderRadius: '50%', background: 'rgba(212,175,55,0.15)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '13px' }}>🏅</div>
             <div>
               <div style={{ fontSize: '0.6rem', fontWeight: 700, color: DARK, letterSpacing: '0.15em', fontFamily: '"Inter", sans-serif' }}>GIA CERTIFIED</div>
               <div style={{ fontSize: '0.55rem', color: GOLD_DARK, fontFamily: '"Inter", sans-serif' }}>Gemstones</div>
             </div>
-          </motion.div>
+          </div>
         </motion.div>
 
         {/* ─── RIGHT COLUMN ─── */}
@@ -470,13 +469,12 @@ export function HeroSection() {
           fontSize: '0.55rem', letterSpacing: '0.3em',
           color: 'rgba(45,32,16,0.45)', fontFamily: '"Inter", sans-serif',
         }}>SCROLL TO EXPLORE</span>
-        <motion.div
+        <div
+          className="anim-scroll-hint"
           style={{
             width: '1px', height: '40px',
             background: `linear-gradient(180deg, ${GOLD}, transparent)`,
           }}
-          animate={{ scaleY: [0, 1, 0], opacity: [0, 1, 0] }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         />
       </motion.div>
 

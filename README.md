@@ -98,12 +98,12 @@ To update products, edit `lib/data.ts` and `app/products/page.tsx`.
 **Hariom LaxmiNarayan Jewellers (HLJ Group)** — Founded 1987 by Hari Om Verma & Laxmi Narayan Verma
 
 **Branches:**
-1. Sonapatti, Bhagalpur, Bihar (Est. 1987 — flagship)
-2. Kharamnchak, Bhagalpur, Bihar
-3. Police Lane, Tilkamanji, Bhagalpur, Bihar
-4. Deoghar, Jharkhand
-5. Purnea, Bihar
-6. Sonapatti Branch 2, Bhagalpur, Bihar
+1. Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002 (Est. 1987 — flagship) — [Map](https://maps.app.goo.gl/fK76WchvUkweZRL77)
+2. Ground Floor, Jaiuriya Tower, Kharmanchak, D.N. Singh Road, Bhagalpur, Bihar - 812002
+3. Tilkamanjhi Police Line, Lalbagh, Nawabbag Colony, Bhagalpur, Bihar - 812001 — [Map](https://maps.app.goo.gl/cBfzA8c3czquSaMQA)
+4. Court Road, Near VIP Chowk, B. Deoghar, Jharkhand - 814112 — [Map](https://maps.app.goo.gl/SfwBA3DrNZrFTMm78)
+5. Rajni Chowk, Navratan Hatta, Bhatta Bazar, Purnia, Bihar - 854301 — [Map](https://maps.app.goo.gl/yiKBYj8FRyL9fF9v5)
+6. Sonapatti Branch 2, Bhagalpur, Bihar - 812002
 
 **Hours**: Mon–Sun, 10:00 AM – 9:00 PM
 

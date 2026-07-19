@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 import { User, Menu, X, Phone, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const PHONE_DISPLAY = '+91 77390 74092'
-const PHONE_TEL = '+917739074092'
+const PHONE_DISPLAY = '+91 91999 85111'
+const PHONE_TEL = '+919199985111'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -17,13 +17,14 @@ export function Header() {
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10)
     handleScroll()
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navLinks = [
     { label: 'Home', href: '/' },
     { label: 'About Us', href: '/about' },
+    { label: 'Our Services', href: '/our-services' },
     { label: 'Products', href: '/products' },
     { label: 'Contact Us', href: '/contact' },
   ]
@@ -34,16 +35,17 @@ export function Header() {
   const textColor = isTransparent ? '#2d2010' : '#2d2010'
   const goldColor = '#b8941f'
 
-  // Split nav evenly around the centered logo on desktop
-  const leftLinks = navLinks.slice(0, 2)
-  const rightLinks = navLinks.slice(2)
+  // Split nav around the centered logo on desktop (3 left, 2 right —
+  // right side also holds the account button, so it gets fewer links)
+  const leftLinks = navLinks.slice(0, 3)
+  const rightLinks = navLinks.slice(3)
 
   const NavItem = ({ label, href }: { label: string; href: string }) => {
     const active = pathname === href
     return (
       <Link
         href={href}
-        className="group relative py-2 text-[13px] font-semibold tracking-[0.18em] uppercase transition-colors duration-200"
+        className="group relative py-2 whitespace-nowrap text-[12px] xl:text-[13px] font-semibold tracking-[0.12em] xl:tracking-[0.18em] uppercase transition-colors duration-200"
         style={{ color: active ? goldColor : textColor }}
       >
         {label}
@@ -109,12 +111,12 @@ export function Header() {
 
       {/* ── Main bar ── */}
       <div className="container mx-auto px-6">
-        <div className="grid grid-cols-3 items-center h-16 lg:h-20 relative">
+        <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-4 h-16 lg:h-20 relative">
 
           {/* Left: desktop nav / mobile menu toggle */}
           <div className="flex justify-start items-center">
             {/* Desktop links */}
-            <nav className="hidden lg:flex items-center gap-8">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
               {leftLinks.map((l) => (
                 <NavItem key={l.href} {...l} />
               ))}
@@ -144,15 +146,15 @@ export function Header() {
           </div>
 
           {/* Right: desktop nav + account */}
-          <div className="flex items-center justify-end gap-6">
-            <nav className="hidden lg:flex items-center gap-8">
+          <div className="flex items-center justify-end gap-4 xl:gap-6">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
               {rightLinks.map((l) => (
                 <NavItem key={l.href} {...l} />
               ))}
             </nav>
             <Link href="/account">
               <button
-                className="w-10 h-10 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
+                className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
                 style={{
                   color: goldColor,
                   border: '1px solid rgba(184,148,31,0.35)',

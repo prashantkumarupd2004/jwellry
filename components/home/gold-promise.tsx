@@ -38,9 +38,9 @@ export function GoldPromise() {
           transition={{ duration: 0.7 }}
           style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.5rem' }}
         >
-          <motion.div animate={{ y: [0, -10, 0] }} transition={{ duration: 4.5, repeat: Infinity, ease: 'easeInOut' }}>
+          <div className="anim-bob" style={{ animationDuration: '4.5s' }}>
             <GoldCoin3D size={80} />
-          </motion.div>
+          </div>
         </motion.div>
 
         <motion.span

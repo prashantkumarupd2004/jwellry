@@ -6,7 +6,6 @@ import { Star, MessageCircle, Share2, Shield, Truck, RotateCcw } from 'lucide-re
 import { Button } from '@/components/ui/button'
 import { getEnquiryWhatsAppUrl } from '@/lib/constants'
 import { Product } from '@/types'
-import { formatPrice, calculateDiscount } from '@/lib/utils'
 
 interface ProductDetailProps {
   product: Product
@@ -14,8 +13,6 @@ interface ProductDetailProps {
 
 export function ProductDetail({ product }: ProductDetailProps) {
   const [selectedImage, setSelectedImage] = useState(0)
-
-  const discount = product.originalPrice ? calculateDiscount(product.originalPrice, product.price) : 0
 
   const handleEnquire = () => {
     window.open(getEnquiryWhatsAppUrl(product.name), '_blank', 'noopener,noreferrer')
@@ -34,11 +31,6 @@ export function ProductDetail({ product }: ProductDetailProps) {
               className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
-            {discount > 0 && (
-              <div className="absolute top-4 left-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
-                {discount}% OFF
-              </div>
-            )}
           </div>
           
           {product.images.length > 1 && (
@@ -93,16 +85,11 @@ export function ProductDetail({ product }: ProductDetailProps) {
               </span>
             </div>
 
-            {/* Price */}
-            <div className="flex items-center space-x-3 mb-6">
-              <span className="text-3xl font-bold text-gray-900">
-                {formatPrice(product.price)}
+            {/* Price on Enquiry */}
+            <div className="mb-6">
+              <span className="inline-block text-lg font-semibold text-gold-700 bg-gold-50 border border-gold-200 rounded-full px-5 py-2">
+                Price on Enquiry
               </span>
-              {product.originalPrice && (
-                <span className="text-xl text-gray-500 line-through">
-                  {formatPrice(product.originalPrice)}
-                </span>
-              )}
             </div>
           </div>
 

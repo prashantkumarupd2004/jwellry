@@ -1,7 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
-
 const items = [
   { icon: '✦', text: 'Trusted Since 1987' },
   { icon: '🏆', text: '38+ Years of Excellence' },
@@ -51,10 +49,9 @@ export function TrustMarquee() {
         }}
       />
 
-      <motion.div
+      <div
+        className="anim-marquee"
         style={{ display: 'flex', gap: 0, width: 'max-content' }}
-        animate={{ x: ['0%', '-50%'] }}
-        transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
       >
         {doubled.map((item, i) => (
           <div
@@ -91,7 +88,7 @@ export function TrustMarquee() {
             </span>
           </div>
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }

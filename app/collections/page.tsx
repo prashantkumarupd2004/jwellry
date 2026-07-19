@@ -15,7 +15,6 @@ export default function CollectionsPage() {
   const [filters, setFilters] = useState({
     categories: [] as string[],
     materials: [] as string[],
-    priceRange: [0, 500000] as [number, number],
     minRating: 0,
   })
 
@@ -46,9 +45,6 @@ export default function CollectionsPage() {
         filters.materials.length === 0 ||
         filters.materials.some((mat) => product.material?.toLowerCase().includes(mat.toLowerCase()))
 
-      const priceMatches =
-        product.price >= filters.priceRange[0] && product.price <= filters.priceRange[1]
-
       const ratingMatches = product.rating >= filters.minRating
 
       const searchMatches =
@@ -58,7 +54,7 @@ export default function CollectionsPage() {
         product.category.toLowerCase().includes(queryParam) ||
         (product.material || '').toLowerCase().includes(queryParam)
 
-      return categoryMatches && materialMatches && priceMatches && ratingMatches && searchMatches
+      return categoryMatches && materialMatches && ratingMatches && searchMatches
     })
   }, [filters, queryParam, categoryIdToName])
 
@@ -86,7 +82,6 @@ export default function CollectionsPage() {
                   setFilters({
                     categories: [],
                     materials: [],
-                    priceRange: [0, 500000],
                     minRating: 0,
                   })
                 }}

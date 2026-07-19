@@ -21,10 +21,6 @@ export function ProductGrid({ products }: ProductGridProps) {
 
   const sortedProducts = [...displayProducts].sort((a, b) => {
     switch (sortBy) {
-      case 'price-low':
-        return a.price - b.price
-      case 'price-high':
-        return b.price - a.price
       case 'rating':
         return b.rating - a.rating
       case 'newest':
@@ -37,7 +33,6 @@ export function ProductGrid({ products }: ProductGridProps) {
   const filteredProducts = sortedProducts.filter(product => {
     if (filterBy === 'all') return true
     if (filterBy === 'in-stock') return product.inStock
-    if (filterBy === 'sale') return product.originalPrice && product.originalPrice > product.price
     return true
   })
 
@@ -53,7 +48,6 @@ export function ProductGrid({ products }: ProductGridProps) {
           >
             <option value="all">All Products</option>
             <option value="in-stock">In Stock</option>
-            <option value="sale">On Sale</option>
           </select>
         </div>
         
@@ -64,8 +58,6 @@ export function ProductGrid({ products }: ProductGridProps) {
             className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-gold-500"
           >
             <option value="name">Sort by Name</option>
-            <option value="price-low">Price: Low to High</option>
-            <option value="price-high">Price: High to Low</option>
             <option value="rating">Highest Rated</option>
             <option value="newest">Newest First</option>
           </select>

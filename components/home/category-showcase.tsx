@@ -25,27 +25,27 @@ export function CategoryShowcase() {
       }}
     >
       {/* ── Animated gold aurora glows ── */}
-      <motion.div
+      <div
         aria-hidden
+        className="anim-aurora"
         style={{
           position: 'absolute', top: '-15%', right: '-10%',
           width: 'clamp(320px, 45vw, 700px)', aspectRatio: '1', borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(212,175,55,0.22) 0%, transparent 65%)',
           pointerEvents: 'none',
+          animationDuration: '9s',
         }}
-        animate={{ scale: [1, 1.15, 1], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
       />
-      <motion.div
+      <div
         aria-hidden
+        className="anim-aurora"
         style={{
           position: 'absolute', bottom: '-20%', left: '-10%',
           width: 'clamp(280px, 40vw, 620px)', aspectRatio: '1', borderRadius: '50%',
           background: 'radial-gradient(circle, rgba(233,200,95,0.14) 0%, transparent 65%)',
           pointerEvents: 'none',
+          animationDuration: '11s', animationDelay: '2s',
         }}
-        animate={{ scale: [1.1, 1, 1.1], opacity: [0.5, 0.9, 0.5] }}
-        transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       {/* ── Floating gold particles ── */}
@@ -56,18 +56,18 @@ export function CategoryShowcase() {
         { l: '70%', t: '82%', s: 7, d: 1.8 },
         { l: '50%', t: '12%', s: 4, d: 2.4 },
       ].map((p, i) => (
-        <motion.div
+        <div
           key={i}
           aria-hidden
+          className="anim-particle"
           style={{
             position: 'absolute', left: p.l, top: p.t,
             width: p.s, height: p.s, borderRadius: '50%',
             background: 'radial-gradient(circle, #fff1c4, #d4af37)',
             boxShadow: '0 0 10px rgba(212,175,55,0.8)',
             pointerEvents: 'none',
+            animationDuration: `${4 + p.d}s`, animationDelay: `${p.d}s`,
           }}
-          animate={{ y: [0, -22, 0], opacity: [0.2, 1, 0.2] }}
-          transition={{ duration: 4 + p.d, repeat: Infinity, ease: 'easeInOut', delay: p.d }}
         />
       ))}
 
@@ -240,15 +240,15 @@ export function CategoryShowcase() {
           }}
         >
           {/* rotating dashed gold ring behind */}
-          <motion.div
+          <div
             aria-hidden
+            className="anim-spin-slow"
             style={{
               position: 'absolute',
               width: 'clamp(320px, 34vw, 520px)', aspectRatio: '1', borderRadius: '50%',
               border: '1px dashed rgba(212,175,55,0.35)',
+              animationDuration: '50s',
             }}
-            animate={{ rotate: 360 }}
-            transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
           />
 
           <TiltCard intensity={14} style={{ borderRadius: '24px', width: '100%', maxWidth: 380 }}>
@@ -290,13 +290,12 @@ export function CategoryShowcase() {
           </TiltCard>
 
           {/* 3D spinning gold coin floating on top corner */}
-          <motion.div
-            style={{ position: 'absolute', top: 'clamp(1rem, 4vw, 2.5rem)', right: 'clamp(0.5rem, 3vw, 2rem)', zIndex: 3 }}
-            animate={{ y: [0, -12, 0] }}
-            transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
+          <div
+            className="anim-bob"
+            style={{ position: 'absolute', top: 'clamp(1rem, 4vw, 2.5rem)', right: 'clamp(0.5rem, 3vw, 2rem)', zIndex: 3, animationDuration: '5s' }}
           >
             <GoldCoin3D size={96} />
-          </motion.div>
+          </div>
         </motion.div>
       </div>
 

@@ -123,9 +123,10 @@ export function StatsSection() {
         { l: '20%', t: '80%', s: 4, d: 1.8 },
         { l: '80%', t: '75%', s: 5, d: 2.3 },
       ].map((p, i) => (
-        <motion.div
+        <div
           key={i}
           aria-hidden
+          className="anim-particle"
           style={{
             position: 'absolute',
             left: p.l,
@@ -136,13 +137,8 @@ export function StatsSection() {
             background: 'radial-gradient(circle, #fff1c4, #d4af37)',
             boxShadow: '0 0 10px rgba(212,175,55,0.8)',
             pointerEvents: 'none',
-          }}
-          animate={{ y: [0, -18, 0], opacity: [0.2, 1, 0.2] }}
-          transition={{
-            duration: 4 + p.d,
-            repeat: Infinity,
-            ease: 'easeInOut',
-            delay: p.d,
+            animationDuration: `${4 + p.d}s`,
+            animationDelay: `${p.d}s`,
           }}
         />
       ))}

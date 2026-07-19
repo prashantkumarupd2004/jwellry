@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { X, MessageCircle } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const PHONE = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917739074092'
+const PHONE = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '919199985111'
 
 const quickMessages = [
   { emoji: '💍', label: 'Bridal / Wedding Jewellery', msg: 'Hi! I am looking for bridal jewellery. Please help me.' },

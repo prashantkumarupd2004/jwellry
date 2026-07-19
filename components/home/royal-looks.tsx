@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Sparkles, MessageCircle } from 'lucide-react'
 import { TiltCard } from '@/components/home/tilt-card'
 
-const PHONE = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917739074092'
+const PHONE = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '919199985111'
 
 type Theme = {
   id: string
@@ -127,18 +127,17 @@ export function RoyalLooks() {
 
       {/* Floating particles in the theme accent */}
       {particles.map((p, i) => (
-        <motion.div
+        <div
           key={i}
           aria-hidden
-          className="absolute rounded-full pointer-events-none"
-          style={{ left: p.l, top: p.t, width: p.s, height: p.s }}
-          animate={{
-            y: [0, -18, 0],
-            opacity: [0.2, 0.9, 0.2],
+          className="absolute rounded-full pointer-events-none anim-particle"
+          style={{
+            left: p.l, top: p.t, width: p.s, height: p.s,
             background: theme.accentSoft,
             boxShadow: `0 0 12px ${theme.glow}`,
+            transition: 'background 0.8s, box-shadow 0.8s',
+            animationDuration: `${4 + p.d}s`, animationDelay: `${p.d}s`,
           }}
-          transition={{ duration: 4 + p.d, repeat: Infinity, ease: 'easeInOut', delay: p.d }}
         />
       ))}
 

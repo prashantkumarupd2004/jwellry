@@ -19,7 +19,7 @@ const faqs = [
   },
   {
     q: 'What types of metals and purity do you offer?',
-    a: 'We work with 18K, 22K, and 24K yellow gold, white gold, rose gold, sterling silver (925), and platinum. All our gold jewellery carries BIS hallmark certification.',
+    a: 'We work with 18K and 22K yellow gold, white gold, and rose gold, sterling silver (925), and certified diamonds. All our gold jewellery carries BIS hallmark certification.',
   },
   {
     q: 'Can I get my jewellery resized or repaired?',
@@ -28,10 +28,6 @@ const faqs = [
   {
     q: 'Do you provide certification for diamonds and gemstones?',
     a: 'Yes, all our diamonds and major gemstones come with GIA or equivalent international certification, ensuring authenticity and quality assurance.',
-  },
-  {
-    q: 'Do you offer cash on delivery or EMI options?',
-    a: 'We offer flexible payment options including full payment, bank transfers, and UPI. For purchases above ₹50,000, we also offer EMI plans. Please contact us for details.',
   },
   {
     q: 'What is your return and exchange policy?',
@@ -44,17 +40,17 @@ const contactDetails = [
     Icon: MapPin,
     title: 'Our Showroom',
     lines: [
-      'First Floor, Flat No. 01, S/O Laxmi Narayan Verma',
-      'Bhudharmal Marwadi Lane, Near Shree Bhudarmal Dhandhania Dharamshala',
-      'Sona Patti, Bhagalpur, Bihar - 812002',
+      'Hariom Laxmi Narayan Jewellers',
+      'Near SBI, Sonapatti',
+      'Bhagalpur City, Bihar - 812002',
     ],
-    action: null,
+    action: 'https://maps.app.goo.gl/fK76WchvUkweZRL77',
   },
   {
     Icon: Phone,
     title: 'Phone & WhatsApp',
-    lines: ['+91 77390 74092'],
-    action: 'tel:+917739074092',
+    lines: ['+91 91999 85111'],
+    action: 'tel:+919199985111',
   },
   {
     Icon: Mail,
@@ -169,8 +165,8 @@ export default function ContactPage() {
         <section style={{ background: '#140d05', borderBottom: '1px solid rgba(212,175,55,0.2)' }}>
           <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-16 py-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: '📞', label: 'Call Us', value: '+91 77390 74092', href: 'tel:+917739074092' },
-              { icon: '💬', label: 'WhatsApp', value: '+91 77390 74092', href: 'https://wa.me/917739074092' },
+              { icon: '📞', label: 'Call Us', value: '+91 91999 85111', href: 'tel:+919199985111' },
+              { icon: '💬', label: 'WhatsApp', value: '+91 91999 85111', href: 'https://wa.me/919199985111' },
               { icon: '📧', label: 'Email', value: 'info@hariomlaxminarayanjewellers.com', href: 'mailto:info@hariomlaxminarayanjewellers.com' },
             ].map(({ icon, label, value, href }) => (
               <a
@@ -411,10 +407,10 @@ export default function ContactPage() {
                       <div className="w-12 h-12 rounded-full flex items-center justify-center" style={{ background: 'linear-gradient(145deg, #f0cf6b, #d4af37 55%, #a97e1e)', boxShadow: '0 8px 20px rgba(212,175,55,0.4)' }}>
                         <MapPin className="h-6 w-6" style={{ color: '#1c1309' }} />
                       </div>
-                      <p className="text-sm font-semibold" style={{ color: '#fdf8f0' }}>Sona Patti, S/O Laxmi Narayan Verma</p>
-                      <p className="text-xs" style={{ color: 'rgba(245,232,206,0.6)' }}>Bhagalpur – 812002, Bihar</p>
+                      <p className="text-sm font-semibold" style={{ color: '#fdf8f0' }}>Near SBI, Sonapatti</p>
+                      <p className="text-xs" style={{ color: 'rgba(245,232,206,0.6)' }}>Bhagalpur City – 812002, Bihar</p>
                       <a
-                        href="https://maps.google.com/?q=Bhudharmal+Marwadi+Lane+Bhagalpur+Bihar+812002"
+                        href="https://maps.app.goo.gl/fK76WchvUkweZRL77"
                         target="_blank"
                         rel="noreferrer"
                         className="text-xs font-bold tracking-widest uppercase mt-2 px-5 py-2 rounded-full"
@@ -434,7 +430,7 @@ export default function ContactPage() {
                       { label: 'Instagram', icon: '📸', href: '#' },
                       { label: 'Facebook', icon: '👍', href: '#' },
                       { label: 'YouTube', icon: '▶️', href: '#' },
-                      { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/917739074092' },
+                      { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/919199985111' },
                     ].map(({ label, icon, href }) => (
                       <a
                         key={label}
@@ -475,12 +471,12 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { no: 1, name: 'Sonapatti (Branch 1)', location: 'Sonapatti, Bhagalpur, Bihar', tag: 'Est. 1987 — Flagship', icon: '🌟', gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
-                { no: 2, name: 'Kharamnchak', location: 'Kharamnchak, Bhagalpur, Bihar', tag: '2nd Shop', icon: '🏪', gmaps: 'https://maps.google.com/?q=Kharamnchak+Bhagalpur+Bihar' },
-                { no: 3, name: 'Police Lane, Tilkamanji', location: 'Police Lane, Tilkamanji, Bhagalpur, Bihar', tag: '3rd Shop', icon: '👑', gmaps: 'https://maps.google.com/?q=Police+Lane+Tilkamanji+Bhagalpur+Bihar' },
-                { no: 4, name: 'Deoghar', location: 'Deoghar, Jharkhand', tag: '4th Shop', icon: '💎', gmaps: 'https://maps.google.com/?q=Deoghar+Jharkhand' },
-                { no: 5, name: 'Purnea', location: 'Purnea, Bihar', tag: '5th Shop', icon: '🚀', gmaps: 'https://maps.google.com/?q=Purnea+Bihar' },
-                { no: 6, name: 'Sonapatti (Branch 2)', location: 'Sonapatti, Bhagalpur, Bihar', tag: '6th Shop', icon: '🎉', gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
+                { no: 1, name: 'Sonapatti (Branch 1)', location: 'Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002', tag: 'Est. 1987 — Flagship', icon: '🌟', phones: ['9199985111'], gmaps: 'https://maps.app.goo.gl/fK76WchvUkweZRL77' },
+                { no: 2, name: 'Kharmanchak', location: 'Ground Floor, Jaiuriya Tower, Kharmanchak, D.N. Singh Road, Bhagalpur, Bihar - 812002', tag: '2nd Shop', icon: '🏪', phones: ['8002307878'], gmaps: 'https://maps.google.com/?q=Jaiuriya+Tower+Kharmanchak+D.N.+Singh+Road+Bhagalpur+Bihar+812002' },
+                { no: 3, name: 'Tilkamanjhi Police Line', location: 'Tilkamanjhi Police Line, Lalbagh, Nawabbag Colony, Bhagalpur, Bihar - 812001', tag: '3rd Shop', icon: '👑', phones: ['9334466668'], gmaps: 'https://maps.app.goo.gl/cBfzA8c3czquSaMQA' },
+                { no: 4, name: 'Deoghar', location: 'Court Road, Near VIP Chowk, B. Deoghar, Jharkhand - 814112', tag: '4th Shop', icon: '💎', phones: ['9263899120'], gmaps: 'https://maps.app.goo.gl/SfwBA3DrNZrFTMm78' },
+                { no: 5, name: 'Purnia', location: 'Rajni Chowk, Navratan Hatta, Bhatta Bazar, Purnia, Bihar - 854301', tag: '5th Shop', icon: '🚀', phones: ['9263899119'], gmaps: 'https://maps.app.goo.gl/yiKBYj8FRyL9fF9v5' },
+                { no: 6, name: 'Sonapatti (Branch 2)', location: 'Sonapatti, Bhagalpur, Bihar - 812002', tag: '6th Shop', icon: '🎉', phones: ['7857877002', '7004891545'], gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
               ].map((b, i) => (
                 <motion.div
                   key={i}
@@ -507,6 +503,16 @@ export default function ContactPage() {
                   <div className="flex items-start gap-1.5">
                     <MapPin className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" style={{ color: GOLD_DARK }} />
                     <span className="text-xs leading-relaxed" style={{ color: '#5a4030' }}>{b.location}</span>
+                  </div>
+                  <div className="flex items-start gap-1.5">
+                    <Phone className="h-3.5 w-3.5 flex-shrink-0 mt-0.5" style={{ color: GOLD_DARK }} />
+                    <span className="text-xs leading-relaxed">
+                      {b.phones.map((p, pi) => (
+                        <a key={p} href={`tel:+91${p}`} style={{ color: '#5a4030', textDecoration: 'none' }}>
+                          {pi > 0 && ' / '}+91 {p}
+                        </a>
+                      ))}
+                    </span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="inline-block text-xs px-2.5 py-1 rounded-full font-semibold" style={{ background: 'rgba(212,175,55,0.12)', border: '1px solid rgba(212,175,55,0.3)', color: GOLD_DARK }}>{b.tag}</span>

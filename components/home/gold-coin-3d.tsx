@@ -1,7 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
-
 interface GoldCoin3DProps {
   size?: number
   className?: string
@@ -39,15 +37,14 @@ export function GoldCoin3D({ size = 120, className, style }: GoldCoin3DProps) {
       className={className}
       style={{ width: size, height: size, perspective: 800, ...style }}
     >
-      <motion.div
+      <div
+        className="anim-coin-spin"
         style={{
           position: 'relative',
           width: '100%',
           height: '100%',
           transformStyle: 'preserve-3d',
         }}
-        animate={{ rotateY: 360 }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'linear' }}
       >
         {/* Edge stack — thin gold layers between the two faces for real depth */}
         {Array.from({ length: edges }).map((_, i) => (
@@ -79,7 +76,7 @@ export function GoldCoin3D({ size = 120, className, style }: GoldCoin3DProps) {
         >
           ❈
         </div>
-      </motion.div>
+      </div>
     </div>
   )
 }
