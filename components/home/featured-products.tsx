@@ -16,19 +16,19 @@ const categories = [
   {
     label: 'EARRINGS',
     href: '/products?category=earrings',
-    image: '/product_earrings.png',
+    image: '/prod_jhumka_earrings.png',
     span: 'col',
   },
   {
     label: 'NECKLACES',
     href: '/products?category=necklaces',
-    image: '/product_necklace.png',
+    image: '/prod_gold_necklace.png',
     span: 'col',
   },
   {
     label: 'BRACELETS',
     href: '/products?category=bracelets',
-    image: '/product_bracelet.png',
+    image: '/prod_gold_bangles.png',
     span: 'col',
   },
 ]
@@ -73,29 +73,56 @@ const products = [
     id: 6,
     name: '18K YELLOW GOLD COLLECTION',
     material: '18k hallmarked yellow gold jewellery',
-    image: 'https://images.unsplash.com/photo-1611652022419-a9419f74343d?w=1200&q=90',
+    image: '/item_necklace.jpg',
     category: 'yellow-gold-18k',
   },
   {
     id: 7,
     name: '22K YELLOW GOLD COLLECTION',
     material: '22k pure yellow gold traditional jewellery',
-    image: 'https://images.unsplash.com/photo-1583292650898-7d22cd27ca6f?w=1200&q=90',
+    image: '/item_bangles.jpg',
     category: 'yellow-gold-22k',
   },
   {
     id: 8,
     name: 'SILVER COLLECTION',
     material: 'Pure 925 sterling silver jewellery',
-    image: 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=1200&q=90',
+    image: '/item_bracelet.jpg',
     category: 'silver',
   },
   {
     id: 9,
     name: 'DIAMOND COLLECTION',
     material: 'Certified natural diamond jewellery',
-    image: 'https://images.unsplash.com/photo-1603561591411-07134e71a2a9?w=1200&q=90',
+    image: '/item_ladies_ring.jpg',
     category: 'diamond',
+  },
+]
+
+const collections = [
+  {
+    title: 'Gold Collection',
+    subtitle: '22K & 18K BIS Hallmarked',
+    desc: 'Traditional & modern designs in pure hallmarked gold — necklaces, bangles, chains & more.',
+    image: '/item_necklace.jpg',
+    href: '/products?category=yellow-gold-22k',
+    tag: '✦ MOST POPULAR',
+  },
+  {
+    title: 'Silver Collection',
+    subtitle: 'Pure 925 Sterling Silver',
+    desc: 'Elegant sterling silver jewellery — payal, kada, bracelets & gift articles.',
+    image: '/item_bracelet.jpg',
+    href: '/products?category=silver',
+    tag: '✦ EVERYDAY ELEGANCE',
+  },
+  {
+    title: 'Diamond Collection',
+    subtitle: 'GIA Certified Diamonds',
+    desc: 'Certified natural diamond rings, pendants & earrings for life’s precious moments.',
+    image: '/item_ladies_ring.jpg',
+    href: '/products?category=diamond',
+    tag: '✦ PREMIUM RANGE',
   },
 ]
 
@@ -195,6 +222,99 @@ export function FeaturedProducts() {
                       display: 'flex', alignItems: 'center', justifyContent: 'center',
                       background: 'rgba(212,175,55,0.9)', color: '#1c1309', fontSize: '0.85rem', fontWeight: 700,
                     }}>→</span>
+                  </div>
+                </div>
+              </Link>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+
+      {/* ═══════════ GOLD · SILVER · DIAMOND COLLECTIONS ═══════════ */}
+      <div style={{ padding: 'clamp(3.5rem, 6vw, 5rem) clamp(1.5rem, 5vw, 4rem) 0', position: 'relative', zIndex: 1 }}>
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          style={{ textAlign: 'center', marginBottom: 'clamp(2rem, 4vw, 3rem)' }}
+        >
+          <span style={{
+            display: 'inline-block', fontSize: '0.62rem', fontWeight: 700,
+            letterSpacing: '0.3em', color: '#b8941f', marginBottom: '0.8rem',
+          }}>
+            ✦ &nbsp;SIGNATURE COLLECTIONS
+          </span>
+          <h2 style={{
+            fontFamily: '"Playfair Display", serif', fontWeight: 800,
+            fontSize: 'clamp(1.9rem, 4vw, 3rem)', lineHeight: 1.1, color: '#1c1309', margin: 0,
+          }}>
+            Gold · Silver ·{' '}
+            <span style={{
+              fontStyle: 'italic', fontWeight: 400,
+              background: 'linear-gradient(90deg, #d4af37, #b8941f 50%, #e9c85f)',
+              WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', backgroundClip: 'text',
+            }}>
+              Diamond
+            </span>
+          </h2>
+        </motion.div>
+
+        <div className="collections-grid">
+          {collections.map((c, i) => (
+            <motion.div
+              key={c.title}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.12, duration: 0.65 }}
+            >
+              <Link href={c.href} style={{ textDecoration: 'none' }}>
+                <div className="collection-card">
+                  <div className="collection-card-imgwrap">
+                    <Image
+                      src={c.image}
+                      alt={c.title}
+                      fill
+                      className="collection-card-img"
+                      style={{ objectFit: 'cover', objectPosition: 'center' }}
+                      sizes="(max-width: 900px) 90vw, 33vw"
+                    />
+                    <div aria-hidden style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,12,4,0.1) 0%, transparent 35%, rgba(20,12,4,0.88) 100%)' }} />
+                    {/* tag badge */}
+                    <div style={{
+                      position: 'absolute', top: '14px', left: '14px',
+                      background: 'rgba(28,19,9,0.8)', backdropFilter: 'blur(6px)',
+                      padding: '5px 13px', borderRadius: '100px', border: '1px solid rgba(212,175,55,0.4)',
+                    }}>
+                      <span style={{ fontSize: '0.55rem', fontWeight: 700, letterSpacing: '0.2em', color: '#e9c85f' }}>{c.tag}</span>
+                    </div>
+                  </div>
+                  {/* overlaid text */}
+                  <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '22px 22px 20px' }}>
+                    <div style={{ fontSize: '0.58rem', fontWeight: 700, letterSpacing: '0.25em', color: '#e9c85f', marginBottom: '6px', textTransform: 'uppercase' }}>
+                      {c.subtitle}
+                    </div>
+                    <h3 style={{
+                      fontFamily: '"Playfair Display", serif', fontWeight: 800,
+                      fontSize: 'clamp(1.3rem, 2.4vw, 1.7rem)', color: '#fff', margin: '0 0 8px 0',
+                      textShadow: '0 2px 10px rgba(0,0,0,0.5)',
+                    }}>
+                      {c.title}
+                    </h3>
+                    <p style={{ fontSize: '0.74rem', color: 'rgba(255,255,255,0.75)', lineHeight: 1.55, margin: '0 0 14px 0', maxWidth: '300px' }}>
+                      {c.desc}
+                    </p>
+                    <span className="collection-card-cta" style={{
+                      display: 'inline-flex', alignItems: 'center', gap: '8px',
+                      fontSize: '0.64rem', fontWeight: 800, letterSpacing: '0.2em',
+                      color: '#1c1309', padding: '9px 20px', borderRadius: '100px',
+                      background: 'linear-gradient(135deg, #f0cf6b, #d4af37 55%, #b8941f)',
+                      boxShadow: '0 6px 18px rgba(212,175,55,0.4)',
+                      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+                    }}>
+                      EXPLORE &nbsp;→
+                    </span>
                   </div>
                 </div>
               </Link>
@@ -389,6 +509,40 @@ export function FeaturedProducts() {
         .category-card:hover .category-card-ring { border-color: rgba(240,207,107,0.7); }
         .category-card:hover .category-card-arrow { transform: translateX(3px); }
         .category-card-arrow { transition: transform 0.3s ease; }
+
+        .collections-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: clamp(1rem, 2.5vw, 1.75rem);
+        }
+        @media (min-width: 900px) {
+          .collections-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        .collection-card {
+          position: relative;
+          border-radius: 22px;
+          overflow: hidden;
+          box-shadow: 0 12px 34px rgba(45,32,16,0.12);
+          transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        .collection-card:hover {
+          transform: translateY(-6px);
+          box-shadow: 0 24px 50px rgba(45,32,16,0.22);
+        }
+        .collection-card-imgwrap {
+          position: relative;
+          width: 100%;
+          aspect-ratio: 4 / 5;
+          overflow: hidden;
+        }
+        .collection-card-img {
+          transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
+        }
+        .collection-card:hover .collection-card-img { transform: scale(1.07); }
+        .collection-card:hover .collection-card-cta {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 26px rgba(212,175,55,0.55);
+        }
 
         .product-card-img { will-change: transform; }
         .product-card:hover .product-card-img { transform: scale(1.05); }
