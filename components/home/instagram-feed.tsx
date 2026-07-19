@@ -167,7 +167,7 @@ export function InstagramFeed() {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <a
-                  href="https://instagram.com/hariomlaxminarayanjewellers"
+                  href="https://www.instagram.com/hlj.official"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block"
@@ -180,7 +180,7 @@ export function InstagramFeed() {
                     }}
                   >
                     <Instagram className="h-4 w-4" />
-                    Follow @hariomlaxminarayanjewellers
+                    Follow @hlj.official
                   </button>
                 </a>
                 

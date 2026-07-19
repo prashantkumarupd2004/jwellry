@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Check, Sparkles, MessageCircle } from 'lucide-react'
 import { TiltCard } from '@/components/home/tilt-card'
 
-const PHONE = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '919199985111'
+const PHONE = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917857877002'
 
 type Theme = {
   id: string

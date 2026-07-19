@@ -49,14 +49,14 @@ const contactDetails = [
   {
     Icon: Phone,
     title: 'Phone & WhatsApp',
-    lines: ['+91 91999 85111'],
-    action: 'tel:+919199985111',
+    lines: ['+91 78578 77002'],
+    action: 'tel:+917857877002',
   },
   {
     Icon: Mail,
     title: 'Email Us',
-    lines: ['info@hariomlaxminarayanjewellers.com'],
-    action: 'mailto:info@hariomlaxminarayanjewellers.com',
+    lines: ['hlnjbgp54@gmail.com'],
+    action: 'mailto:hlnjbgp54@gmail.com',
   },
   {
     Icon: Clock,
@@ -165,9 +165,9 @@ export default function ContactPage() {
         <section style={{ background: '#140d05', borderBottom: '1px solid rgba(212,175,55,0.2)' }}>
           <div className="max-w-6xl mx-auto px-5 sm:px-8 lg:px-16 py-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
             {[
-              { icon: '📞', label: 'Call Us', value: '+91 91999 85111', href: 'tel:+919199985111' },
-              { icon: '💬', label: 'WhatsApp', value: '+91 91999 85111', href: 'https://wa.me/919199985111' },
-              { icon: '📧', label: 'Email', value: 'info@hariomlaxminarayanjewellers.com', href: 'mailto:info@hariomlaxminarayanjewellers.com' },
+              { icon: '📞', label: 'Call Us', value: '+91 78578 77002', href: 'tel:+917857877002' },
+              { icon: '💬', label: 'WhatsApp', value: '+91 78578 77002', href: 'https://wa.me/917857877002' },
+              { icon: '📧', label: 'Email', value: 'hlnjbgp54@gmail.com', href: 'mailto:hlnjbgp54@gmail.com' },
             ].map(({ icon, label, value, href }) => (
               <a
                 key={label}
@@ -422,15 +422,46 @@ export default function ContactPage() {
                   </div>
                 </TiltCard>
 
+                {/* Google Review QR card */}
+                <div
+                  className="p-6 rounded-2xl flex flex-col sm:flex-row items-center gap-5"
+                  style={{
+                    background: 'linear-gradient(160deg, rgba(58,42,20,0.95) 0%, rgba(28,19,9,0.98) 100%)',
+                    border: '1px solid rgba(212,175,55,0.35)',
+                    boxShadow: '0 12px 32px rgba(45,32,16,0.18)',
+                  }}
+                >
+                  <div
+                    className="flex-shrink-0 p-2.5 rounded-xl"
+                    style={{ background: '#ffffff', boxShadow: '0 6px 18px rgba(212,175,55,0.35)' }}
+                  >
+                    <img
+                      src="/review_qr.png"
+                      alt="Scan to review Hariom LaxmiNarayan Jewellers on Google"
+                      className="w-32 h-32 object-contain"
+                    />
+                  </div>
+                  <div className="text-center sm:text-left">
+                    <span className="text-xs font-semibold tracking-[0.25em] uppercase block mb-2" style={{ color: '#e9c85f' }}>
+                      ⭐ Loved Our Service?
+                    </span>
+                    <h4 className="font-playfair font-bold text-lg mb-2" style={{ color: '#fdf8f0' }}>
+                      Rate Us on Google
+                    </h4>
+                    <p className="text-xs leading-relaxed" style={{ color: 'rgba(245,232,206,0.7)' }}>
+                      Scan the QR code with your phone camera and share your experience. Your review helps us serve you better!
+                    </p>
+                  </div>
+                </div>
+
                 {/* Social links */}
                 <div className="p-5 rounded-2xl" style={{ background: 'rgba(255,253,248,0.95)', border: '1px solid rgba(212,175,55,0.2)', boxShadow: '0 4px 16px rgba(45,32,16,0.05)' }}>
                   <h4 className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: GOLD_DARK }}>Follow Us</h4>
                   <div className="flex gap-3">
                     {[
-                      { label: 'Instagram', icon: '📸', href: '#' },
-                      { label: 'Facebook', icon: '👍', href: '#' },
-                      { label: 'YouTube', icon: '▶️', href: '#' },
-                      { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/919199985111' },
+                      { label: 'Instagram', icon: '📸', href: 'https://www.instagram.com/hlj.official' },
+                      { label: 'Facebook', icon: '👍', href: 'https://www.facebook.com/HLJ.official' },
+                      { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/917857877002' },
                     ].map(({ label, icon, href }) => (
                       <a
                         key={label}
@@ -471,12 +502,12 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { no: 1, name: 'Sonapatti (Branch 1)', location: 'Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002', tag: 'Est. 1987 — Flagship', icon: '🌟', phones: ['9199985111'], gmaps: 'https://maps.app.goo.gl/fK76WchvUkweZRL77' },
-                { no: 2, name: 'Kharmanchak', location: 'Ground Floor, Jaiuriya Tower, Kharmanchak, D.N. Singh Road, Bhagalpur, Bihar - 812002', tag: '2nd Shop', icon: '🏪', phones: ['8002307878'], gmaps: 'https://maps.google.com/?q=Jaiuriya+Tower+Kharmanchak+D.N.+Singh+Road+Bhagalpur+Bihar+812002' },
-                { no: 3, name: 'Tilkamanjhi Police Line', location: 'Tilkamanjhi Police Line, Lalbagh, Nawabbag Colony, Bhagalpur, Bihar - 812001', tag: '3rd Shop', icon: '👑', phones: ['9334466668'], gmaps: 'https://maps.app.goo.gl/cBfzA8c3czquSaMQA' },
-                { no: 4, name: 'Deoghar', location: 'Court Road, Near VIP Chowk, B. Deoghar, Jharkhand - 814112', tag: '4th Shop', icon: '💎', phones: ['9263899120'], gmaps: 'https://maps.app.goo.gl/SfwBA3DrNZrFTMm78' },
-                { no: 5, name: 'Purnia', location: 'Rajni Chowk, Navratan Hatta, Bhatta Bazar, Purnia, Bihar - 854301', tag: '5th Shop', icon: '🚀', phones: ['9263899119'], gmaps: 'https://maps.app.goo.gl/yiKBYj8FRyL9fF9v5' },
-                { no: 6, name: 'Sonapatti (Branch 2)', location: 'Sonapatti, Bhagalpur, Bihar - 812002', tag: '6th Shop', icon: '🎉', phones: ['7857877002', '7004891545'], gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
+                { no: 1, name: 'Sonapatti (Branch 1)', location: 'Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002', tag: 'Est. 1987 — Flagship', icon: '🌟', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/fK76WchvUkweZRL77' },
+                { no: 2, name: 'Kharmanchak', location: 'Ground Floor, Jaiuriya Tower, Kharmanchak, D.N. Singh Road, Bhagalpur, Bihar - 812002', tag: '2nd Shop', icon: '🏪', phones: ['7857877002'], gmaps: 'https://maps.google.com/?q=Jaiuriya+Tower+Kharmanchak+D.N.+Singh+Road+Bhagalpur+Bihar+812002' },
+                { no: 3, name: 'Tilkamanjhi Police Line', location: 'Tilkamanjhi Police Line, Lalbagh, Nawabbag Colony, Bhagalpur, Bihar - 812001', tag: '3rd Shop', icon: '👑', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/cBfzA8c3czquSaMQA' },
+                { no: 4, name: 'Deoghar', location: 'Court Road, Near VIP Chowk, B. Deoghar, Jharkhand - 814112', tag: '4th Shop', icon: '💎', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/SfwBA3DrNZrFTMm78' },
+                { no: 5, name: 'Purnia', location: 'Rajni Chowk, Navratan Hatta, Bhatta Bazar, Purnia, Bihar - 854301', tag: '5th Shop', icon: '🚀', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/yiKBYj8FRyL9fF9v5' },
+                { no: 6, name: 'Sonapatti (Branch 2)', location: 'Sonapatti, Bhagalpur, Bihar - 812002', tag: '6th Shop', icon: '🎉', phones: ['7857877002'], gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
               ].map((b, i) => (
                 <motion.div
                   key={i}

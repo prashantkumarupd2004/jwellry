@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Phone, Mail, MapPin, Facebook, Instagram, Twitter, Youtube } from 'lucide-react'
+import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react'
 
 export function Footer() {
   return (
@@ -28,10 +28,9 @@ export function Footer() {
           <div className="space-y-5">
             <div>
               <img
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="Hariom LaxmiNarayan Jewellers"
                 className="h-14 w-auto object-contain mb-3"
-                style={{ filter: 'brightness(0) invert(1)' }}
               />
               <h3
                 className="font-playfair font-bold text-xl tracking-wider mb-1"
@@ -50,10 +49,15 @@ export function Footer() {
               Crafting exquisite jewellery since 1987. Specializing in 22K gold, certified diamonds, bridal sets, and bespoke custom designs across 6 branches in Bihar & Jharkhand.
             </p>
             <div className="flex gap-3">
-              {[Facebook, Instagram, Twitter, Youtube].map((Icon, i) => (
+              {[
+                { Icon: Facebook, href: 'https://www.facebook.com/HLJ.official' },
+                { Icon: Instagram, href: 'https://www.instagram.com/hlj.official' },
+              ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
-                  href="#"
+                  href={href}
+                  target="_blank"
+                  rel="noreferrer"
                   className="w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-300 hover:-translate-y-1"
                   style={{
                     background: 'rgba(249,242,229,0.06)',
@@ -167,25 +171,25 @@ export function Footer() {
               <div className="flex items-center gap-3">
                 <Phone className="h-4 w-4 flex-shrink-0" style={{ color: '#b8941f' }} />
                 <a
-                  href="tel:+919199985111"
+                  href="tel:+917857877002"
                   className="text-sm transition-colors duration-200"
                   style={{ color: 'rgba(249,242,229,0.6)' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#f9da79'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(249,242,229,0.6)'}
                 >
-                  +91 91999 85111
+                  +91 78578 77002
                 </a>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="h-4 w-4 flex-shrink-0" style={{ color: '#b8941f' }} />
                 <a
-                  href="mailto:info@hariomlaxminarayanjewellers.com"
+                  href="mailto:hlnjbgp54@gmail.com"
                   className="text-sm transition-colors duration-200 break-all"
                   style={{ color: 'rgba(249,242,229,0.6)' }}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#f9da79'}
                   onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(249,242,229,0.6)'}
                 >
-                  info@hariomlaxminarayanjewellers.com
+                  hlnjbgp54@gmail.com
                 </a>
               </div>
               <div
@@ -198,6 +202,26 @@ export function Footer() {
                 <p className="text-sm" style={{ color: 'rgba(249,242,229,0.7)' }}>
                   Mon – Sun: 10:00 AM – 9:00 PM
                 </p>
+              </div>
+              <div
+                className="mt-3 p-3 rounded-xl flex items-center gap-3"
+                style={{ background: 'rgba(249,242,229,0.05)', border: '1px solid rgba(212,175,55,0.25)' }}
+              >
+                <div className="p-1.5 rounded-lg flex-shrink-0" style={{ background: '#ffffff' }}>
+                  <img
+                    src="/review_qr.png"
+                    alt="Scan to review us on Google"
+                    className="w-16 h-16 object-contain"
+                  />
+                </div>
+                <div>
+                  <p className="text-[10px] tracking-wider uppercase mb-1" style={{ color: '#e9c85f' }}>
+                    ⭐ Review Us on Google
+                  </p>
+                  <p className="text-xs leading-relaxed" style={{ color: 'rgba(249,242,229,0.6)' }}>
+                    Scan the QR code &amp; share your experience
+                  </p>
+                </div>
               </div>
             </div>
           </div>

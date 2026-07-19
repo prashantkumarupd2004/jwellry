@@ -6,8 +6,8 @@ import { usePathname } from 'next/navigation'
 import { User, Menu, X, Phone, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const PHONE_DISPLAY = '+91 91999 85111'
-const PHONE_TEL = '+919199985111'
+const PHONE_DISPLAY = '+91 78578 77002'
+const PHONE_TEL = '+917857877002'
 
 export function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -137,7 +137,7 @@ export function Header() {
           <div className="flex justify-center text-center">
             <Link href="/" className="flex items-center justify-center group">
               <img
-                src="/logo.jpeg"
+                src="/logo.png"
                 alt="Hariom LaxmiNarayan Jewellers Logo"
                 className="h-11 sm:h-12 lg:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
                 style={{ maxWidth: '200px' }}

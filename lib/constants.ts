@@ -1,9 +1,9 @@
 // Centralized configuration constants
 
 // Contact Information
-export const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE || '919199985111'
-export const CONTACT_WHATSAPP = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '919199985111'
-export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@hariomlaxminarayanjewellers.com'
+export const CONTACT_PHONE = process.env.NEXT_PUBLIC_CONTACT_PHONE || '917857877002'
+export const CONTACT_WHATSAPP = process.env.NEXT_PUBLIC_CONTACT_WHATSAPP || '917857877002'
+export const CONTACT_EMAIL = process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'hlnjbgp54@gmail.com'
 
 // Build a WhatsApp enquiry link, optionally pre-filled with a product name
 export const getEnquiryWhatsAppUrl = (productName?: string): string => {

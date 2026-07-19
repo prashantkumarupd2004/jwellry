@@ -398,7 +398,7 @@ export default function TermsOfServicePage() {
                 <FileText className="h-5 w-5 text-gold-600 mt-1" />
                 <div>
                   <p className="font-semibold text-gray-900">Email</p>
-                  <a href="mailto:legal@hariomlaxminarayanjewellers.com" className="text-gold-600 hover:underline">legal@hariomlaxminarayanjewellers.com</a>
+                  <a href="mailto:hlnjbgp54@gmail.com" className="text-gold-600 hover:underline">hlnjbgp54@gmail.com</a>
                 </div>
               </div>
               

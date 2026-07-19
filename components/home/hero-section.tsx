@@ -308,7 +308,7 @@ export function HeroSection() {
             }}
           >
             <Image
-              src="/hero_ai.png"
+              src="/about_model.png"
               alt="Hariom LaxmiNarayan Jewellers - Luxury Indian Jewellery Collection"
               fill
               style={{ objectFit: 'cover', objectPosition: 'center top' }}

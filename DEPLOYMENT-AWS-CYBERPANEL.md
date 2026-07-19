@@ -172,7 +172,7 @@ nano .env
 `.env` mein ye value check/set karo, phir `Ctrl+X → Y → Enter` se save karo:
 
 ```
-NEXT_PUBLIC_CONTACT_WHATSAPP=919199985111
+NEXT_PUBLIC_CONTACT_WHATSAPP=917857877002
 ```
 
 Ab production build banao:
