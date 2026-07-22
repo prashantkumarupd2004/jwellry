@@ -71,8 +71,12 @@ export function Header() {
     <header
       className={`${isTransparent ? 'absolute' : 'sticky'} top-0 z-50 w-full transition-all duration-500`}
       style={{
-        background: isTransparent ? 'transparent' : 'rgba(249, 242, 229, 0.9)',
-        backdropFilter: isTransparent ? 'none' : 'blur(20px)',
+        // Fully opaque cream instead of a translucent + backdrop-blur bar.
+        // A backdrop-filter on a sticky header forces the browser to re-blur
+        // everything behind it on every scroll frame — the main cause of the
+        // scroll jank ("fas jata"). Opaque background looks near-identical and
+        // is composited for free.
+        background: isTransparent ? 'transparent' : 'rgb(249, 242, 229)',
         borderBottom: isTransparent
           ? '1px solid rgba(45, 32, 16, 0.06)'
           : '1px solid rgba(180, 150, 100, 0.18)',

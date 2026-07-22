@@ -636,6 +636,25 @@ img {
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* While actively scrolling, freeze purely-decorative infinite loops so the
+   compositor spends its frame budget on the scroll itself (added/removed by
+   the Lenis scroll handler in smooth-scroll.tsx). Interactive/transition
+   animations are untouched. */
+html.is-scrolling .anim-twinkle,
+html.is-scrolling .anim-particle,
+html.is-scrolling .anim-aurora,
+html.is-scrolling .anim-spin-slow,
+html.is-scrolling .anim-bob,
+html.is-scrolling .anim-bob-down,
+html.is-scrolling .anim-coin-spin,
+html.is-scrolling .floating,
+html.is-scrolling .float-3d,
+html.is-scrolling .animate-glow-pulse,
+html.is-scrolling .animate-sparkle-rotate,
+html.is-scrolling .text-shimmer {
+  animation-play-state: paused !important;
+}
+
 /* Respect reduced-motion users: calm all animations */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {

@@ -14,8 +14,9 @@ export function SmoothScroll() {
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
 
     const lenis = new Lenis({
-      duration: 1.15,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // easeOutExpo
+      // lerp-based smoothing feels more responsive than a fixed long duration —
+      // the scroll tracks the wheel instead of feeling heavy / "stuck".
+      lerp: 0.12,
       smoothWheel: true,
       wheelMultiplier: 1,
       touchMultiplier: 1.5,
@@ -30,6 +31,17 @@ export function SmoothScroll() {
 
     // Expose for components that need programmatic smooth scrolling (e.g. back-to-top)
     ;(window as any).lenis = lenis
+
+    // Pause decorative (infinite) animations while actively scrolling so the
+    // compositor spends its budget on the scroll itself, then resume on idle.
+    const root = document.documentElement
+    let idleTimer: ReturnType<typeof setTimeout>
+    const onScroll = () => {
+      root.classList.add('is-scrolling')
+      clearTimeout(idleTimer)
+      idleTimer = setTimeout(() => root.classList.remove('is-scrolling'), 160)
+    }
+    lenis.on('scroll', onScroll)
 
     // Smooth-scroll same-page anchor links through Lenis
     const onClick = (e: MouseEvent) => {
@@ -47,6 +59,8 @@ export function SmoothScroll() {
 
     return () => {
       document.removeEventListener('click', onClick)
+      clearTimeout(idleTimer)
+      root.classList.remove('is-scrolling')
       cancelAnimationFrame(rafId)
       if ((window as any).lenis === lenis) delete (window as any).lenis
       lenis.destroy()
