@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { User, Menu, X, Phone, MapPin } from 'lucide-react'
+import { Menu, X, Phone, MapPin } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const PHONE_DISPLAY = '+91 78578 77002'
@@ -145,26 +145,13 @@ export function Header() {
             </Link>
           </div>
 
-          {/* Right: desktop nav + account */}
+          {/* Right: desktop nav */}
           <div className="flex items-center justify-end gap-4 xl:gap-6">
             <nav className="hidden lg:flex items-center gap-5 xl:gap-8">
               {rightLinks.map((l) => (
                 <NavItem key={l.href} {...l} />
               ))}
             </nav>
-            <Link href="/account">
-              <button
-                className="w-10 h-10 flex-shrink-0 flex items-center justify-center rounded-full transition-all duration-300 hover:scale-110"
-                style={{
-                  color: goldColor,
-                  border: '1px solid rgba(184,148,31,0.35)',
-                  background: 'rgba(212,175,55,0.06)',
-                }}
-                aria-label="account"
-              >
-                <User className="h-[18px] w-[18px]" />
-              </button>
-            </Link>
           </div>
         </div>
       </div>

@@ -502,12 +502,12 @@ export default function ContactPage() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {[
-                { no: 1, name: 'Sonapatti (Branch 1)', location: 'Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002', tag: 'Est. 1987 — Flagship', icon: '🌟', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/fK76WchvUkweZRL77' },
-                { no: 2, name: 'Kharmanchak', location: 'Ground Floor, Jaiuriya Tower, Kharmanchak, D.N. Singh Road, Bhagalpur, Bihar - 812002', tag: '2nd Shop', icon: '🏪', phones: ['7857877002'], gmaps: 'https://maps.google.com/?q=Jaiuriya+Tower+Kharmanchak+D.N.+Singh+Road+Bhagalpur+Bihar+812002' },
-                { no: 3, name: 'Tilkamanjhi Police Line', location: 'Tilkamanjhi Police Line, Lalbagh, Nawabbag Colony, Bhagalpur, Bihar - 812001', tag: '3rd Shop', icon: '👑', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/cBfzA8c3czquSaMQA' },
-                { no: 4, name: 'Deoghar', location: 'Court Road, Near VIP Chowk, B. Deoghar, Jharkhand - 814112', tag: '4th Shop', icon: '💎', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/SfwBA3DrNZrFTMm78' },
-                { no: 5, name: 'Purnia', location: 'Rajni Chowk, Navratan Hatta, Bhatta Bazar, Purnia, Bihar - 854301', tag: '5th Shop', icon: '🚀', phones: ['7857877002'], gmaps: 'https://maps.app.goo.gl/yiKBYj8FRyL9fF9v5' },
-                { no: 6, name: 'Sonapatti (Branch 2)', location: 'Sonapatti, Bhagalpur, Bihar - 812002', tag: '6th Shop', icon: '🎉', phones: ['7857877002'], gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
+                { no: 1, name: 'Sonapatti (Branch 1)', location: 'Near SBI, Sonapatti, Bhagalpur City, Bihar - 812002', tag: 'Est. 1987 — Flagship', icon: '🌟', phones: ['9199985111'], gmaps: 'https://maps.app.goo.gl/fK76WchvUkweZRL77' },
+                { no: 2, name: 'Kharmanchak', location: 'Ground Floor, Jaiuriya Tower, Kharmanchak, D.N. Singh Road, Bhagalpur, Bihar - 812002', tag: '2nd Shop', icon: '🏪', phones: ['8002307878'], gmaps: 'https://maps.google.com/?q=Jaiuriya+Tower+Kharmanchak+D.N.+Singh+Road+Bhagalpur+Bihar+812002' },
+                { no: 3, name: 'Tilkamanjhi Police Line', location: 'Tilkamanjhi Police Line, Lalbagh, Nawabbag Colony, Bhagalpur, Bihar - 812001', tag: '3rd Shop', icon: '👑', phones: ['9334466668'], gmaps: 'https://maps.app.goo.gl/cBfzA8c3czquSaMQA' },
+                { no: 4, name: 'Deoghar', location: 'Court Road, Near VIP Chowk, B. Deoghar, Jharkhand - 814112', tag: '4th Shop', icon: '💎', phones: ['9263899120'], gmaps: 'https://maps.app.goo.gl/SfwBA3DrNZrFTMm78' },
+                { no: 5, name: 'Purnia', location: 'Rajni Chowk, Navratan Hatta, Bhatta Bazar, Purnia, Bihar - 854301', tag: '5th Shop', icon: '🚀', phones: ['9263899119'], gmaps: 'https://maps.app.goo.gl/yiKBYj8FRyL9fF9v5' },
+                { no: 6, name: 'Sonapatti (Branch 2)', location: 'Sonapatti, Bhagalpur, Bihar - 812002', tag: '6th Shop', icon: '🎉', phones: ['7857877002', '7004891545'], gmaps: 'https://maps.google.com/?q=Sonapatti+Bhagalpur+Bihar' },
               ].map((b, i) => (
                 <motion.div
                   key={i}

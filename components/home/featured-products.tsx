@@ -11,25 +11,31 @@ const categories = [
     label: 'RINGS',
     href: '/products?category=rings',
     image: '/product_ring.png',
-    span: 'col',
   },
   {
     label: 'EARRINGS',
     href: '/products?category=earrings',
     image: '/prod_jhumka_earrings.png',
-    span: 'col',
   },
   {
     label: 'NECKLACES',
     href: '/products?category=necklaces',
     image: '/prod_gold_necklace.png',
-    span: 'col',
   },
   {
-    label: 'BRACELETS',
+    label: 'BANGLES',
     href: '/products?category=bracelets',
     image: '/prod_gold_bangles.png',
-    span: 'col',
+  },
+  {
+    label: 'DIAMOND',
+    href: '/products?category=diamond',
+    image: '/prod_diamond_ring.png',
+  },
+  {
+    label: 'SILVER',
+    href: '/products?category=silver',
+    image: '/item_bracelet.jpg',
   },
 ]
 
@@ -178,52 +184,47 @@ export function FeaturedProducts() {
         </div>
       </motion.div>
 
-      {/* ═══════════ CATEGORY CARDS (label overlaid on image) ═══════════ */}
+      {/* ═══════════ CATEGORY CIRCLES ═══════════ */}
       <div
-        style={{ padding: '0 clamp(1.5rem, 5vw, 4rem)', position: 'relative', zIndex: 1 }}
+        style={{ padding: '0 clamp(1rem, 4vw, 4rem)', position: 'relative', zIndex: 1 }}
       >
-        <div className="category-cards-grid">
+        <div className="category-circles-row">
           {categories.map(({ label, href, image }, i) => (
             <motion.div
               key={label}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.1, duration: 0.6 }}
+              transition={{ delay: i * 0.08, duration: 0.55 }}
+              className="category-circle-item"
             >
-              <Link href={href} style={{ textDecoration: 'none' }}>
-                <div className="category-card">
-                  <div className="category-card-imgwrap">
+              <Link href={href} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '14px' }}>
+                <div className="category-circle">
+                  {/* rotating dashed gold ring */}
+                  <div aria-hidden className="category-circle-dashring" />
+                  <div className="category-circle-imgwrap">
                     <Image
                       src={image}
                       alt={`${label} collection`}
                       fill
-                      className="category-card-img"
+                      className="category-circle-img"
                       style={{ objectFit: 'cover', objectPosition: 'center' }}
-                      sizes="(max-width: 768px) 50vw, 25vw"
+                      sizes="(max-width: 768px) 40vw, 15vw"
                     />
-                    {/* dark gradient for label legibility */}
-                    <div aria-hidden style={{ position: 'absolute', inset: 0, background: 'linear-gradient(180deg, rgba(20,12,4,0.05) 0%, transparent 40%, rgba(20,12,4,0.75) 100%)' }} />
-                    {/* gold ring on hover */}
-                    <div aria-hidden className="category-card-ring" />
-                  </div>
-
-                  {/* overlaid label */}
-                  <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, padding: '18px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                    <span style={{
-                      fontFamily: '"Cormorant Garamond", serif', fontWeight: 700,
-                      fontSize: 'clamp(0.8rem, 1.8vw, 1rem)', letterSpacing: '0.22em', color: '#fff',
-                      textShadow: '0 2px 8px rgba(0,0,0,0.5)',
-                    }}>
-                      {label}
-                    </span>
-                    <span className="category-card-arrow" style={{
-                      width: '28px', height: '28px', borderRadius: '50%',
-                      display: 'flex', alignItems: 'center', justifyContent: 'center',
-                      background: 'rgba(212,175,55,0.9)', color: '#1c1309', fontSize: '0.85rem', fontWeight: 700,
-                    }}>→</span>
+                    {/* subtle inner shade */}
+                    <div aria-hidden style={{ position: 'absolute', inset: 0, borderRadius: '50%', boxShadow: 'inset 0 0 24px rgba(20,12,4,0.18)' }} />
+                    {/* shine sweep */}
+                    <div aria-hidden className="category-circle-shine" />
                   </div>
                 </div>
+                <span className="category-circle-label" style={{
+                  fontFamily: '"Cormorant Garamond", serif', fontWeight: 700,
+                  fontSize: 'clamp(0.78rem, 1.6vw, 0.95rem)', letterSpacing: '0.22em',
+                  color: '#2d2010', textAlign: 'center', whiteSpace: 'nowrap',
+                }}>
+                  {label}
+                </span>
+                <span aria-hidden className="category-circle-underline" />
               </Link>
             </motion.div>
           ))}
@@ -469,46 +470,81 @@ export function FeaturedProducts() {
 
       {/* CSS Styles */}
       <style>{`
-        .category-cards-grid {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: clamp(0.75rem, 2vw, 1.5rem);
+        .category-circles-row {
+          display: flex;
+          gap: clamp(1rem, 2.5vw, 2.25rem);
+          justify-content: flex-start;
+          overflow-x: auto;
+          padding: 10px 6px 18px;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
         }
+        .category-circles-row::-webkit-scrollbar { display: none; }
         @media (min-width: 900px) {
-          .category-cards-grid { grid-template-columns: repeat(4, 1fr); }
+          .category-circles-row { justify-content: center; overflow-x: visible; }
         }
-        .category-card {
+        .category-circle-item { flex: 0 0 auto; }
+        .category-circle {
           position: relative;
-          border-radius: 20px;
+          width: clamp(110px, 14vw, 170px);
+          aspect-ratio: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .category-circle-dashring {
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          border: 1.5px dashed rgba(212,175,55,0.55);
+          transition: border-color 0.4s ease;
+        }
+        .category-circle-item:hover .category-circle-dashring {
+          border-color: #d4af37;
+          animation: ringSpin 12s linear infinite;
+        }
+        @keyframes ringSpin {
+          to { transform: rotate(360deg); }
+        }
+        .category-circle-imgwrap {
+          position: absolute;
+          inset: 8px;
+          border-radius: 50%;
           overflow: hidden;
-          box-shadow: 0 10px 30px rgba(45,32,16,0.10);
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
+          box-shadow: 0 10px 26px rgba(45,32,16,0.16);
+          border: 2px solid rgba(212,175,55,0.35);
+          transition: border-color 0.4s ease, box-shadow 0.4s ease, transform 0.4s ease;
         }
-        .category-card:hover {
-          transform: translateY(-6px);
-          box-shadow: 0 20px 44px rgba(45,32,16,0.20);
+        .category-circle-item:hover .category-circle-imgwrap {
+          border-color: #d4af37;
+          box-shadow: 0 16px 36px rgba(212,175,55,0.35);
+          transform: translateY(-4px);
         }
-        .category-card-imgwrap {
-          position: relative;
-          width: 100%;
-          aspect-ratio: 3 / 4;
-          overflow: hidden;
-        }
-        .category-card-img {
+        .category-circle-img {
           transition: transform 0.7s cubic-bezier(0.25,0.46,0.45,0.94);
         }
-        .category-card:hover .category-card-img { transform: scale(1.08); }
-        .category-card-ring {
-          position: absolute;
-          inset: 10px;
-          border-radius: 14px;
-          border: 1px solid rgba(240,207,107,0);
-          transition: border-color 0.4s ease;
-          pointer-events: none;
+        .category-circle-item:hover .category-circle-img { transform: scale(1.12); }
+        .category-circle-shine {
+          position: absolute; top: 0; left: -75%; width: 50%; height: 100%;
+          background: linear-gradient(100deg, transparent, rgba(255,246,213,0.5), transparent);
+          transform: skewX(-20deg); pointer-events: none; opacity: 0;
         }
-        .category-card:hover .category-card-ring { border-color: rgba(240,207,107,0.7); }
-        .category-card:hover .category-card-arrow { transform: translateX(3px); }
-        .category-card-arrow { transition: transform 0.3s ease; }
+        .category-circle-item:hover .category-circle-shine {
+          opacity: 1;
+          animation: shineSweep 0.9s ease;
+        }
+        .category-circle-underline {
+          display: block;
+          height: 2px;
+          width: 0;
+          margin-top: 2px;
+          border-radius: 2px;
+          background: linear-gradient(90deg, #f0cf6b, #d4af37, #b8941f);
+          transition: width 0.35s ease;
+        }
+        .category-circle-item:hover .category-circle-underline { width: 42px; }
+        .category-circle-item:hover .category-circle-label { color: #b8941f; }
+        .category-circle-label { transition: color 0.3s ease; }
 
         .collections-grid {
           display: grid;

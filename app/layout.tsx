@@ -5,6 +5,7 @@ import { Providers } from './providers'
 import { Toaster } from 'react-hot-toast'
 import { WhatsAppButton } from '@/components/ui/whatsapp-button'
 import { SmoothScroll } from '@/components/modern/smooth-scroll'
+import { StructuredData } from '@/components/seo/structured-data'
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -32,9 +33,12 @@ const cormorant = Cormorant_Garamond({
 })
 
 export const metadata: Metadata = {
-  title: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
-  description: 'Discover exquisite jewelry collections at Hariom LaxmiNarayan Jewellers. Premium diamonds, gold, and precious stones crafted with perfection. Shop online with confidence.',
-  keywords: 'jewelry, diamonds, gold, precious stones, engagement rings, wedding jewelry, luxury jewelry, Bhagalpur jewelry',
+  title: {
+    default: 'Hariom LaxmiNarayan Jewellers - 22k & 18k Gold, Diamond & Silver Jewellery in Bhagalpur',
+    template: '%s | Hariom LaxmiNarayan Jewellers',
+  },
+  description: 'Hariom LaxmiNarayan Jewellers, Bhagalpur — shop 22k & 18k hallmarked gold, certified natural diamonds and pure 925 silver. Necklace sets, rings, earrings, bangles, mangalsutra, chains & more. Enquire on WhatsApp.',
+  keywords: 'jewellery Bhagalpur, gold jewellery Bhagalpur, 22k gold, 18k gold, diamond jewellery, silver jewellery, necklace set, mangalsutra, gold bangles, gold chain, engagement rings, bridal jewellery, Hariom LaxmiNarayan Jewellers',
   authors: [{ name: 'Hariom LaxmiNarayan Jewellers' }],
   creator: 'Hariom LaxmiNarayan Jewellers',
   publisher: 'Hariom LaxmiNarayan Jewellers',
@@ -60,7 +64,7 @@ export const metadata: Metadata = {
         alt: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
       },
     ],
-    locale: 'en_US',
+    locale: 'en_IN',
     type: 'website',
   },
   twitter: {
@@ -80,9 +84,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google: 'your-google-verification-code',
-  },
+  // Add your real Google Search Console code here to verify the site, e.g.
+  // verification: { google: 'abc123...' },
+  category: 'jewelry',
 }
 
 export default function RootLayout({
@@ -97,6 +101,7 @@ export default function RootLayout({
         <link rel="shortcut icon" type="image/jpeg" href="/logo.jpeg" />
         <link rel="apple-touch-icon" href="/logo.jpeg" />
         <link rel="manifest" href="/manifest.json" />
+        <StructuredData />
       </head>
       <body className="min-h-screen" style={{ background: '#f9f2e5' }}>
         <Providers>

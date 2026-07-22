@@ -42,3 +42,6 @@ Thumbs.db
 # Logs
 *.log
 logs/
+
+# Image optimization originals (local only)
+_originals_backup/

@@ -133,27 +133,28 @@ export function HeroSection() {
           style={{
             fontFamily: '"Playfair Display", "Cormorant Garamond", Georgia, serif',
             fontWeight: 900,
-            fontSize: 'clamp(3.2rem, 11vw, 9.5rem)',
-            lineHeight: 0.92,
+            fontSize: 'clamp(1.9rem, 6.5vw, 6rem)',
+            lineHeight: 1,
             letterSpacing: '0.04em',
-            color: GOLD_DARK,
+            color: '#8b6b47',
             margin: 0,
             userSelect: 'none',
+            whiteSpace: 'nowrap',
           }}
         >
-          HARIOM
+          HARIOM LAXMINARAYAN
         </h1>
         <div style={{
           fontFamily: '"Cormorant Garamond", serif',
           fontWeight: 400,
           fontSize: 'clamp(0.68rem, 2.6vw, 2rem)',
           letterSpacing: 'clamp(0.12em, 0.5vw, 0.22em)',
-          color: GOLD_DARK,
+          color: '#8b6b47',
           marginTop: '0.3rem',
           userSelect: 'none',
           whiteSpace: 'nowrap',
         }}>
-          LAXMINARAYAN JEWELLERS
+          JEWELLERS
         </div>
         {/* Ornamental underline */}
         <div style={{
