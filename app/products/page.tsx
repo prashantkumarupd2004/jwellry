@@ -480,13 +480,14 @@ function ProductsPageContent() {
             {filtered.map((product, i) => (
               <motion.div
                 key={product.id}
-                layout
+                className="product-card-wrap"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05, duration: 0.5 }}
+                transition={{ delay: Math.min(i, 8) * 0.05, duration: 0.5 }}
               >
                 <TiltCard
                   intensity={9}
+                  glare={false}
                   className="product-card"
                   style={{
                     background: '#fffdf8',

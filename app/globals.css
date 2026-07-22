@@ -636,6 +636,15 @@ img {
   transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Product grid: let the browser skip layout/paint/decode for cards that are
+   off-screen. `contain-intrinsic-size: auto <h>` reserves space so the
+   scrollbar stays stable and remembers each card's real height once seen.
+   This is the main fix for image-heavy product-grid scroll lag. */
+.product-card-wrap {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 360px;
+}
+
 /* While actively scrolling, freeze purely-decorative infinite loops so the
    compositor spends its frame budget on the scroll itself (added/removed by
    the Lenis scroll handler in smooth-scroll.tsx). Interactive/transition
