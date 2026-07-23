@@ -459,7 +459,7 @@ export default function ContactPage() {
                   <h4 className="text-xs font-semibold tracking-[0.2em] uppercase mb-4" style={{ color: GOLD_DARK }}>Follow Us</h4>
                   <div className="flex gap-3">
                     {[
-                      { label: 'Instagram', icon: '📸', href: 'https://www.instagram.com/hlj.official' },
+                      { label: 'Instagram', icon: '📸', href: 'https://www.instagram.com/hlj.official2' },
                       { label: 'Facebook', icon: '👍', href: 'https://www.facebook.com/HLJ.official' },
                       { label: 'WhatsApp', icon: '💬', href: 'https://wa.me/917857877002' },
                     ].map(({ label, icon, href }) => (

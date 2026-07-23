@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     default: 'Hariom LaxmiNarayan Jewellers - 22k & 18k Gold, Diamond & Silver Jewellery in Bhagalpur',
     template: '%s | Hariom LaxmiNarayan Jewellers',
   },
-  description: 'Hariom LaxmiNarayan Jewellers, Bhagalpur — shop 22k & 18k hallmarked gold, certified natural diamonds and pure 925 silver. Necklace sets, rings, earrings, bangles, mangalsutra, chains & more. Enquire on WhatsApp.',
-  keywords: 'jewellery Bhagalpur, gold jewellery Bhagalpur, 22k gold, 18k gold, diamond jewellery, silver jewellery, necklace set, mangalsutra, gold bangles, gold chain, engagement rings, bridal jewellery, Hariom LaxmiNarayan Jewellers',
+  description: 'Hariom LaxmiNarayan Jewellers — Bhagalpur ka sabse bharosemand gold jewellery shop. 22k & 18k hallmarked gold, certified diamond, pure 925 silver. Necklace, ring, earring, bangle, mangalsutra, chain. WhatsApp pe puchho.',
+  keywords: 'jewellery shop Bhagalpur, best jewellery shop in Bhagalpur, gold jewellery Bhagalpur, sone ka gahna Bhagalpur, gold shop near me Bhagalpur, shaadi ka gahna Bhagalpur, bridal jewellery Bhagalpur, diamond jewellery Bhagalpur, chandi ke gahne Bhagalpur, 22k gold Bhagalpur, 18k gold Bhagalpur, mangalsutra Bhagalpur, gold bangles Bhagalpur, hallmark gold Bhagalpur, Hariom LaxmiNarayan Jewellers Bhagalpur, HLJ jewellers Bhagalpur, jewellery store Bihar, best gold shop Bihar, engagement ring Bhagalpur, necklace set Bhagalpur, Hariom Bhagalpur, Hariom jewellers Bhagalpur, Hariom jewellery Bhagalpur, Hariom Lakshmi Narayan jewellery Bhagalpur, Hariom Laxmi Narayan jewellers Bhagalpur, hariom new branch Bhagalpur, Hariom jewellers new branch, HLJ new branch Bhagalpur, Hariom gold shop Bhagalpur, Hariom sone ki dukan Bhagalpur, Hariom LaxmiNarayan new showroom Bhagalpur',
   authors: [{ name: 'Hariom LaxmiNarayan Jewellers' }],
   creator: 'Hariom LaxmiNarayan Jewellers',
   publisher: 'Hariom LaxmiNarayan Jewellers',
@@ -52,8 +52,8 @@ export const metadata: Metadata = {
     canonical: '/',
   },
   openGraph: {
-    title: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
-    description: 'Discover exquisite jewelry collections at Hariom LaxmiNarayan Jewellers. Premium diamonds, gold, and precious stones crafted with perfection.',
+    title: 'Hariom LaxmiNarayan Jewellers - Best Jewellery Shop in Bhagalpur, Bihar',
+    description: 'Bhagalpur ka no.1 jewellery shop — Hariom LaxmiNarayan Jewellers. 22k & 18k gold, diamond, silver jewellery. Bridal, engagement, daily wear collection. Visit us or enquire on WhatsApp.',
     url: 'https://hariomlaxminarayanjewellers.com',
     siteName: 'Hariom LaxmiNarayan Jewellers',
     images: [
@@ -69,8 +69,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Hariom LaxmiNarayan Jewellers - Premium Jewelry Collection',
-    description: 'Discover exquisite jewelry collections at Hariom LaxmiNarayan Jewellers. Premium diamonds, gold, and precious stones crafted with perfection.',
+    title: 'Hariom LaxmiNarayan Jewellers - Best Jewellery Shop in Bhagalpur, Bihar',
+    description: 'Bhagalpur ka no.1 jewellery shop — Hariom LaxmiNarayan Jewellers. 22k & 18k gold, diamond, silver jewellery. Bridal, engagement, daily wear collection.',
     images: ['/og-image.jpg'],
   },
   robots: {

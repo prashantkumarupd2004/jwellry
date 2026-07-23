@@ -62,4 +62,4 @@ export const RATE_LIMIT_MAX_REQUESTS = 100
 
 // Site Configuration
 export const SITE_NAME = 'Hariom LaxmiNarayan Jewellers'
-export const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'
+export const SITE_URL = process.env.NEXT_PUBLIC_BASE_URL || 'https://hariomlaxminarayanjewellers.com'

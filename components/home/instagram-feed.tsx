@@ -167,7 +167,7 @@ export function InstagramFeed() {
               
               <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
                 <a
-                  href="https://www.instagram.com/hlj.official"
+                  href="https://www.instagram.com/hlj.official2"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block"

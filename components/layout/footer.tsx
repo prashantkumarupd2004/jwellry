@@ -51,7 +51,7 @@ export function Footer() {
             <div className="flex gap-3">
               {[
                 { Icon: Facebook, href: 'https://www.facebook.com/HLJ.official' },
-                { Icon: Instagram, href: 'https://www.instagram.com/hlj.official' },
+                { Icon: Instagram, href: 'https://www.instagram.com/hlj.official2' },
               ].map(({ Icon, href }, i) => (
                 <a
                   key={i}
